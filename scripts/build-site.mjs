@@ -29,11 +29,25 @@ const titles = {
 };
 
 const descriptions = {
-  home:'CanWise Law provides bilingual legal services in immigration, business and commercial law, and family law in Toronto.',
-  about:'Learn about CanWise Law, a bilingual Toronto law firm serving clients in English and Mandarin.',
-  'practice-areas':'Explore CanWise Law services in immigration, business and commercial law, and family law.',
-  contact:'Contact CanWise Law in Toronto for bilingual legal services in English and Mandarin.'
+  home:'Bilingual Canadian legal services in immigration, business and commercial, and family law. Contact CanWise Law in Toronto for clear, practical guidance.',
+  about:'Learn about CanWise Law and its bilingual legal team serving clients in Canadian immigration, commercial, and family law matters.',
+  'practice-areas':'Explore CanWise Law services in Canadian immigration, business and commercial, and family law, with guidance available in English and Chinese.',
+  'immigration-law':'Canadian immigration law services for applications, refusals, business immigration, family sponsorship, judicial review, appeals, and mandamus.',
+  'business-commercial-law':'Business and commercial law advice on incorporations, partnerships, governance, agreements, contracts, leases, and related transactions.',
+  'family-law':'Family law guidance on separation, divorce, parenting, support, and domestic agreements. Contact CanWise Law for an individual assessment.',
+  contact:'Contact CanWise Law in Toronto by phone or email to inquire about immigration, business and commercial, or family law services.',
+  blog:'Commentary from CanWise Law on Canadian immigration law, court decisions, policy changes, applications, refusals, and judicial review.',
+  'immigration-fees':'Review CanWise Law immigration service fees. Government charges, taxes, court fees, and third-party disbursements may be additional.',
+  'business-commercial-fees':'Review CanWise Law fees for business and commercial legal services in Ontario.',
+  'family-law-fees':'Review CanWise Law fees for family law consultations and selected legal services in Ontario.',
+  'notary-commission':'Ontario notary public, remote commissioning, apostille and authentication assistance from CanWise Law. Services are available by appointment.',
+  'legal-consultation':'Book a bilingual legal consultation with CanWise Law for an individual assessment of your immigration, business, commercial, or family law matter.',
+  'judicial-review-appeal':'Legal representation for Canadian immigration refusals, Federal Court judicial review, and eligible immigration appeals.',
+  'writ-of-mandamus':'Learn when a Federal Court writ of mandamus may address an unreasonable delay in a Canadian immigration application.'
 };
+
+const siteUrl = 'https://canwiselaw.com';
+const socialImage = `${siteUrl}/assets/images/office.png`;
 
 function nav(prefix='') {
   return `<header class="site-header"><a class="brand" href="${prefix || './'}"><img src="${prefix}assets/logo.svg" alt="CanWise Law"></a><button class="menu" aria-label="Open navigation" aria-expanded="false">☰</button><nav>
@@ -48,10 +62,12 @@ function footer(prefix='') {
   return `<footer><div class="footer-grid"><div><img src="${prefix}assets/logo.svg" alt="CanWise Law"><p>Clear, practical legal guidance in English and Mandarin.</p></div><div><h3>Navigation</h3><a href="${prefix || './'}">Home</a><a href="${prefix}about/">About</a><a href="${prefix}practice-areas/">Practice Areas</a><a href="${prefix}contact/">Contact</a></div><div><h3>CanWise Law Office</h3><p>2 Bloor Street E., Suite 3500<br>Toronto, Ontario M4W 1A8</p><p><a href="tel:+16476915569">647-691-5569</a><br><a href="mailto:admin@canwiselaw.com">admin@canwiselaw.com</a></p></div></div><div class="legal">Copyright © 2026 CanWise Law Office — All Rights Reserved.<br>Information on this website is general and does not constitute legal advice.</div></footer>`;
 }
 
-function shell(slug, body, {embedded=false, prefix=slug === 'home' ? '' : '../'}={}) {
-  const pageTitle = titles[slug] || 'CanWise Law';
-  const desc = descriptions[slug] || 'Bilingual legal services from CanWise Law in Toronto, Ontario.';
-  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${pageTitle}</title><meta name="description" content="${desc}"><link rel="icon" href="${prefix}assets/logo.svg"><link rel="stylesheet" href="${prefix}assets/site.css"></head><body>${nav(prefix)}<main${embedded?' class="embed-page"':''}>${body}</main>${footer(prefix)}<script src="${prefix}assets/site.js"></script></body></html>`;
+function shell(slug, body, {embedded=false, prefix=slug === 'home' ? '' : '../', pageTitle=titles[slug] || 'CanWise Law', desc=descriptions[slug] || 'Bilingual legal services from CanWise Law in Toronto, Ontario.', urlPath=slug === 'home' ? '' : `${slug}/`, article=false}={}) {
+  const canonical = `${siteUrl}/${urlPath}`;
+  const schema = article
+    ? { '@context':'https://schema.org', '@type':'Article', headline:pageTitle, url:canonical, publisher:{'@type':'LegalService',name:'CanWise Law',url:siteUrl} }
+    : { '@context':'https://schema.org', '@type':'LegalService', name:'CanWise Law', url:siteUrl, telephone:'+1-647-691-5569', email:'admin@canwiselaw.com', address:{'@type':'PostalAddress',streetAddress:'2 Bloor Street E., Suite 3500',addressLocality:'Toronto',addressRegion:'ON',postalCode:'M4W 1A8',addressCountry:'CA'}, areaServed:'Ontario', availableLanguage:['English','Mandarin Chinese'] };
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${pageTitle}</title><meta name="description" content="${desc}"><link rel="canonical" href="${canonical}"><meta property="og:type" content="${article?'article':'website'}"><meta property="og:site_name" content="CanWise Law"><meta property="og:title" content="${pageTitle}"><meta property="og:description" content="${desc}"><meta property="og:url" content="${canonical}"><meta property="og:image" content="${socialImage}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${pageTitle}"><meta name="twitter:description" content="${desc}"><meta name="twitter:image" content="${socialImage}"><script type="application/ld+json">${JSON.stringify(schema)}</script><link rel="icon" href="${prefix}assets/logo.svg"><link rel="stylesheet" href="${prefix}assets/site.css"></head><body>${nav(prefix)}<main${embedded?' class="embed-page"':''}>${body}</main>${footer(prefix)}<script src="${prefix}assets/site.js"></script></body></html>`;
 }
 
 const button = (text='Book a Consultation') => `<a class="btn" href="${calendly}" target="_blank" rel="noopener">${text}</a>`;
@@ -127,14 +143,42 @@ for (const article of articles) {
   const folder=path.join(repo,'blog',article.slug);
   fs.mkdirSync(folder,{recursive:true});
   const body=`<article class="article"><a class="back-link" href="../">← Back to Blog</a><div class="eyebrow">${article.category}</div><h1>${article.title}</h1><time>${article.date}</time><div class="article-body">${markdown(article.body)}</div></article>${cta('Discuss Your Immigration Matter','Book a consultation for advice tailored to your circumstances.')}`;
-  fs.writeFileSync(path.join(folder,'index.html'),shell(`blog-${article.slug}`,body,{prefix:'../../'}));
+  const articleDesc=article.body.replace(/\s+/g,' ').slice(0,155);
+  fs.writeFileSync(path.join(folder,'index.html'),shell(`blog-${article.slug}`,body,{prefix:'../../',pageTitle:`${article.title} | CanWise Law`,desc:articleDesc,urlPath:`blog/${article.slug}/`,article:true}));
 }
 for (const slug of routes.filter(x=>!['about','practice-areas','contact','blog'].includes(x))) fs.writeFileSync(path.join(repo,slug,'index.html'),shell(slug,embedded(slug),{embedded:true}));
-fs.writeFileSync(path.join(repo,'404.html'),shell('home','<section class="not-found"><h1>404</h1><h2>Page Not Found</h2><p>The page you requested could not be found.</p><a class="btn" href="./">Return Home</a></section>'));
+
+const legacyRedirects = {
+  'home':'/',
+  'canadian-immigration-law':'/immigration-law/',
+  'business-%26-commcercial':'/business-commercial-law/',
+  'business-&-commcercial':'/business-commercial-law/',
+  'judicial-review-%26-appeal':'/judicial-review-appeal/',
+  'judicial-review-&-appeal':'/judicial-review-appeal/',
+  'writ-of-mandamus-1':'/writ-of-mandamus/',
+  'business-immigration-1':'/immigration-law/',
+  'family-sponsorship':'/immigration-law/',
+  'temporary-residency':'/immigration-law/',
+  'blog/中文文章':'/blog/'
+};
+const legacyArticlePaths = [
+  '什么是司法复议（judicial-review）',
+  '加拿大不再欢迎留学生了？官宣将限制留学生数量，工签也将改革',
+  '“潜在间谍”？学习计划自爆将学习尖端科技后为国效力，有问题吗？',
+  'express-entryee的2023总结',
+  '加拿大安大略省高等法院裁决反对第二代公民身份限制'
+];
+articles.forEach((article,index)=>legacyRedirects[`blog/中文文章/f/${legacyArticlePaths[index]}`]=`/blog/${article.slug}/`);
+for (const [oldPath,target] of Object.entries(legacyRedirects)) {
+  const folder=path.join(repo,...oldPath.split('/'));
+  fs.mkdirSync(folder,{recursive:true});
+  fs.writeFileSync(path.join(folder,'index.html'),`<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Redirecting | CanWise Law</title><link rel="canonical" href="${siteUrl}${target}"><meta http-equiv="refresh" content="0;url=${target}"><script>location.replace(${JSON.stringify(target)})</script></head><body><p>This page has moved to <a href="${target}">${siteUrl}${target}</a>.</p></body></html>`);
+}
+fs.writeFileSync(path.join(repo,'404.html'),`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Page Not Found | CanWise Law</title><link rel="icon" href="assets/logo.svg"><link rel="stylesheet" href="assets/site.css"></head><body>${nav('')}<main><section class="not-found"><h1>404</h1><h2>Page Not Found</h2><p>The page you requested could not be found.</p><a class="btn" href="./">Return Home</a></section></main>${footer('')}<script src="assets/site.js"></script></body></html>`);
 fs.writeFileSync(path.join(repo,'assets','site.css'),css);
 fs.writeFileSync(path.join(repo,'assets','site.js'),js);
 fs.writeFileSync(path.join(repo,'.nojekyll'),'');
-fs.writeFileSync(path.join(repo,'robots.txt'),'User-agent: *\nAllow: /\n');
+fs.writeFileSync(path.join(repo,'robots.txt'),`User-agent: *\nAllow: /\nSitemap: ${siteUrl}/sitemap.xml\n`);
 fs.writeFileSync(path.join(repo,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${['',...routes,...articles.map(a=>`blog/${a.slug}`)].map(r=>`<url><loc>https://canwiselaw.com/${r}</loc></url>`).join('')}</urlset>`);
 
 console.log(`Built ${routes.length+1+articles.length} pages.`);

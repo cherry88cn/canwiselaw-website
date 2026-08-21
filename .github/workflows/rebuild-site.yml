@@ -24,6 +24,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -- .nojekyll 404.html index.html about practice-areas immigration-law business-commercial-law family-law contact blog immigration-fees business-commercial-fees family-law-fees notary-commission legal-consultation judicial-review-appeal writ-of-mandamus assets/site.css assets/site.js sitemap.xml robots.txt
+          git add -- .nojekyll CNAME 404.html index.html about practice-areas immigration-law business-commercial-law family-law contact blog immigration-fees business-commercial-fees family-law-fees notary-commission legal-consultation judicial-review-appeal writ-of-mandamus home canadian-immigration-law business-%26-commcercial 'business-&-commcercial' judicial-review-%26-appeal 'judicial-review-&-appeal' writ-of-mandamus-1 business-immigration-1 family-sponsorship temporary-residency assets/site.css assets/site.js sitemap.xml robots.txt
           git diff --cached --quiet || git commit -m "Rebuild website from editable content"
           git push
