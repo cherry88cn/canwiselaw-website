@@ -1,0 +1,29 @@
+name: Rebuild website from editable content
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "content/**"
+      - "scripts/build-site.mjs"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/build-site.mjs
+      - name: Commit generated website
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- .nojekyll 404.html index.html about practice-areas immigration-law business-commercial-law family-law contact blog immigration-fees business-commercial-fees family-law-fees notary-commission legal-consultation judicial-review-appeal writ-of-mandamus assets/site.css assets/site.js sitemap.xml robots.txt
+          git diff --cached --quiet || git commit -m "Rebuild website from editable content"
+          git push

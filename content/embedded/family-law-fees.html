@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+	<head>
+<style>
+	html {
+		overflow: hidden;
+	}
+
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+ 	}
+
+ 	iframe {
+ 		max-width: 100%;
+ 	}
+</style>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f7f4ed;color:#102238;font-family:Arial,Helvetica,sans-serif}.fees{max-width:1100px;margin:0 auto;padding:42px 28px 54px}.eyebrow{color:#9a7746;font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}.fees h1{font-family:Georgia,serif;font-size:44px;line-height:1.08;margin:10px 0 12px}.intro{font-size:17px;line-height:1.6;margin:0 0 28px;max-width:850px}.group{margin:26px 0 0}.group h2{font-family:Georgia,serif;font-size:25px;margin:0;padding:15px 18px;background:#102238;color:#fff}.table{border:1px solid #d9d1c3;border-top:0}.row{display:grid;grid-template-columns:1.2fr .62fr 1.4fr;border-top:1px solid #e2dbcf}.row:first-child{border-top:0}.cell{padding:14px 16px;line-height:1.45}.row .cell:nth-child(2){font-weight:700;color:#74552e}.head{background:#e9e1d3;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.note{margin-top:30px;padding:20px 22px;border-left:4px solid #9a7746;background:#fff;font-size:14px;line-height:1.65}
+@media(max-width:700px){.fees{padding:28px 16px 40px}.fees h1{font-size:34px}.row{display:block;padding:10px 0}.head{display:none}.cell{padding:5px 13px}.cell:nth-child(2):before{content:"Professional fee: ";font-weight:400;color:#102238}.cell:nth-child(3):before{content:"Scope: ";font-weight:700}.group h2{font-size:21px}}
+</style></head>
+	<body>
+<section class="fees">
+<div class="eyebrow">Clear Family Law Pricing</div><h1>Family Law Fees</h1>
+<p class="intro">Fixed fees may be available for defined, uncontested matters. Negotiated, contested, urgent, or court matters are generally billed hourly or quoted by phase.</p>
+
+<div class="group"><h2>Consultations &#x26; Advice</h2><div class="table">
+<div class="row head"><div class="cell">Service</div><div class="cell">Professional Fee (CAD)</div><div class="cell">Scope / Notes</div></div>
+<div class="row"><div class="cell">Legal consultation</div><div class="cell">$300 / hour</div><div class="cell">Advice, options and next-step planning</div></div>
+<div class="row"><div class="cell">Document review or written opinion</div><div class="cell">$300 / hour</div><div class="cell">Scope and estimate confirmed in writing</div></div>
+<div class="row"><div class="cell">Independent Legal Advice (ILA)</div><div class="cell">From $1,000</div><div class="cell">Review and advice on a domestic contract; drafting and negotiation excluded</div></div>
+</div></div>
+
+<div class="group"><h2>Uncontested &#x26; Agreement-Based Matters</h2><div class="table">
+<div class="row head"><div class="cell">Service</div><div class="cell">Professional Fee (CAD)</div><div class="cell">Scope / Notes</div></div>
+<div class="row"><div class="cell">Simple uncontested divorce</div><div class="cell">From $2,000</div><div class="cell">Divorce-only claim; court filing fees and service costs additional</div></div>
+<div class="row"><div class="cell">Joint uncontested divorce</div><div class="cell">From $2,500</div><div class="cell">Both parties cooperate; no contested claims</div></div>
+<div class="row"><div class="cell">Separation agreement — drafting</div><div class="cell">From $2,500</div><div class="cell">Parties have reached basic terms and provide complete disclosure</div></div>
+<div class="row"><div class="cell">Separation agreement — review</div><div class="cell">From $1,250</div><div class="cell">Review of an existing draft; negotiation is additional</div></div>
+<div class="row"><div class="cell">Marriage contract / prenuptial agreement</div><div class="cell">From $2,500</div><div class="cell">Standard drafting with complete disclosure</div></div>
+<div class="row"><div class="cell">Cohabitation agreement</div><div class="cell">From $2,500</div><div class="cell">Standard drafting with complete disclosure</div></div>
+<div class="row"><div class="cell">Consent variation or consent order</div><div class="cell">From $2,500</div><div class="cell">Terms already agreed; court fees additional</div></div>
+</div></div>
+
+<div class="group"><h2>Negotiated, Contested &#x26; Court Matters</h2><div class="table">
+<div class="row head"><div class="cell">Service</div><div class="cell">Professional Fee (CAD)</div><div class="cell">Scope / Notes</div></div>
+<div class="row"><div class="cell">Negotiation and correspondence</div><div class="cell">$300 / hour</div><div class="cell">Time-based billing; retainer may be required</div></div>
+<div class="row"><div class="cell">Mediation preparation or attendance</div><div class="cell">$300 / hour</div><div class="cell">Mediator fees are separate</div></div>
+<div class="row"><div class="cell">Contested divorce or family court application</div><div class="cell">$300 / hour</div><div class="cell">Initial retainer and phase estimate confirmed after assessment</div></div>
+<div class="row"><div class="cell">Urgent or emergency motion</div><div class="cell">Individual quote</div><div class="cell">Subject to urgency, evidence, hearing requirements and availability</div></div>
+<div class="row"><div class="cell">Child or spousal support analysis</div><div class="cell">From $1,500</div><div class="cell">Financial disclosure and calculations; expert fees additional if required</div></div>
+</div></div>
+
+<div class="note"><strong>Important fee information:</strong> All amounts are professional fees in Canadian dollars. HST, court filing fees, process-server fees, experts, valuations, transcripts, travel, courier charges, and other disbursements are additional. Fixed fees apply only to the stated standard scope and may change if a matter becomes contested or requires additional work. Each party should obtain independent legal advice where appropriate. Ontario law does not permit contingency fees for family law matters. Final fees and services are confirmed in a written retainer agreement. No outcome is guaranteed.</div>
+</section>
+<script>
+	const heightObserver = new ResizeObserver(([{ contentRect }]) => {
+		window.parent.postMessage({ action: 'iframeHeightUpdated', height: contentRect.height, id: 'zmmcSx' }, '*');
+	});
+
+	heightObserver.observe(document.documentElement);
+</script>
+</body>
+</html>
