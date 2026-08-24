@@ -20,3 +20,10 @@ Example to preserve exactly:
 - When `leave` means the Federal Court's permission for a judicial review or mandamus matter to proceed to a hearing, retain the English term and write it as `leave（开庭许可）` every time it appears.
 - Apply the same form in headings, procedural descriptions, questions, and references to leave being granted, refused, or pending.
 - Do not apply this rule when `leave` has a different legal or ordinary meaning.
+
+## Judicial review terminology
+
+- Translate the Canadian Federal Court procedure `Judicial Review` consistently as `司法复议` throughout the Chinese website.
+- Do not use `司法审查` as the Chinese name of this procedure.
+- Keep the English term `Judicial Review` unchanged when it is shown in parentheses or in English content.
+- Keep the existing `/judicial-review/` URL unchanged.

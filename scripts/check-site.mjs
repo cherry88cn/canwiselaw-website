@@ -41,6 +41,20 @@ for (const relative of [
   }
 }
 
+for (const directory of ['content/zh', 'zh']) {
+  const pending = [path.join(repo, directory)];
+  while (pending.length) {
+    const current = pending.pop();
+    for (const entry of fs.readdirSync(current, {withFileTypes:true})) {
+      const absolute = path.join(current, entry.name);
+      if (entry.isDirectory()) pending.push(absolute);
+      else if (/\.(?:html|md)$/.test(entry.name) && fs.readFileSync(absolute, 'utf8').includes('司法审查')) {
+        errors.push(`${path.relative(repo, absolute)}: deprecated Judicial Review translation detected`);
+      }
+    }
+  }
+}
+
 const generatedHtml = [];
 function collect(directory) {
   for (const entry of fs.readdirSync(directory, {withFileTypes:true})) {
