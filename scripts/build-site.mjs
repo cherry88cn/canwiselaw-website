@@ -97,7 +97,18 @@ const practice = `<section class="page-hero"><div class="eyebrow">Key Legal Fiel
 const contact = `<section class="page-hero"><div class="eyebrow">Direct Access</div><h1>Bilingual Consultation Inquiry</h1><p>Our team offers measured, culturally fluent advice. Contact us to outline your needs and we will respond regarding next steps.</p></section><section><div class="cards three"><article><h3>Office & Location</h3><p>2 Bloor Street E., Suite 3500<br>Toronto, Ontario M4W 1A8</p></article><article><h3>Contact</h3><p><a href="tel:+16476915569">647-691-5569</a><br><a href="mailto:admin@canwiselaw.com">admin@canwiselaw.com</a></p></article><article><h3>Office Hours</h3><p>Monday–Friday<br>9:00 AM–5:00 PM<br>Saturday and Sunday by appointment.</p></article></div></section>${cta('Schedule a Consultation','Consultations are available in English and Mandarin. The consultation fee is CAD $300 per hour.')}`;
 
 function readPage(slug, prefix) {
-  return fs.readFileSync(path.join(repo,'content','pages',`${slug}.html`),'utf8').replace(/^\uFEFF/,'').replaceAll('{{ASSET_PREFIX}}',prefix);
+  return replaceAllLiteral(
+    fs.readFileSync(path.join(repo,'content','pages',`${slug}.html`),'utf8').replace(/^\uFEFF/,''),
+    '{{ASSET_PREFIX}}',
+    prefix
+  );
+}
+
+// String.replace/replaceAll treat dollar sequences in replacement strings as
+// substitution tokens. Content and translations must be inserted literally so
+// prices such as "$300" and text containing "$1" or "$&" are never rewritten.
+export function replaceAllLiteral(source, search, replacement) {
+  return source.split(search).join(replacement);
 }
 function readZhPage(slug, prefix) {
   return fs.readFileSync(path.join(repo,'content','zh','pages',`${slug}.html`),'utf8').replace(/^\uFEFF/,'').replaceAll('{{ASSET_PREFIX}}',prefix);
@@ -110,8 +121,11 @@ function parseArticle(file) {
   return {...meta,slug:path.basename(file,'.md'),body:body.trim()};
 }
 
-function inline(text) {
-  return text.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\[(.+?)\]\((https?:\/\/[^)]+)\)/g,'<a href="$2" target="_blank" rel="noopener">$1</a>');
+export function inline(text) {
+  return text
+    .replace(/\*\*(.+?)\*\*/g, (_match, content) => `<strong>${content}</strong>`)
+    .replace(/\[(.+?)\]\((https?:\/\/[^)]+)\)/g, (_match, label, url) =>
+      `<a href="${url}" target="_blank" rel="noopener">${label}</a>`);
 }
 
 function markdown(text) {
@@ -150,7 +164,7 @@ const zhButton = `<a class="btn" href="${calendly}" target="_blank" rel="noopene
 const zhCta = (title='预约法律咨询',text='请联系我们，了解适合您具体情况的法律方案。') => `<section class="cta"><h2>${title}</h2><p>${text}</p>${zhButton}</section>`;
 const zhHero = (eyebrow,title,text) => `<section class="page-hero"><div class="eyebrow">${eyebrow}</div><h1>${title}</h1><p>${text}</p></section>`;
 const zhCards = items => `<section><div class="cards ${items.length===2?'two':'three'}">${items.map(([h,p,l])=>`<article><h3>${h}</h3><p>${p}</p>${l||''}</article>`).join('')}</div></section>`;
-const zhFeeTable = (intro, groups) => `${zhHero('收费标准',intro,'以下金额均为加元专业服务费。最终服务范围、费用及付款安排以书面委托协议为准。')}${groups.map(([title,rows])=>`<section><h2>${title}</h2><div class="fee-table">${rows.map(([service,fee,note])=>`<div class="fee-row"><strong>${service}</strong><b>${fee}</b><span>${note||''}</span></div>`).join('')}</div></section>`).join('')}<section class="soft"><h2>重要费用说明</h2><p>HST、政府或法院费用、翻译、体检、快递、专家及其他第三方支出另计。起价适用于标准事项；拒签、紧急情况、复杂事实、额外家庭成员、争议或扩大工作范围可能增加费用。本所不保证任何结果。</p></section>${zhCta()}`;
+const zhFeeTable = (intro, groups) => `${zhHero('收费标准',intro,'以下金额均为加元律师服务费。最终服务范围、费用及付款安排以书面委托协议为准。')}${groups.map(([title,rows])=>`<section><h2>${title}</h2><div class="fee-table">${rows.map(([service,fee,note])=>`<div class="fee-row"><strong>${service}</strong><b>${fee}</b><span>${note||''}</span></div>`).join('')}</div></section>`).join('')}<section class="soft"><h2>重要费用说明</h2><p>HST、政府或法院费用、翻译、体检、快递、专家及其他第三方支出另计。起价适用于标准事项；拒签、紧急情况、复杂事实、额外家庭成员、争议或扩大工作范围可能增加费用。本所不保证任何结果。</p></section>${zhCta()}`;
 
 const zhPages = {
   home:`<section class="hero"><div class="eyebrow">中英双语法律服务</div><h1>值得信赖的专业法律服务</h1><p>CanWise Law 为个人、家庭、创业者及企业提供加拿大移民法、商业与公司法及家庭法服务。我们以中文或英文清晰说明法律风险、证据要求、可行方案及下一步安排。</p>${zhButton}</section>${zhCards([['移民法','处理各类申请、拒签、上诉、联邦法院司法复议及强制令申请。','<a href="immigration-law/">了解更多 →</a>'],['商业与公司法','协助公司设立、股东及合伙协议、商业租赁、合同和交易事项。','<a href="business-commercial-law/">了解更多 →</a>'],['家庭法','就分居、离婚、子女、抚养、财产及家庭协议提供务实建议。','<a href="family-law/">了解更多 →</a>']])}<section class="soft"><div class="split"><div><div class="eyebrow">我们的理念</div><h2>理解文化背景的法律服务</h2></div><div><p>我们使用中文和英文沟通，以清楚易懂的方式解释法律选择、程序和下一步安排。</p><p>每项委托均根据具体事实单独评估，并重视材料准备、证据组织和持续沟通。</p></div></div></section>${zhCta('安心开始处理您的法律事务','预约咨询，获得清晰、系统并针对您具体情况的法律建议。')}`,

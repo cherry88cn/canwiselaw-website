@@ -3,17 +3,17 @@ import path from 'node:path';
 
 const repo = path.resolve(import.meta.dirname, '..');
 const errors = [];
-const pairedPages = [
-  'immigration-law', 'business-commercial-law', 'family-law',
-  'immigration-fees', 'business-commercial-fees', 'family-law-fees',
-  'legal-consultation', 'judicial-review', 'immigration-appeal-division',
-  'writ-of-mandamus', 'notary-commission'
+// Chinese pages may contain additional material that is not present in the
+// English version. Only the formal pricing tables must keep their listed
+// dollar amounts aligned between languages.
+const pricingPages = [
+  'immigration-fees', 'business-commercial-fees', 'family-law-fees'
 ];
 
 const read = relative => fs.readFileSync(path.join(repo, relative), 'utf8');
 const amounts = text => [...text.matchAll(/\$[\d,]+/g)].map(match => match[0]);
 
-for (const slug of pairedPages) {
+for (const slug of pricingPages) {
   const english = read(`content/embedded/${slug}.html`);
   const chinese = read(`content/zh/embedded/${slug}.html`);
   if (JSON.stringify(amounts(english)) !== JSON.stringify(amounts(chinese))) {
