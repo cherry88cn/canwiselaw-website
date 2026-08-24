@@ -7,7 +7,7 @@ const calendly = 'https://calendly.com/hding-canwiselaw/legal-consultation';
 const routes = [
   'about','practice-areas','immigration-law','business-commercial-law','family-law','contact','blog',
   'immigration-fees','business-commercial-fees','family-law-fees','notary-commission',
-  'legal-consultation','judicial-review-appeal','writ-of-mandamus'
+  'legal-consultation','judicial-review-appeal','judicial-review','immigration-appeal-division','writ-of-mandamus'
 ];
 
 const titles = {
@@ -25,6 +25,8 @@ const titles = {
   'notary-commission':'Notary & Commission | CanWise Law',
   'legal-consultation':'Legal Consultation | CanWise Law',
   'judicial-review-appeal':'Judicial Review & Immigration Appeals | CanWise Law',
+  'judicial-review':'Federal Court Judicial Review | CanWise Law',
+  'immigration-appeal-division':'Immigration Appeal Division Appeals | CanWise Law',
   'writ-of-mandamus':'Writ of Mandamus | CanWise Law'
 };
 
@@ -43,6 +45,8 @@ const descriptions = {
   'notary-commission':'Ontario notary public, remote commissioning, apostille and authentication assistance from CanWise Law. Services are available by appointment.',
   'legal-consultation':'Book a bilingual legal consultation with CanWise Law for an individual assessment of your immigration, business, commercial, or family law matter.',
   'judicial-review-appeal':'Legal representation for Canadian immigration refusals, Federal Court judicial review, and eligible immigration appeals.',
+  'judicial-review':'Federal Court judicial review of Canadian immigration and refugee decisions, including refusals, procedural fairness, leave and redetermination.',
+  'immigration-appeal-division':'Representation in eligible sponsorship, removal order and residency obligation appeals before the Immigration Appeal Division.',
   'writ-of-mandamus':'Learn when a Federal Court writ of mandamus may address an unreasonable delay in a Canadian immigration application.'
 };
 
