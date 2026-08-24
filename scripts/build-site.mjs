@@ -59,7 +59,7 @@ function nav(prefix='', {lang='en', currentPath='', hasAlternate=true}={}) {
   return `<header class="site-header"><a class="brand" href="${root}"><img src="${prefix}assets/logo.svg" alt="CanWise Law"></a><button class="menu" aria-label="${zh?'打开导航':'Open navigation'}" aria-expanded="false">☰</button><nav>
   <a href="${root}">${zh?'首页':'Home'}</a><a href="${root}about/">${zh?'关于我们':'About'}</a>
   <div class="drop"><a href="${root}practice-areas/">${zh?'业务领域':'Practice Areas'}</a><div class="drop-menu"><a href="${root}immigration-law/">${zh?'移民法':'Immigration Law'}</a><a href="${root}business-commercial-law/">${zh?'商业与公司法':'Business & Commercial Law'}</a><a href="${root}family-law/">${zh?'家庭法':'Family Law'}</a>${zh?`<a href="${root}international-education/">国际教育与升学</a>`:''}</div></div>
-  <a href="${zh?'/zh/contact/':`${prefix}contact/`}">${zh?'联系我们':'Contact'}</a><a href="${zh?'/zh/blog/':`${prefix}blog/`}">Blog</a>
+  <a href="${zh?'/zh/contact/':`${prefix}contact/`}">${zh?'联系我们':'Contact'}</a><a href="${zh?'/zh/blog/':`${prefix}blog/`}">${zh?'文章':'Blog'}</a>
   <div class="drop"><button>${zh?'收费标准':'Pricing'}</button><div class="drop-menu"><a href="${root}immigration-fees/">${zh?'移民法律服务费':'Immigration Fees'}</a><a href="${root}business-commercial-fees/">${zh?'商业法律服务费':'Business & Commercial Fees'}</a><a href="${root}family-law-fees/">${zh?'家庭法服务费':'Family Law Fees'}</a><a href="${root}notary-commission/">${zh?'公证与宣誓服务':'Notary & Commission'}</a></div></div>
   <a class="language-link" href="${languageHref}" hreflang="${zh?'en':'zh-CN'}">${zh?'EN':'中文'}</a>
   </nav><a class="nav-cta" href="${calendly}" target="_blank" rel="noopener">${zh?'预约咨询':'Book a Consultation'}</a></header>`;
@@ -211,6 +211,8 @@ const zhCss = `.language-link{font-weight:700;color:var(--blue)!important}.fee-t
 
 const js = `document.querySelector('.menu')?.addEventListener('click',e=>{const h=e.currentTarget.closest('.site-header');h.classList.toggle('open');e.currentTarget.setAttribute('aria-expanded',h.classList.contains('open'))});window.addEventListener('message',e=>{if(e.data?.action==='iframeHeightUpdated'){const f=document.querySelector('.content-frame');if(f&&Number(e.data.height)>200)f.style.height=(Number(e.data.height)+2)+'px'}});`;
 
+const navAlignmentCss = `.drop>button{display:block;font-family:inherit;line-height:1.65;cursor:pointer}`;
+
 for (const route of routes) fs.mkdirSync(path.join(repo,route),{recursive:true});
 fs.mkdirSync(path.join(repo,'assets'),{recursive:true});
 fs.writeFileSync(path.join(repo,'index.html'),shell('home',readPage('home','')));
@@ -305,7 +307,7 @@ for (const [oldPath,target] of Object.entries(legacyRedirects)) {
   fs.writeFileSync(path.join(folder,'index.html'),`<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Redirecting | CanWise Law</title><link rel="canonical" href="${siteUrl}${target}"><meta http-equiv="refresh" content="0;url=${target}"><script>location.replace(${JSON.stringify(target)})</script></head><body><p>This page has moved to <a href="${target}">${siteUrl}${target}</a>.</p></body></html>`);
 }
 fs.writeFileSync(path.join(repo,'404.html'),`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Page Not Found | CanWise Law</title><link rel="icon" href="assets/logo.svg"><link rel="stylesheet" href="assets/site.css"></head><body>${nav('')}<main><section class="not-found"><h1>404</h1><h2>Page Not Found</h2><p>The page you requested could not be found.</p><a class="btn" href="./">Return Home</a></section></main>${footer('')}<script src="assets/site.js"></script></body></html>`);
-fs.writeFileSync(path.join(repo,'assets','site.css'),css+zhCss);
+fs.writeFileSync(path.join(repo,'assets','site.css'),css+zhCss+navAlignmentCss);
 fs.writeFileSync(path.join(repo,'assets','site.js'),js);
 fs.writeFileSync(path.join(repo,'.nojekyll'),'');
 fs.writeFileSync(path.join(repo,'robots.txt'),`User-agent: *\nAllow: /\nSitemap: ${siteUrl}/sitemap.xml\n`);
