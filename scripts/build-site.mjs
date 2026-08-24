@@ -51,14 +51,14 @@ const descriptions = {
 const siteUrl = 'https://canwiselaw.com';
 const socialImage = `${siteUrl}/assets/images/office.png`;
 
-function nav(prefix='', {lang='en', currentPath=''}={}) {
+function nav(prefix='', {lang='en', currentPath='', hasAlternate=true}={}) {
   const zh = lang === 'zh';
   const root = zh ? '/zh/' : (prefix || './');
   const sharedArticle = currentPath.startsWith('blog/') && currentPath !== 'blog/';
-  const languageHref = sharedArticle ? '/zh/blog/' : (zh ? `/${currentPath}` : `/zh/${currentPath}`);
+  const languageHref = sharedArticle ? '/zh/blog/' : (zh ? (hasAlternate ? `/${currentPath}` : '/practice-areas/') : `/zh/${currentPath}`);
   return `<header class="site-header"><a class="brand" href="${root}"><img src="${prefix}assets/logo.svg" alt="CanWise Law"></a><button class="menu" aria-label="${zh?'打开导航':'Open navigation'}" aria-expanded="false">☰</button><nav>
   <a href="${root}">${zh?'首页':'Home'}</a><a href="${root}about/">${zh?'关于我们':'About'}</a>
-  <div class="drop"><a href="${root}practice-areas/">${zh?'业务领域':'Practice Areas'}</a><div class="drop-menu"><a href="${root}immigration-law/">${zh?'移民法':'Immigration Law'}</a><a href="${root}business-commercial-law/">${zh?'商业与公司法':'Business & Commercial Law'}</a><a href="${root}family-law/">${zh?'家庭法':'Family Law'}</a></div></div>
+  <div class="drop"><a href="${root}practice-areas/">${zh?'业务领域':'Practice Areas'}</a><div class="drop-menu"><a href="${root}immigration-law/">${zh?'移民法':'Immigration Law'}</a><a href="${root}business-commercial-law/">${zh?'商业与公司法':'Business & Commercial Law'}</a><a href="${root}family-law/">${zh?'家庭法':'Family Law'}</a>${zh?`<a href="${root}international-education/">国际教育与升学</a>`:''}</div></div>
   <a href="${zh?'/zh/contact/':`${prefix}contact/`}">${zh?'联系我们':'Contact'}</a><a href="${zh?'/zh/blog/':`${prefix}blog/`}">Blog</a>
   <div class="drop"><button>${zh?'收费标准':'Pricing'}</button><div class="drop-menu"><a href="${root}immigration-fees/">${zh?'移民法律服务费':'Immigration Fees'}</a><a href="${root}business-commercial-fees/">${zh?'商业法律服务费':'Business & Commercial Fees'}</a><a href="${root}family-law-fees/">${zh?'家庭法服务费':'Family Law Fees'}</a><a href="${root}notary-commission/">${zh?'公证与宣誓服务':'Notary & Commission'}</a></div></div>
   <a class="language-link" href="${languageHref}" hreflang="${zh?'en':'zh-CN'}">${zh?'EN':'中文'}</a>
@@ -71,14 +71,15 @@ function footer(prefix='', lang='en') {
   return `<footer style="height:auto;padding-top:44px;padding-bottom:18px"><div class="footer-grid"><div><img src="${prefix}assets/logo.svg" alt="CanWise Law"><p>${zh?'以中文和英文提供清晰、务实的法律服务。':'Clear, practical legal guidance in English and Chinese.'}</p></div><div><h3>${zh?'导航':'Navigation'}</h3><a href="${root}">${zh?'首页':'Home'}</a><a href="${root}about/">${zh?'关于我们':'About'}</a><a href="${root}practice-areas/">${zh?'业务领域':'Practice Areas'}</a><a href="/contact/">${zh?'联系我们':'Contact'}</a></div><div><h3>${zh?'CanWise Law 办公室':'CanWise Law Office'}</h3><p style="margin:0">2 Bloor Street E., Suite 3500<br>Toronto, Ontario M4W 1A8</p><p style="margin:0"><a href="mailto:admin@canwiselaw.com">admin@canwiselaw.com</a></p></div></div><div class="legal">Copyright © 2026 CanWise Law Office — ${zh?'版权所有。':'All Rights Reserved.'}<br>${zh?'本网站信息仅供一般参考，不构成法律意见。':'Information on this website is general and does not constitute legal advice.'}</div></footer>`;
 }
 
-function shell(slug, body, {embedded=false, prefix=slug === 'home' ? '' : '../', pageTitle=titles[slug] || 'CanWise Law', desc=descriptions[slug] || 'Bilingual legal services from CanWise Law in Toronto, Ontario.', urlPath=slug === 'home' ? '' : `${slug}/`, article=false, lang='en'}={}) {
+function shell(slug, body, {embedded=false, prefix=slug === 'home' ? '' : '../', pageTitle=titles[slug] || 'CanWise Law', desc=descriptions[slug] || 'Bilingual legal services from CanWise Law in Toronto, Ontario.', urlPath=slug === 'home' ? '' : `${slug}/`, article=false, lang='en', hasAlternate=true}={}) {
   const canonical = `${siteUrl}/${urlPath}`;
   const sharedArticle = urlPath.startsWith('blog/') && urlPath !== 'blog/';
   const alternatePath = sharedArticle ? urlPath : (lang === 'zh' ? urlPath.replace(/^zh\//,'') : `zh/${urlPath}`);
   const schema = article
     ? { '@context':'https://schema.org', '@type':'Article', headline:pageTitle, url:canonical, publisher:{'@type':'LegalService',name:'CanWise Law',url:siteUrl} }
     : { '@context':'https://schema.org', '@type':'LegalService', name:'CanWise Law', url:siteUrl, telephone:'+1-647-691-5569', email:'admin@canwiselaw.com', address:{'@type':'PostalAddress',streetAddress:'2 Bloor Street E., Suite 3500',addressLocality:'Toronto',addressRegion:'ON',postalCode:'M4W 1A8',addressCountry:'CA'}, areaServed:'Ontario', availableLanguage:['English','Mandarin Chinese'] };
-  return `<!doctype html><html lang="${lang==='zh'?'zh-CN':'en'}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${pageTitle}</title><meta name="description" content="${desc}"><link rel="canonical" href="${canonical}"><link rel="alternate" hreflang="${lang==='zh'?'en':'zh-CN'}" href="${siteUrl}/${alternatePath}"><link rel="alternate" hreflang="${lang==='zh'?'zh-CN':'en'}" href="${canonical}"><meta property="og:type" content="${article?'article':'website'}"><meta property="og:locale" content="${lang==='zh'?'zh_CN':'en_CA'}"><meta property="og:site_name" content="CanWise Law"><meta property="og:title" content="${pageTitle}"><meta property="og:description" content="${desc}"><meta property="og:url" content="${canonical}"><meta property="og:image" content="${socialImage}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${pageTitle}"><meta name="twitter:description" content="${desc}"><meta name="twitter:image" content="${socialImage}"><script type="application/ld+json">${JSON.stringify(schema)}</script><link rel="icon" href="${prefix}assets/logo.svg"><link rel="stylesheet" href="${prefix}assets/site.css"></head><body>${nav(prefix,{lang,currentPath:lang==='zh'?urlPath.replace(/^zh\//,''):urlPath})}<main${embedded?' class="embed-page"':''}>${body}</main>${footer(prefix,lang)}<script src="${prefix}assets/site.js"></script></body></html>`;
+  const alternateLinks = hasAlternate ? `<link rel="alternate" hreflang="${lang==='zh'?'en':'zh-CN'}" href="${siteUrl}/${alternatePath}"><link rel="alternate" hreflang="${lang==='zh'?'zh-CN':'en'}" href="${canonical}">` : `<link rel="alternate" hreflang="zh-CN" href="${canonical}">`;
+  return `<!doctype html><html lang="${lang==='zh'?'zh-CN':'en'}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${pageTitle}</title><meta name="description" content="${desc}"><link rel="canonical" href="${canonical}">${alternateLinks}<meta property="og:type" content="${article?'article':'website'}"><meta property="og:locale" content="${lang==='zh'?'zh_CN':'en_CA'}"><meta property="og:site_name" content="CanWise Law"><meta property="og:title" content="${pageTitle}"><meta property="og:description" content="${desc}"><meta property="og:url" content="${canonical}"><meta property="og:image" content="${socialImage}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${pageTitle}"><meta name="twitter:description" content="${desc}"><meta name="twitter:image" content="${socialImage}"><script type="application/ld+json">${JSON.stringify(schema)}</script><link rel="icon" href="${prefix}assets/logo.svg"><link rel="stylesheet" href="${prefix}assets/site.css"></head><body>${nav(prefix,{lang,currentPath:lang==='zh'?urlPath.replace(/^zh\//,''):urlPath,hasAlternate})}<main${embedded?' class="embed-page"':''}>${body}</main>${footer(prefix,lang)}<script src="${prefix}assets/site.js"></script></body></html>`;
 }
 
 const button = (text='Book a Consultation') => `<a class="btn" href="${calendly}" target="_blank" rel="noopener">${text}</a>`;
@@ -111,7 +112,12 @@ export function replaceAllLiteral(source, search, replacement) {
   return source.split(search).join(replacement);
 }
 function readZhPage(slug, prefix) {
-  return fs.readFileSync(path.join(repo,'content','zh','pages',`${slug}.html`),'utf8').replace(/^\uFEFF/,'').replaceAll('{{ASSET_PREFIX}}',prefix);
+  let content = fs.readFileSync(path.join(repo,'content','zh','pages',`${slug}.html`),'utf8').replace(/^\uFEFF/,'').replaceAll('{{ASSET_PREFIX}}',prefix);
+  if (slug === 'practice-areas') {
+    const educationSection = `<section><div class="eyebrow">独立服务类别</div><h2>国际教育与学生支持</h2><div class="cards two"><article><h3>加拿大国际教育与升学</h3><p>协助中国家庭申请加拿大顶尖私立及公立中小学、本科和 College，并提供中小学选课、在读协调、监护及本地配套支持。</p><a href="../international-education/">查看国际教育服务 →</a></article><article><h3>服务范围说明</h3><p>国际教育服务不构成法律意见。如涉及学习许可、公证或加拿大移民法律问题，由律师另行评估并独立接受委托。</p></article></div></section>`;
+    content = content.replace('<section class="soft"><div class="eyebrow">服务流程</div>', `${educationSection}<section class="soft"><div class="eyebrow">服务流程</div>`);
+  }
+  return content;
 }
 
 function parseArticle(file) {
@@ -195,6 +201,9 @@ zhPages['family-law-fees']=zhFeeTable('家庭法服务费',[
  ['无争议及协议事项', [['简单无争议离婚','从 $1,500 起','仅离婚请求；法院费及送达费另计'],['共同无争议离婚','从 $2,000 起','双方合作且无争议请求'],['分居协议起草或审阅','从 $2,500 起','需完整财务披露；谈判另计'],['婚前协议 / 婚姻合同','从 $2,500 起','标准起草并需完整披露'],['同居协议','从 $2,000 起','标准起草并需完整披露'],['双方同意的变更或命令','从 $1,500 起','条款已达成一致；法院费另计']]],
  ['谈判、争议与法院事项', [['谈判及往来函件','$300 / 小时','可能需要预付委托金'],['子女或配偶抚养费分析','个别报价','财务披露及计算；专家费另计'],['争议离婚或家庭法院申请','个别报价','评估后确认初始委托金和阶段预算'],['紧急动议','个别报价','视紧急程度、证据、听证要求及档期而定']]]
 ]);
+// This service page is intentionally Chinese-only. Its content is maintained as
+// a standalone source file so it can expand independently of the English site.
+zhPages['international-education']='';
 
 const css = `:root{--ink:#253548;--blue:#1672d4;--paper:#f7f4ee;--soft:#eef5fb;--gold:#b89a62}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:#fff;font-family:Arial,sans-serif;line-height:1.65}a{color:var(--blue)}h1,h2,h3{font-family:Georgia,serif;line-height:1.18;margin-top:0}h1{font-size:clamp(2.6rem,6vw,4.6rem)}h2{font-size:clamp(2rem,4vw,3rem)}h3{font-size:1.35rem}.site-header{height:102px;padding:15px max(22px,calc((100vw - 1200px)/2));display:flex;align-items:center;gap:28px;background:#fff;position:relative;z-index:20;border-bottom:1px solid #e5e8eb}.brand img{width:300px;max-width:29vw;display:block}.site-header nav{display:flex;align-items:center;gap:26px;margin-left:auto}.site-header nav>a,.drop>button,.drop>a{font-size:17px;color:#111;text-decoration:none;background:none;border:0;padding:14px 0;white-space:nowrap}.site-header nav>a:hover,.drop>button:hover,.drop>a:hover{color:var(--blue)}.nav-cta,.btn{background:var(--blue);color:#fff;text-decoration:none;font-weight:700;padding:13px 20px;border-radius:4px;white-space:nowrap}.drop{position:relative}.drop-menu{display:none;position:absolute;top:100%;left:-16px;min-width:245px;background:white;padding:10px;box-shadow:0 12px 28px #0002;border:1px solid #e8e8e8}.drop:hover .drop-menu,.drop:focus-within .drop-menu{display:block}.drop-menu a{display:block;padding:9px 12px;text-decoration:none;color:var(--ink)}.drop-menu a:hover{background:var(--soft)}.menu{display:none;margin-left:auto;font-size:25px;border:0;background:none}main>section{padding:76px max(28px,calc((100vw - 1160px)/2))}.hero,.page-hero{background:var(--soft);padding-top:88px;padding-bottom:84px}.hero p,.page-hero p,.lead{font-size:20px;max-width:850px}.hero p,.page-hero p{margin:25px 0 32px}.eyebrow{text-transform:uppercase;color:var(--blue);letter-spacing:2px;font-weight:700;font-size:13px;margin-bottom:14px}.cards{display:grid;gap:26px;margin-top:42px}.cards.three{grid-template-columns:repeat(3,1fr)}.cards.two{grid-template-columns:repeat(2,1fr)}.cards article{padding:30px;background:#fff;border:1px solid #dce2e7;border-radius:9px}.cards article>a{font-weight:bold;text-decoration:none}.soft{background:var(--paper)}.split{display:grid;grid-template-columns:1fr 1.4fr;gap:65px}.checks{list-style:none;padding:0;font-size:18px}.checks li{padding:10px 0}.checks li:before{content:'✓';color:var(--blue);font-weight:bold;margin-right:12px}.cta{text-align:center;background:var(--ink);color:#fff}.cta h2{color:#fff}.cta p{max-width:760px;margin:0 auto 27px;font-size:18px}.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:38px}.steps article{padding:24px;background:#fff}.steps b{color:var(--blue);font-size:26px}.price{font-size:24px;color:var(--blue);font-weight:bold}.blog time{color:#667;font-size:14px}.blog h3 a{color:var(--ink);text-decoration:none}.blog h3 a:hover{color:var(--blue)}.office-photo{width:100%;height:auto;border-radius:9px;display:block}.office-feature{align-items:center}.team-photo{width:150px;height:150px;object-fit:cover;border-radius:50%;display:block;margin:0 auto 24px}.team-cards article{text-align:center}.article{max-width:900px;margin:auto;padding:76px 28px}.article h1{font-size:clamp(2.2rem,5vw,3.8rem);margin-bottom:18px}.article time{color:#667}.article-body{margin-top:42px;font-size:18px;line-height:1.9}.article-body h2,.article-body h3{margin-top:42px}.back-link{display:inline-block;margin-bottom:30px;text-decoration:none;font-weight:bold}.embed-page{line-height:normal}.content-frame{display:block;width:100%;height:5000px;border:0;background:var(--paper)}footer{background:#eaf2f8;padding:55px max(28px,calc((100vw - 1160px)/2)) 22px}.footer-grid{display:grid;grid-template-columns:1.3fr .7fr 1fr;gap:55px}.footer-grid img{width:290px;max-width:100%}.footer-grid h3{font-family:Arial,sans-serif;text-transform:uppercase;font-size:14px;letter-spacing:1px}.footer-grid a{display:block;color:var(--ink);text-decoration:none}.legal{text-align:center;border-top:1px solid #cad5df;margin-top:35px;padding-top:20px;font-size:13px}.not-found{text-align:center;min-height:60vh}.not-found h1{font-size:7rem;margin-bottom:0}@media(max-width:1050px){.site-header nav,.nav-cta{display:none}.menu{display:block}.site-header.open{height:auto;flex-wrap:wrap}.site-header.open nav{display:flex;order:4;width:100%;flex-direction:column;align-items:flex-start;gap:0}.site-header.open .drop{width:100%}.site-header.open .drop-menu{display:block;position:static;box-shadow:none;border:0;padding-left:20px}.brand img{max-width:62vw}.cards.three,.steps{grid-template-columns:repeat(2,1fr)}}@media(max-width:650px){main>section{padding-top:55px;padding-bottom:55px}.cards.three,.cards.two,.steps,.split,.footer-grid{grid-template-columns:1fr}.site-header{height:85px}.brand img{width:250px}.content-frame{height:6500px}.footer-grid{gap:25px}}`;
 
@@ -225,7 +234,8 @@ const zhTitles = {
   'immigration-fees':'移民法律服务费｜CanWise Law', 'business-commercial-fees':'商业与公司法服务费｜CanWise Law',
   'family-law-fees':'家庭法服务费｜CanWise Law', 'notary-commission':'公证、监誓与海牙认证｜CanWise Law',
   'legal-consultation':'中文法律咨询｜CanWise Law', 'judicial-review':'联邦法院司法复议｜CanWise Law',
-  'immigration-appeal-division':'移民上诉庭 IAD 上诉｜CanWise Law', 'writ-of-mandamus':'移民延误强制令｜CanWise Law'
+  'immigration-appeal-division':'移民上诉庭 IAD 上诉｜CanWise Law', 'writ-of-mandamus':'移民延误强制令｜CanWise Law',
+  'international-education':'加拿大国际教育与升学服务｜CanWise Law'
 };
 const zhDescriptions = {
   home:'CanWise Law 在多伦多提供中文和英文的加拿大移民法、商业与公司法及家庭法服务。',
@@ -241,7 +251,8 @@ const zhDescriptions = {
   'legal-consultation':'预约中文或英文法律咨询，讨论移民法、商业法或家庭法事务。',
   'judicial-review':'加拿大移民决定的联邦法院司法复议、期限、程序及可能结果。',
   'immigration-appeal-division':'家庭团聚拒签、遣返令及永久居民居住义务的 IAD 上诉。',
-  'writ-of-mandamus':'了解联邦法院强制令如何处理加拿大移民申请的不合理延误。'
+  'writ-of-mandamus':'了解联邦法院强制令如何处理加拿大移民申请的不合理延误。',
+  'international-education':'面向中国家庭的加拿大私立及公立中小学、本科和 College 申请，以及选课、在读协调、监护和本地配套支持。'
 };
 const zhRoutes = Object.keys(zhPages);
 const embeddedRoutes = routes.filter(x=>!['about','practice-areas','contact','blog'].includes(x));
@@ -251,8 +262,8 @@ for (const slug of zhRoutes) {
   const urlPath=slug==='home'?'zh/':`zh/${slug}/`;
   const prefix=slug==='home'?'../':'../../';
   const isEmbedded=embeddedRoutes.includes(slug);
-  const body=isEmbedded?embedded(slug,'zh'):['home','about','practice-areas'].includes(slug)?readZhPage(slug,prefix):zhPages[slug];
-  fs.writeFileSync(path.join(folder,'index.html'),shell(slug,body,{prefix,pageTitle:zhTitles[slug],desc:zhDescriptions[slug],urlPath,lang:'zh',embedded:isEmbedded}));
+  const body=isEmbedded?embedded(slug,'zh'):['home','about','practice-areas','international-education'].includes(slug)?readZhPage(slug,prefix):zhPages[slug];
+  fs.writeFileSync(path.join(folder,'index.html'),shell(slug,body,{prefix,pageTitle:zhTitles[slug],desc:zhDescriptions[slug],urlPath,lang:'zh',embedded:isEmbedded,hasAlternate:slug!=='international-education'}));
 }
 const zhBlog=blog.replaceAll('href="./','href="/blog/');
 const zhContact=readPage('contact','../../')
