@@ -120,6 +120,9 @@ const blog = `<section class="page-hero"><div class="eyebrow">Legal Insights</di
 function embedded(slug) {
   let srcdoc = fs.readFileSync(path.join(repo,'content','embedded',`${slug}.html`),'utf8');
   srcdoc = srcdoc.replace(/href="\/([^"#?]+)\/?"/g, 'href="../$1/"');
+  // Internal links inside srcdoc must navigate the outer tab, not load a full page inside the iframe.
+  srcdoc = srcdoc.replace(/<a([^>]*href="\.\.\/[^\"]+"[^>]*)>/g, (match, attrs) =>
+    `<a${attrs.replace(/\s+target="[^"]*"/g,'').replace(/\s+rel="noopener"/g,'')} target="_top">`);
   if (['immigration-law','family-law'].includes(slug)) {
     srcdoc = srcdoc.replace(/<a(?![^>]*class="[^"]*btn)[^>]*href="https:\/\/calendly\.com\/[^"]+"[^>]*>([\s\S]*?)<\/a>/g,'<span class="service-item">$1</span>');
     srcdoc = srcdoc.replace('</style>','.service-col .service-item{display:block;color:#253548;font-size:15px;line-height:1.43;padding:5px 0 5px 15px;position:relative}.service-col .service-item:before{content:"•";position:absolute;left:0;color:#1672d4}</style>');
