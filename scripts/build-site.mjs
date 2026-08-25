@@ -162,6 +162,8 @@ function markdown(text) {
   return text.split(/\n{2,}/).map(block=>{
     const value=block.trim();
     if (!value) return '';
+    const image=value.match(/^!\[(.*?)\]\(([^)]+)\)$/);
+    if (image) return `<figure><img src="${image[2]}" alt="${image[1]}" loading="lazy"><figcaption>${image[1]}</figcaption></figure>`;
     if (value.startsWith('### ')) return `<h3>${inline(value.slice(4))}</h3>`;
     if (value.startsWith('## ')) return `<h2>${inline(value.slice(3))}</h2>`;
     const lines=value.split('\n');
@@ -172,7 +174,7 @@ function markdown(text) {
 }
 
 const articles = fs.readdirSync(path.join(repo,'content','blog')).filter(x=>x.endsWith('.md')).map(x=>parseArticle(path.join(repo,'content','blog',x)));
-const articleOrder = ['rcmp-criminal-record-check-from-china','what-is-judicial-review','canada-international-student-cap-work-permit-reform','study-plan-national-security-risk','express-entry-2023-review','citizenship-by-descent-court-decision'];
+const articleOrder = ['oinp-2026-workforce-priority-eoi-scoring','rcmp-criminal-record-check-from-china','what-is-judicial-review','canada-international-student-cap-work-permit-reform','study-plan-national-security-risk','express-entry-2023-review','citizenship-by-descent-court-decision'];
 articles.sort((a,b)=>articleOrder.indexOf(a.slug)-articleOrder.indexOf(b.slug));
 const articleGroups = {
   news: articles.filter(article=>article.section === 'news'),
@@ -241,12 +243,16 @@ const zhCss = `.language-link{font-weight:700;color:var(--blue)!important}.fee-t
 
 const blogLayoutCss = `.blog-directory{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:42px;align-items:start}.blog-directory>div{min-width:0}.category-title{color:var(--blue)}.blog-list{grid-template-columns:1fr;margin-top:28px}.blog-list article{padding:26px}.article-tags{display:flex;flex-wrap:wrap;gap:8px;margin:13px 0 18px}.article-tags a,.sidebar-tags a{display:inline-block;padding:4px 10px;border-radius:999px;background:var(--soft);color:var(--blue);font-size:13px;font-weight:700;text-decoration:none}.sidebar-tags{display:flex;flex-wrap:wrap;gap:8px}.article-layout{max-width:1160px;margin:auto;padding:76px 28px;display:grid;grid-template-columns:minmax(0,1fr) 285px;gap:58px;align-items:start}.article-layout .article{max-width:none;margin:0;padding:0}.article-sidebar{position:sticky;top:28px}.article-sidebar section{padding:24px;margin-bottom:22px;border:1px solid #dce2e7;border-radius:9px;background:var(--paper)}.article-sidebar h2{font-size:1.3rem;margin-bottom:14px}.article-sidebar p{font-size:14px;line-height:1.7;margin:0}.article-sidebar p+p{margin-top:12px}.article-sidebar>a{display:block;padding:7px 0;text-decoration:none;font-weight:700}.article-layout .article>time{display:block;color:#667;margin-top:2px}.tag-filter{grid-column:1/-1;padding:14px 18px;background:var(--soft);border-radius:8px;margin-bottom:4px}.tag-filter a{font-weight:700;margin-left:10px}@media(max-width:850px){.blog-directory,.article-layout{grid-template-columns:1fr}.article-sidebar{position:static;display:grid;grid-template-columns:1fr 1fr;gap:20px}.article-sidebar section{margin:0}}@media(max-width:650px){.article-layout{padding:55px 28px}.article-sidebar{grid-template-columns:1fr}}`;
 
+const articleMediaCss = `.article-body figure{margin:34px 0}.article-body figure img{display:block;width:100%;height:auto;border:1px solid #dce2e7;border-radius:9px}.article-body figcaption{margin-top:9px;color:#667;font-size:13px;text-align:center}`;
+
 const js = `document.querySelector('.menu')?.addEventListener('click',e=>{const h=e.currentTarget.closest('.site-header');h.classList.toggle('open');e.currentTarget.setAttribute('aria-expanded',h.classList.contains('open'))});window.addEventListener('message',e=>{if(e.data?.action==='iframeHeightUpdated'){const f=document.querySelector('.content-frame');if(f&&Number(e.data.height)>200)f.style.height=(Number(e.data.height)+2)+'px'}});const tag=new URLSearchParams(location.search).get('tag');if(tag&&document.querySelector('.blog-directory')){const cards=[...document.querySelectorAll('.blog-list article')];cards.forEach(card=>card.hidden=!card.dataset.tags.split('|').includes(tag));document.querySelectorAll('.blog-directory>div').forEach(column=>column.hidden=!column.querySelector('article:not([hidden])'));const notice=document.createElement('div');notice.className='tag-filter';notice.textContent='当前标签：#'+tag;const clear=document.createElement('a');clear.href=location.pathname;clear.textContent='查看全部文章';notice.append(clear);document.querySelector('.blog-directory').prepend(notice);}`;
 
 const navAlignmentCss = `.drop>button{display:block;font-family:inherit;line-height:1.65;cursor:pointer}`;
 
 for (const route of routes) fs.mkdirSync(path.join(repo,route),{recursive:true});
 fs.mkdirSync(path.join(repo,'assets'),{recursive:true});
+const blogImageSource=path.join(repo,'content','blog','images');
+if (fs.existsSync(blogImageSource)) fs.cpSync(blogImageSource,path.join(repo,'assets','blog'),{recursive:true});
 fs.writeFileSync(path.join(repo,'index.html'),shell('home',readPage('home','')));
 fs.writeFileSync(path.join(repo,'about','index.html'),shell('about',readPage('about','../')));
 fs.writeFileSync(path.join(repo,'practice-areas','index.html'),shell('practice-areas',readPage('practice-areas','../')));
@@ -341,7 +347,7 @@ for (const [oldPath,target] of Object.entries(legacyRedirects)) {
   fs.writeFileSync(path.join(folder,'index.html'),`<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Redirecting | CanWise Law</title><link rel="canonical" href="${siteUrl}${target}"><meta http-equiv="refresh" content="0;url=${target}"><script>location.replace(${JSON.stringify(target)})</script></head><body><p>This page has moved to <a href="${target}">${siteUrl}${target}</a>.</p></body></html>`);
 }
 fs.writeFileSync(path.join(repo,'404.html'),`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Page Not Found | CanWise Law</title><link rel="icon" href="assets/logo.svg"><link rel="stylesheet" href="assets/site.css"></head><body>${nav('')}<main><section class="not-found"><h1>404</h1><h2>Page Not Found</h2><p>The page you requested could not be found.</p><a class="btn" href="./">Return Home</a></section></main>${footer('')}<script src="assets/site.js"></script></body></html>`);
-fs.writeFileSync(path.join(repo,'assets','site.css'),css+zhCss+blogLayoutCss+navAlignmentCss);
+fs.writeFileSync(path.join(repo,'assets','site.css'),css+zhCss+blogLayoutCss+articleMediaCss+navAlignmentCss);
 fs.writeFileSync(path.join(repo,'assets','site.js'),js);
 fs.writeFileSync(path.join(repo,'.nojekyll'),'');
 fs.writeFileSync(path.join(repo,'robots.txt'),`User-agent: *\nAllow: /\nSitemap: ${siteUrl}/sitemap.xml\n`);
