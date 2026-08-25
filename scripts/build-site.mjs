@@ -54,8 +54,8 @@ const socialImage = `${siteUrl}/assets/images/office.png`;
 function nav(prefix='', {lang='en', currentPath='', hasAlternate=true}={}) {
   const zh = lang === 'zh';
   const root = zh ? '/zh/' : (prefix || './');
-  const sharedArticle = currentPath.startsWith('blog/') && currentPath !== 'blog/';
-  const languageHref = sharedArticle ? '/zh/blog/' : (zh ? (hasAlternate ? `/${currentPath}` : '/practice-areas/') : `/zh/${currentPath}`);
+  const sharedArticle = hasAlternate && currentPath.startsWith('blog/') && currentPath !== 'blog/';
+  const languageHref = sharedArticle ? (zh ? `/${currentPath}` : `/zh/${currentPath}`) : (zh ? (hasAlternate ? `/${currentPath}` : (currentPath.startsWith('blog/') ? '/blog/' : '/practice-areas/')) : `/zh/${currentPath}`);
   return `<header class="site-header"><a class="brand" href="${root}"><img src="${prefix}assets/logo.svg" alt="CanWise Law"></a><button class="menu" aria-label="${zh?'打开导航':'Open navigation'}" aria-expanded="false">☰</button><nav>
   <a href="${root}">${zh?'首页':'Home'}</a><a href="${root}about/">${zh?'关于我们':'About'}</a>
   <div class="drop"><a href="${root}practice-areas/">${zh?'业务领域':'Practice Areas'}</a><div class="drop-menu"><a href="${root}immigration-law/">${zh?'移民法':'Immigration Law'}</a><a href="${root}business-commercial-law/">${zh?'商业与公司法':'Business & Commercial Law'}</a><a href="${root}family-law/">${zh?'家庭法':'Family Law'}</a>${zh?`<a href="${root}international-education/">国际教育与升学</a>`:''}</div></div>
@@ -73,8 +73,8 @@ function footer(prefix='', lang='en') {
 
 function shell(slug, body, {embedded=false, prefix=slug === 'home' ? '' : '../', pageTitle=titles[slug] || 'CanWise Law', desc=descriptions[slug] || 'Bilingual legal services from CanWise Law in Toronto, Ontario.', urlPath=slug === 'home' ? '' : `${slug}/`, article=false, lang='en', hasAlternate=true}={}) {
   const canonical = `${siteUrl}/${urlPath}`;
-  const sharedArticle = urlPath.startsWith('blog/') && urlPath !== 'blog/';
-  const alternatePath = sharedArticle ? urlPath : (lang === 'zh' ? urlPath.replace(/^zh\//,'') : `zh/${urlPath}`);
+  const sharedArticle = urlPath.replace(/^zh\//,'').startsWith('blog/') && !urlPath.endsWith('blog/');
+  const alternatePath = sharedArticle ? (lang === 'zh' ? urlPath.replace(/^zh\//,'') : `zh/${urlPath}`) : (lang === 'zh' ? urlPath.replace(/^zh\//,'') : `zh/${urlPath}`);
   const schema = article
     ? { '@context':'https://schema.org', '@type':'Article', headline:pageTitle, url:canonical, publisher:{'@type':'LegalService',name:'CanWise Law',url:siteUrl} }
     : { '@context':'https://schema.org', '@type':'LegalService', name:'CanWise Law', url:siteUrl, telephone:'+1-647-691-5569', email:'admin@canwiselaw.com', address:{'@type':'PostalAddress',streetAddress:'2 Bloor Street E., Suite 3500',addressLocality:'Toronto',addressRegion:'ON',postalCode:'M4W 1A8',addressCountry:'CA'}, areaServed:'Ontario', availableLanguage:['English','Mandarin Chinese'] };
@@ -127,6 +127,8 @@ function parseArticle(file) {
   return {...meta,slug:path.basename(file,'.md'),body:body.trim()};
 }
 
+const articleBody = article => article.body.replace(/^#\s+.*?(?:\n{2,}|$)/,'');
+
 export function inline(text) {
   return text
     .replace(/\*\*(.+?)\*\*/g, (_match, content) => `<strong>${content}</strong>`)
@@ -141,15 +143,17 @@ function markdown(text) {
     if (value.startsWith('### ')) return `<h3>${inline(value.slice(4))}</h3>`;
     if (value.startsWith('## ')) return `<h2>${inline(value.slice(3))}</h2>`;
     const lines=value.split('\n');
-    if (lines.every(line=>/^[-•]\s+/.test(line))) return `<ul>${lines.map(line=>`<li>${inline(line.replace(/^[-•]\s+/,''))}</li>`).join('')}</ul>`;
+    if (lines.every(line=>/^[-*•]\s+/.test(line))) return `<ul>${lines.map(line=>`<li>${inline(line.replace(/^[-*•]\s+/,''))}</li>`).join('')}</ul>`;
+    if (lines.every(line=>/^\d+\.\s+/.test(line))) return `<ol>${lines.map(line=>`<li>${inline(line.replace(/^\d+\.\s+/,''))}</li>`).join('')}</ol>`;
     return `<p>${inline(value.replace(/\n/g,'<br>'))}</p>`;
   }).join('\n');
 }
 
 const articles = fs.readdirSync(path.join(repo,'content','blog')).filter(x=>x.endsWith('.md')).map(x=>parseArticle(path.join(repo,'content','blog',x)));
-const articleOrder = ['what-is-judicial-review','canada-international-student-cap-work-permit-reform','study-plan-national-security-risk','express-entry-2023-review','citizenship-by-descent-court-decision'];
+const articleOrder = ['rcmp-criminal-record-check-from-china','what-is-judicial-review','canada-international-student-cap-work-permit-reform','study-plan-national-security-risk','express-entry-2023-review','citizenship-by-descent-court-decision'];
 articles.sort((a,b)=>articleOrder.indexOf(a.slug)-articleOrder.indexOf(b.slug));
-const blog = `<section class="page-hero"><div class="eyebrow">Legal Insights</div><h1>CanWise Law Blog</h1><p>Commentary on Canadian immigration law and policy.</p></section><section><div class="cards two blog">${articles.map(a=>`<article><time>${a.date}</time><h3><a href="./${a.slug}/">${a.title}</a></h3><p>${a.body.split(/\n{2,}/)[0].slice(0,150)}…</p><a href="./${a.slug}/">Read article →</a></article>`).join('')}</div></section>`;
+const blog = `<section class="page-hero"><div class="eyebrow">Legal Insights</div><h1>CanWise Law Blog</h1><p>Commentary on Canadian immigration law and policy.</p></section><section><div class="cards two blog">${articles.map(a=>`<article><time>${a.date}</time><h3><a href="./${a.slug}/">${a.title}</a></h3><p>${articleBody(a).split(/\n{2,}/)[0].slice(0,150)}…</p><a href="./${a.slug}/">Read article →</a></article>`).join('')}</div></section>`;
+const zhBlog = `<section class="page-hero"><div class="eyebrow">法律资讯</div><h1>CanWise Law 文章</h1><p>加拿大移民法律、政策和实务文章。</p></section><section><div class="cards two blog">${articles.map(a=>`<article><time>${a.date}</time><h3><a href="/blog/${a.slug}/">${a.title}</a></h3><p>${articleBody(a).split(/\n{2,}/)[0].slice(0,150)}…</p><a href="/blog/${a.slug}/">阅读文章 →</a></article>`).join('')}</div></section>`;
 
 function embedded(slug, lang='en') {
   const source=path.join(repo,'content',...(lang==='zh'?['zh','embedded']:['embedded']),`${slug}.html`);
@@ -223,9 +227,9 @@ fs.writeFileSync(path.join(repo,'blog','index.html'),shell('blog',blog));
 for (const article of articles) {
   const folder=path.join(repo,'blog',article.slug);
   fs.mkdirSync(folder,{recursive:true});
-  const body=`<article class="article"><a class="back-link" href="../">← Back to Blog</a><div class="eyebrow">${article.category}</div><h1>${article.title}</h1><time>${article.date}</time><div class="article-body">${markdown(article.body)}</div></article>${cta('Discuss Your Immigration Matter','Book a consultation for advice tailored to your circumstances.')}`;
-  const articleDesc=article.body.replace(/\s+/g,' ').slice(0,155);
-  fs.writeFileSync(path.join(folder,'index.html'),shell(`blog-${article.slug}`,body,{prefix:'../../',pageTitle:`${article.title} | CanWise Law`,desc:articleDesc,urlPath:`blog/${article.slug}/`,article:true}));
+  const body=`<article class="article"><a class="back-link" href="/zh/blog/">← 返回文章列表</a><div class="eyebrow">${article.category}</div><h1>${article.title}</h1><time>${article.date}</time><div class="article-body">${markdown(articleBody(article))}</div></article><section class="cta"><h2>咨询加拿大移民法律问题</h2><p>预约咨询，获取针对您具体情况的法律意见。</p>${button('预约法律咨询')}</section>`;
+  const articleDesc=articleBody(article).split(/\n{2,}/)[0].replace(/\s+/g,' ').slice(0,155);
+  fs.writeFileSync(path.join(folder,'index.html'),shell(`blog-${article.slug}`,body,{prefix:'../../',pageTitle:`${article.title}｜CanWise Law`,desc:articleDesc,urlPath:`blog/${article.slug}/`,article:true,lang:'zh',hasAlternate:false}));
 }
 for (const slug of routes.filter(x=>!['about','practice-areas','contact','blog'].includes(x))) fs.writeFileSync(path.join(repo,slug,'index.html'),shell(slug,embedded(slug),{embedded:true}));
 
@@ -267,7 +271,6 @@ for (const slug of zhRoutes) {
   const body=isEmbedded?embedded(slug,'zh'):['home','about','practice-areas','international-education'].includes(slug)?readZhPage(slug,prefix):zhPages[slug];
   fs.writeFileSync(path.join(folder,'index.html'),shell(slug,body,{prefix,pageTitle:zhTitles[slug],desc:zhDescriptions[slug],urlPath,lang:'zh',embedded:isEmbedded,hasAlternate:slug!=='international-education'}));
 }
-const zhBlog=blog.replaceAll('href="./','href="/blog/');
 const zhContact=readPage('contact','../../')
   .replace('Direct Access','联系我们').replace('Bilingual Consultation Inquiry','中英双语咨询表格')
   .replace('Our team offers measured, culturally fluent advice. Contact us to outline your needs and we will respond regarding next steps.','请通过以下表格简要说明您的需求。本所审阅后将就下一步安排与您联系。')
@@ -293,14 +296,17 @@ const legacyRedirects = {
   'temporary-residency':'/immigration-law/',
   'blog/中文文章':'/blog/'
 };
-const legacyArticlePaths = [
-  '什么是司法复议（judicial-review）',
-  '加拿大不再欢迎留学生了？官宣将限制留学生数量，工签也将改革',
-  '“潜在间谍”？学习计划自爆将学习尖端科技后为国效力，有问题吗？',
-  'express-entryee的2023总结',
-  '加拿大安大略省高等法院裁决反对第二代公民身份限制'
-];
-articles.forEach((article,index)=>legacyRedirects[`blog/中文文章/f/${legacyArticlePaths[index]}`]=`/blog/${article.slug}/`);
+const legacyArticlePaths = {
+  'what-is-judicial-review':'什么是司法复议（judicial-review）',
+  'canada-international-student-cap-work-permit-reform':'加拿大不再欢迎留学生了？官宣将限制留学生数量，工签也将改革',
+  'study-plan-national-security-risk':'“潜在间谍”？学习计划自爆将学习尖端科技后为国效力，有问题吗？',
+  'express-entry-2023-review':'express-entryee的2023总结',
+  'citizenship-by-descent-court-decision':'加拿大安大略省高等法院裁决反对第二代公民身份限制'
+};
+for (const article of articles) {
+  const legacyPath=legacyArticlePaths[article.slug];
+  if (legacyPath) legacyRedirects[`blog/中文文章/f/${legacyPath}`]=`/blog/${article.slug}/`;
+}
 for (const [oldPath,target] of Object.entries(legacyRedirects)) {
   const folder=path.join(repo,...oldPath.split('/'));
   fs.mkdirSync(folder,{recursive:true});
