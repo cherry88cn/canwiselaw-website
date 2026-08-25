@@ -1,7 +1,9 @@
 ---
 title: 人在中国，怎样办理加拿大 RCMP 无犯罪记录证明？
-date: 2025年12月12日
+date: December 12, 2025
 category: 加拿大移民
+section: guides
+tags: RCMP, 无犯罪记录, 指纹, 中国申请人
 ---
 
 # 人在中国，怎样办理加拿大 RCMP 无犯罪记录证明？

@@ -2,6 +2,8 @@
 title: 加拿大不再欢迎留学生了？官宣将限制留学生数量，工签也将改革
 date: January 16, 2024
 category: Immigration Law
+section: news
+tags: 留学政策, 工签, IRCC
 ---
 
 本文只分析现状和未来可能的影响。先说结论，对大多数中国背景的申请人影响不大。

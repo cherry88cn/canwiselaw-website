@@ -2,6 +2,8 @@
 title: 什么是司法复议（Judicial Review）
 date: December 2, 2024
 category: Immigration Law
+section: guides
+tags: 司法复议, 联邦法院, 拒签
 ---
 
 不幸被加拿大移民局IRCC拒签后，有三种常见的应对方式：
