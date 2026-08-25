@@ -3,7 +3,7 @@ title: “潜在间谍”？学习计划自爆将学习尖端科技后为国效�
 date: January 8, 2024
 category: Immigration Law
 section: news
-tags: 学签, 国家安全, 联邦法院
+tags: 安全调查, 毕业工签, 学签
 ---
 
 其实加拿大联邦法院2023年数次讨论过中国背景申请的“潜在间谍问题"。

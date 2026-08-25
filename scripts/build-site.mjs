@@ -128,10 +128,28 @@ function parseArticle(file) {
 }
 
 const articleBody = article => article.body.replace(/^#\s+.*?(?:\n{2,}|$)/,'');
-const articleTags = article => (article.tags || '').split(',').map(tag=>tag.trim()).filter(Boolean);
-const tagList = article => `<div class="article-tags">${articleTags(article).map(tag=>`<span>#${tag}</span>`).join('')}</div>`;
-const articleCard = (article, href, readLabel) => `<article><time>${article.date}</time><h3><a href="${href}">${article.title}</a></h3>${tagList(article)}<p>${articleBody(article).split(/\n{2,}/)[0].slice(0,150)}…</p><a href="${href}">${readLabel} →</a></article>`;
-const articleSidebar = `<aside class="article-sidebar"><section><h2>免责声明</h2><p>本网站文章仅供一般信息参考，不构成针对任何具体情况的法律意见。移民法律、政策和办理要求可能发生变化。</p><p lang="en">The information on this website is provided for general informational purposes only and does not constitute legal advice for any specific matter. Immigration laws, policies, and application requirements may change.</p></section><section><h2>文章分类</h2><a href="/zh/blog/#news">博客与新闻</a><a href="/zh/blog/#guides">百科资讯</a></section></aside>`;
+const tagAliases = {
+  'study permit':'学签', 'study permits':'学签', 'student permit':'学签', '学习许可':'学签',
+  'work permit':'工签', 'work permits':'工签', '工作许可':'工签',
+  'pgwp':'毕业工签', 'post-graduation work permit':'毕业工签',
+  'judicial review':'司法复议', 'federal court':'联邦法院',
+  'rcmp criminal record check':'RCMP无犯罪记录', 'fingerprinting':'录指纹', 'fingerprints':'录指纹',
+  'express entry':'联邦快速移民', 'ee':'联邦快速移民', 'ircc':'加拿大移民局'
+};
+const normalizeTag = value => {
+  const clean=value.trim().replace(/^#+/,'').trim();
+  return tagAliases[clean.toLowerCase()] || clean;
+};
+const articleTags = article => [...new Set((article.tags || '').split(',').map(normalizeTag).filter(Boolean))];
+const tagLink = tag => `<a href="/zh/blog/?tag=${encodeURIComponent(tag)}">#${tag}</a>`;
+const tagList = article => `<div class="article-tags">${articleTags(article).map(tagLink).join('')}</div>`;
+const articleCard = (article, href, readLabel) => `<article data-tags="${articleTags(article).join('|')}"><time>${article.date}</time><h3><a href="${href}">${article.title}</a></h3>${tagList(article)}<p>${articleBody(article).split(/\n{2,}/)[0].slice(0,150)}…</p><a href="${href}">${readLabel} →</a></article>`;
+const allSiteTags = () => {
+  const counts=new Map();
+  for (const article of articles) for (const tag of articleTags(article)) counts.set(tag,(counts.get(tag)||0)+1);
+  return [...counts].sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0],'zh-CN')).map(([tag])=>tag);
+};
+const articleSidebar = () => `<aside class="article-sidebar"><section><h2>免责声明/Disclaimer</h2><p>本网站文章仅供一般信息参考，不构成针对任何具体情况的法律意见。</p><p lang="en">The information on this website is provided for general informational purposes only and does not constitute legal advice for any specific matter.</p></section><section><h2>文章分类</h2><div class="sidebar-tags">${allSiteTags().map(tagLink).join('')}</div></section></aside>`;
 
 export function inline(text) {
   return text
@@ -161,7 +179,7 @@ const articleGroups = {
   guides: articles.filter(article=>article.section === 'guides')
 };
 const blog = `<section class="page-hero"><div class="eyebrow">Legal Insights</div><h1>CanWise Law Blog</h1><p>Commentary on Canadian immigration law and practical Canadian immigration resources.</p></section><section class="blog-index"><div class="blog-directory"><div id="news"><div class="eyebrow">Updates & Analysis</div><h2>Blog & News</h2><div class="cards blog-list">${articleGroups.news.map(a=>articleCard(a,`./${a.slug}/`,'Read article')).join('')}</div></div><div id="guides"><div class="eyebrow">Practical Resources</div><h2>Guides & Information</h2><div class="cards blog-list">${articleGroups.guides.map(a=>articleCard(a,`./${a.slug}/`,'Read article')).join('')}</div></div></div></section>`;
-const zhBlog = `<section class="page-hero"><div class="eyebrow">法律资讯</div><h1>CanWise Law 文章</h1><p>加拿大移民法律、政策和实务文章。</p></section><section class="blog-index"><div class="blog-directory"><div id="news"><div class="eyebrow">政策与案例</div><h2>博客与新闻</h2><div class="cards blog-list">${articleGroups.news.map(a=>articleCard(a,`/blog/${a.slug}/`,'阅读文章')).join('')}</div></div><div id="guides"><div class="eyebrow">实用资料</div><h2>百科资讯</h2><div class="cards blog-list">${articleGroups.guides.map(a=>articleCard(a,`/blog/${a.slug}/`,'阅读文章')).join('')}</div></div></div></section>`;
+const zhBlog = `<section class="page-hero"><div class="eyebrow">法律资讯</div><h1>CanWise Law 文章</h1><p>加拿大移民法律、政策和实务文章。</p></section><section class="blog-index"><div class="blog-directory"><div id="news"><h2 class="category-title">政策与案例</h2><div class="cards blog-list">${articleGroups.news.map(a=>articleCard(a,`/blog/${a.slug}/`,'阅读文章')).join('')}</div></div><div id="guides"><h2 class="category-title">实用百科</h2><div class="cards blog-list">${articleGroups.guides.map(a=>articleCard(a,`/blog/${a.slug}/`,'阅读文章')).join('')}</div></div></div></section>`;
 
 function embedded(slug, lang='en') {
   const source=path.join(repo,'content',...(lang==='zh'?['zh','embedded']:['embedded']),`${slug}.html`);
@@ -221,9 +239,9 @@ const css = `:root{--ink:#253548;--blue:#1672d4;--paper:#f7f4ee;--soft:#eef5fb;-
 
 const zhCss = `.language-link{font-weight:700;color:var(--blue)!important}.fee-table{margin-top:30px;border-top:1px solid #dce2e7}.fee-row{display:grid;grid-template-columns:minmax(220px,1.1fr) minmax(130px,.45fr) minmax(260px,1.35fr);gap:22px;padding:18px 0;border-bottom:1px solid #dce2e7;align-items:start}.fee-row b{color:var(--blue)}.fee-row span{color:#566575}@media(max-width:720px){.fee-row{grid-template-columns:1fr;gap:5px}}`;
 
-const blogLayoutCss = `.blog-directory{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(300px,.85fr);gap:42px;align-items:start}.blog-directory>div{min-width:0}.blog-list{grid-template-columns:1fr;margin-top:28px}.blog-list article{padding:26px}.article-tags{display:flex;flex-wrap:wrap;gap:8px;margin:13px 0 18px}.article-tags span{display:inline-block;padding:4px 10px;border-radius:999px;background:var(--soft);color:var(--blue);font-size:13px;font-weight:700}.article-layout{max-width:1160px;margin:auto;padding:76px 28px;display:grid;grid-template-columns:minmax(0,1fr) 285px;gap:58px;align-items:start}.article-layout .article{max-width:none;margin:0;padding:0}.article-sidebar{position:sticky;top:28px}.article-sidebar section{padding:24px;margin-bottom:22px;border:1px solid #dce2e7;border-radius:9px;background:var(--paper)}.article-sidebar h2{font-size:1.3rem;margin-bottom:14px}.article-sidebar p{font-size:14px;line-height:1.7;margin:0}.article-sidebar p+p{margin-top:12px}.article-sidebar a{display:block;padding:7px 0;text-decoration:none;font-weight:700}.article-layout .article>time{display:block;color:#667;margin-top:2px}@media(max-width:850px){.blog-directory,.article-layout{grid-template-columns:1fr}.article-sidebar{position:static;display:grid;grid-template-columns:1fr 1fr;gap:20px}.article-sidebar section{margin:0}}@media(max-width:650px){.article-layout{padding:55px 28px}.article-sidebar{grid-template-columns:1fr}}`;
+const blogLayoutCss = `.blog-directory{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:42px;align-items:start}.blog-directory>div{min-width:0}.category-title{color:var(--blue)}.blog-list{grid-template-columns:1fr;margin-top:28px}.blog-list article{padding:26px}.article-tags{display:flex;flex-wrap:wrap;gap:8px;margin:13px 0 18px}.article-tags a,.sidebar-tags a{display:inline-block;padding:4px 10px;border-radius:999px;background:var(--soft);color:var(--blue);font-size:13px;font-weight:700;text-decoration:none}.sidebar-tags{display:flex;flex-wrap:wrap;gap:8px}.article-layout{max-width:1160px;margin:auto;padding:76px 28px;display:grid;grid-template-columns:minmax(0,1fr) 285px;gap:58px;align-items:start}.article-layout .article{max-width:none;margin:0;padding:0}.article-sidebar{position:sticky;top:28px}.article-sidebar section{padding:24px;margin-bottom:22px;border:1px solid #dce2e7;border-radius:9px;background:var(--paper)}.article-sidebar h2{font-size:1.3rem;margin-bottom:14px}.article-sidebar p{font-size:14px;line-height:1.7;margin:0}.article-sidebar p+p{margin-top:12px}.article-sidebar>a{display:block;padding:7px 0;text-decoration:none;font-weight:700}.article-layout .article>time{display:block;color:#667;margin-top:2px}.tag-filter{grid-column:1/-1;padding:14px 18px;background:var(--soft);border-radius:8px;margin-bottom:4px}.tag-filter a{font-weight:700;margin-left:10px}@media(max-width:850px){.blog-directory,.article-layout{grid-template-columns:1fr}.article-sidebar{position:static;display:grid;grid-template-columns:1fr 1fr;gap:20px}.article-sidebar section{margin:0}}@media(max-width:650px){.article-layout{padding:55px 28px}.article-sidebar{grid-template-columns:1fr}}`;
 
-const js = `document.querySelector('.menu')?.addEventListener('click',e=>{const h=e.currentTarget.closest('.site-header');h.classList.toggle('open');e.currentTarget.setAttribute('aria-expanded',h.classList.contains('open'))});window.addEventListener('message',e=>{if(e.data?.action==='iframeHeightUpdated'){const f=document.querySelector('.content-frame');if(f&&Number(e.data.height)>200)f.style.height=(Number(e.data.height)+2)+'px'}});`;
+const js = `document.querySelector('.menu')?.addEventListener('click',e=>{const h=e.currentTarget.closest('.site-header');h.classList.toggle('open');e.currentTarget.setAttribute('aria-expanded',h.classList.contains('open'))});window.addEventListener('message',e=>{if(e.data?.action==='iframeHeightUpdated'){const f=document.querySelector('.content-frame');if(f&&Number(e.data.height)>200)f.style.height=(Number(e.data.height)+2)+'px'}});const tag=new URLSearchParams(location.search).get('tag');if(tag&&document.querySelector('.blog-directory')){const cards=[...document.querySelectorAll('.blog-list article')];cards.forEach(card=>card.hidden=!card.dataset.tags.split('|').includes(tag));document.querySelectorAll('.blog-directory>div').forEach(column=>column.hidden=!column.querySelector('article:not([hidden])'));const notice=document.createElement('div');notice.className='tag-filter';notice.textContent='当前标签：#'+tag;const clear=document.createElement('a');clear.href=location.pathname;clear.textContent='查看全部文章';notice.append(clear);document.querySelector('.blog-directory').prepend(notice);}`;
 
 const navAlignmentCss = `.drop>button{display:block;font-family:inherit;line-height:1.65;cursor:pointer}`;
 
@@ -237,7 +255,7 @@ fs.writeFileSync(path.join(repo,'blog','index.html'),shell('blog',blog));
 for (const article of articles) {
   const folder=path.join(repo,'blog',article.slug);
   fs.mkdirSync(folder,{recursive:true});
-  const body=`<div class="article-layout"><article class="article"><a class="back-link" href="/zh/blog/">← 返回文章列表</a><div class="eyebrow">${article.section==='guides'?'百科资讯':'博客与新闻'}</div><h1>${article.title}</h1><time>${article.date}</time>${tagList(article)}<div class="article-body">${markdown(articleBody(article))}</div></article>${articleSidebar}</div><section class="cta"><h2>咨询加拿大移民法律问题</h2><p>预约咨询，获取针对您具体情况的法律意见。</p>${button('预约法律咨询')}</section>`;
+  const body=`<div class="article-layout"><article class="article"><a class="back-link" href="/zh/blog/">← 返回文章列表</a><div class="eyebrow">${article.section==='guides'?'实用百科':'政策与案例'}</div><h1>${article.title}</h1><time>${article.date}</time>${tagList(article)}<div class="article-body">${markdown(articleBody(article))}</div></article>${articleSidebar()}</div><section class="cta"><h2>咨询加拿大移民法律问题</h2><p>预约咨询，获取针对您具体情况的法律意见。</p>${button('预约法律咨询')}</section>`;
   const articleDesc=articleBody(article).split(/\n{2,}/)[0].replace(/\s+/g,' ').slice(0,155);
   fs.writeFileSync(path.join(folder,'index.html'),shell(`blog-${article.slug}`,body,{prefix:'../../',pageTitle:`${article.title}｜CanWise Law`,desc:articleDesc,urlPath:`blog/${article.slug}/`,article:true,lang:'zh',hasAlternate:false}));
 }

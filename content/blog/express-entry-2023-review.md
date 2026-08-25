@@ -3,7 +3,7 @@ title: Express Entry(EE)的2023总结
 date: January 7, 2024
 category: Immigration Law
 section: news
-tags: Express Entry, 加拿大移民, 年度回顾
+tags: 联邦快速移民, 加拿大移民, 年度回顾
 ---
 
 2023年，加拿大的Express Entry系统经历了重大变革。上半年延续了2022年的模式，每两周进行一次抽签，包括全项目、省提名计划（PNP）-only或仅联邦技术工人的类别。值得注意的是，2023年3月，移民难民和公民身份部（IRCC）在四次抽签中邀请了超过21,000名Express Entry候选人，创下了有史以来第二高的月度邀请数量。在5月，IRCC为Express Entry抽签引入了六个新类别，重点关注医疗保健、STEM专业、贸易、交通、农业以及法语熟练程度。
