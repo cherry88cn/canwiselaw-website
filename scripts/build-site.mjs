@@ -154,8 +154,11 @@ const articleSidebar = () => `<aside class="article-sidebar"><section><h2>免责
 export function inline(text) {
   return text
     .replace(/\*\*(.+?)\*\*/g, (_match, content) => `<strong>${content}</strong>`)
+    .replace(/\*(.+?)\*/g, (_match, content) => `<em>${content}</em>`)
     .replace(/\[(.+?)\]\((https?:\/\/[^)]+)\)/g, (_match, label, url) =>
-      `<a href="${url}" target="_blank" rel="noopener">${label}</a>`);
+      `<a href="${url}" target="_blank" rel="noopener">${label}</a>`)
+    .replace(/\[(.+?)\]\((?!https?:\/\/)([^)]+)\)/g, (_match, label, url) =>
+      `<a href="${url}">${label}</a>`);
 }
 
 function markdown(text) {
@@ -164,6 +167,8 @@ function markdown(text) {
     if (!value) return '';
     const image=value.match(/^!\[(.*?)\]\(([^)]+)\)$/);
     if (image) return `<figure><img src="${image[2]}" alt="${image[1]}" loading="lazy"><figcaption>${image[1]}</figcaption></figure>`;
+    if (value.startsWith('##### ')) return `<h5>${inline(value.slice(6))}</h5>`;
+    if (value.startsWith('#### ')) return `<h4>${inline(value.slice(5))}</h4>`;
     if (value.startsWith('### ')) return `<h3>${inline(value.slice(4))}</h3>`;
     if (value.startsWith('## ')) return `<h2>${inline(value.slice(3))}</h2>`;
     const lines=value.split('\n');
@@ -174,7 +179,7 @@ function markdown(text) {
 }
 
 const articles = fs.readdirSync(path.join(repo,'content','blog')).filter(x=>x.endsWith('.md')).map(x=>parseArticle(path.join(repo,'content','blog',x)));
-const articleOrder = ['oinp-2026-workforce-priority-eoi-scoring','rcmp-criminal-record-check-from-china','what-is-judicial-review','canada-international-student-cap-work-permit-reform','study-plan-national-security-risk','express-entry-2023-review','citizenship-by-descent-court-decision'];
+const articleOrder = ['medical-inadmissibility-history-excessive-demand-2026-part-1','medical-inadmissibility-disease-risk-next-steps-part-2','oinp-2026-workforce-priority-eoi-scoring','rcmp-criminal-record-check-from-china','what-is-judicial-review','canada-international-student-cap-work-permit-reform','study-plan-national-security-risk','express-entry-2023-review','citizenship-by-descent-court-decision'];
 articles.sort((a,b)=>articleOrder.indexOf(a.slug)-articleOrder.indexOf(b.slug));
 const articleGroups = {
   news: articles.filter(article=>article.section === 'news'),
@@ -243,7 +248,7 @@ const zhCss = `.language-link{font-weight:700;color:var(--blue)!important}.fee-t
 
 const blogLayoutCss = `.blog-directory{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:42px;align-items:start}.blog-directory>div{min-width:0}.category-title{color:var(--blue)}.blog-list{grid-template-columns:1fr;margin-top:28px}.blog-list article{padding:26px}.article-tags{display:flex;flex-wrap:wrap;gap:8px;margin:13px 0 18px}.article-tags a,.sidebar-tags a{display:inline-block;padding:4px 10px;border-radius:999px;background:var(--soft);color:var(--blue);font-size:13px;font-weight:700;text-decoration:none}.sidebar-tags{display:flex;flex-wrap:wrap;gap:8px}.article-layout{max-width:1160px;margin:auto;padding:76px 28px;display:grid;grid-template-columns:minmax(0,1fr) 285px;gap:58px;align-items:start}.article-layout .article{max-width:none;margin:0;padding:0}.article-sidebar{position:sticky;top:28px}.article-sidebar section{padding:24px;margin-bottom:22px;border:1px solid #dce2e7;border-radius:9px;background:var(--paper)}.article-sidebar h2{font-size:1.3rem;margin-bottom:14px}.article-sidebar p{font-size:14px;line-height:1.7;margin:0}.article-sidebar p+p{margin-top:12px}.article-sidebar>a{display:block;padding:7px 0;text-decoration:none;font-weight:700}.article-layout .article>time{display:block;color:#667;margin-top:2px}.tag-filter{grid-column:1/-1;padding:14px 18px;background:var(--soft);border-radius:8px;margin-bottom:4px}.tag-filter a{font-weight:700;margin-left:10px}@media(max-width:850px){.blog-directory,.article-layout{grid-template-columns:1fr}.article-sidebar{position:static;display:grid;grid-template-columns:1fr 1fr;gap:20px}.article-sidebar section{margin:0}}@media(max-width:650px){.article-layout{padding:55px 28px}.article-sidebar{grid-template-columns:1fr}}`;
 
-const articleMediaCss = `.article-body figure{margin:34px 0}.article-body figure img{display:block;width:100%;height:auto;border:1px solid #dce2e7;border-radius:9px}.article-body figcaption{margin-top:9px;color:#667;font-size:13px;text-align:center}`;
+const articleMediaCss = `.article-body figure{margin:34px 0}.article-body figure img{display:block;width:100%;height:auto;border:1px solid #dce2e7;border-radius:9px}.article-body figcaption{margin-top:9px;color:#667;font-size:13px;text-align:center}.article-body h4,.article-body h5{font-family:Georgia,serif;line-height:1.3;color:var(--ink)}.article-body h4{font-size:1.12rem;margin:32px 0 10px}.article-body h5{font-size:1rem;margin:24px 0 8px}.article>h1{font-size:clamp(2rem,4vw,3.15rem)}.article .article-body>h2{font-size:clamp(1.55rem,2.8vw,2.05rem)}`;
 
 const js = `document.querySelector('.menu')?.addEventListener('click',e=>{const h=e.currentTarget.closest('.site-header');h.classList.toggle('open');e.currentTarget.setAttribute('aria-expanded',h.classList.contains('open'))});window.addEventListener('message',e=>{if(e.data?.action==='iframeHeightUpdated'){const f=document.querySelector('.content-frame');if(f&&Number(e.data.height)>200)f.style.height=(Number(e.data.height)+2)+'px'}});const tag=new URLSearchParams(location.search).get('tag');if(tag&&document.querySelector('.blog-directory')){const cards=[...document.querySelectorAll('.blog-list article')];cards.forEach(card=>card.hidden=!card.dataset.tags.split('|').includes(tag));document.querySelectorAll('.blog-directory>div').forEach(column=>column.hidden=!column.querySelector('article:not([hidden])'));const notice=document.createElement('div');notice.className='tag-filter';notice.textContent='当前标签：#'+tag;const clear=document.createElement('a');clear.href=location.pathname;clear.textContent='查看全部文章';notice.append(clear);document.querySelector('.blog-directory').prepend(notice);}`;
 

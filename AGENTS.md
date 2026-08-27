@@ -71,3 +71,11 @@ node scripts/check-site.mjs
 ```
 
 Confirm the Blog directory, article page, tag filtering, internal links, and responsive layout before publishing.
+
+## Blog typography
+
+- Apply the approved compact heading scale to every existing and future Blog article.
+- Blog article title (`.article > h1`): `font-size: clamp(2rem, 4vw, 3.15rem)`.
+- Blog first-level content heading (`.article-body > h2`): `font-size: clamp(1.55rem, 2.8vw, 2.05rem)`.
+- Keep the Georgia heading typeface unless the user explicitly requests a different font.
+- Do not change article wording, structure, or heading hierarchy merely to apply these typography rules.
