@@ -1,5 +1,13 @@
 # CanWise Law Project Instructions
 
+## Mandatory GitHub account rule
+
+- Use only the GitHub account `cherry88cn` for every CanWise website repository operation, including reads, clones, branches, commits, pushes, pull requests, GitHub Actions, GitHub Pages, deployment checks, and repository administration.
+- Never use the GitHub account `yij793` for any CanWise website repository operation.
+- Before every CanWise GitHub operation, verify that the authenticated login is exactly `cherry88cn`. Do not infer the authenticated account from the repository owner, remote URL, or a previous session.
+- If the authenticated login is not `cherry88cn`, or cannot be verified, stop all CanWise GitHub activity and obtain corrected account access before continuing.
+- A request for direct publication, an urgent fix, or deployment does not override this rule.
+
 ## Blog content model
 
 - Maintain every Blog article as a single Markdown source file in `content/blog/`.

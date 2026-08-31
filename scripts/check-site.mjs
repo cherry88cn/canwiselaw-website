@@ -13,6 +13,14 @@ const pricingPages = [
 const read = relative => fs.readFileSync(path.join(repo, relative), 'utf8');
 const amounts = text => [...text.matchAll(/\$[\d,]+/g)].map(match => match[0]);
 
+const willEstateIntake = read('client/will-estate-intake/index.html');
+if (!/<meta name="robots" content="noindex,nofollow,noarchive">/.test(willEstateIntake)) {
+  errors.push('client/will-estate-intake: noindex and nofollow are required');
+}
+if (!/canwise-law-will-estate-intake\.yiyao2025\.chatgpt\.site\/client\/will-estate-intake/.test(willEstateIntake)) {
+  errors.push('client/will-estate-intake: hosted questionnaire is not embedded');
+}
+
 for (const slug of pricingPages) {
   const english = read(`content/embedded/${slug}.html`);
   const chinese = read(`content/zh/embedded/${slug}.html`);
