@@ -8,6 +8,15 @@
 - If the authenticated login is not `cherry88cn`, or cannot be verified, stop all CanWise GitHub activity and obtain corrected account access before continuing.
 - A request for direct publication, an urgent fix, or deployment does not override this rule.
 
+## Project documentation and recordkeeping
+
+- GitHub is the authoritative long-term record for the CanWise website. Do not treat a local checkout, a chat transcript, or a temporary cloud workspace as the controlling copy.
+- Before website work, read `README.md`, `docs/WEBSITE_WORKING_MANUAL.md`, `docs/DECISIONS.md`, `docs/RECOVERY.md`, `TRANSLATION_RULES.md`, and any task-specific instructions in this file.
+- When the user states a new permanent rule, standing preference, architecture decision, storage rule, or publishing constraint, update the relevant GitHub documentation as part of the same task.
+- Do not add one-time instructions, draft ideas, or case-specific requests to the permanent manual unless the user identifies them as continuing rules.
+- Record material published changes in `docs/CHANGELOG.md`. Record durable decisions and their reasons in `docs/DECISIONS.md`.
+- Never commit passwords, authentication codes, API keys, client files, client facts, complete private DNS exports, or other confidential information. This repository is public unless its verified GitHub settings show otherwise.
+
 ## Blog content model
 
 - Maintain every Blog article as a single Markdown source file in `content/blog/`.
