@@ -12,6 +12,12 @@ GitHub account rule: all repository work must be performed through the verified 
 - [Change log](docs/CHANGELOG.md)
 - [Decision record](docs/DECISIONS.md)
 - [Recovery and new-computer guide](docs/RECOVERY.md)
+- [External integrations](docs/INTEGRATIONS.md)
+- [Production URL and source map](docs/CONTENT_MAP.md)
+- [Legacy redirect register](docs/REDIRECTS.md)
+- [Website asset register](docs/ASSET_REGISTER.md)
+- [SEO checklist](docs/SEO_CHECKLIST.md)
+- [Release checklist](docs/RELEASE_CHECKLIST.md)
 - [Chinese translation rules](TRANSLATION_RULES.md)
 - [Editable content guide](content/README.md)
 

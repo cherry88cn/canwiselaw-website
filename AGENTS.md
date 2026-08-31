@@ -13,6 +13,8 @@
 - GitHub is the authoritative long-term record for the CanWise website. Do not treat a local checkout, a chat transcript, or a temporary cloud workspace as the controlling copy.
 - Before website work, read `README.md`, `docs/WEBSITE_WORKING_MANUAL.md`, `docs/DECISIONS.md`, `docs/RECOVERY.md`, `TRANSLATION_RULES.md`, and any task-specific instructions in this file.
 - When the user states a new permanent rule, standing preference, architecture decision, storage rule, or publishing constraint, update the relevant GitHub documentation as part of the same task.
+- A clear statement that a requirement is a foundational, permanent, standing, or long-term rule is itself continuing authorization to update and push only the relevant project documentation to `main` after verification. Do not wait for a second publication instruction for that documentation-only update.
+- This continuing documentation authorization does not authorize changes to website copy, functionality, integrations, deployment configuration, DNS, email settings, or other operational systems. If it is unclear whether an instruction is permanent, ask the user before recording it as a rule.
 - Do not add one-time instructions, draft ideas, or case-specific requests to the permanent manual unless the user identifies them as continuing rules.
 - Record material published changes in `docs/CHANGELOG.md`. Record durable decisions and their reasons in `docs/DECISIONS.md`.
 - Never commit passwords, authentication codes, API keys, client files, client facts, complete private DNS exports, or other confidential information. This repository is public unless its verified GitHub settings show otherwise.

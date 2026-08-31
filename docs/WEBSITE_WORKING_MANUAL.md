@@ -1,6 +1,7 @@
 # CanWise Website 工作手册
 
-版本：1.3  
+版本：1.4
+
 核对日期：2026年8月31日  
 适用项目：CanWise Law Website
 
@@ -17,12 +18,20 @@
 5. `docs/DECISIONS.md`
 6. `docs/CHANGELOG.md`
 7. `docs/RECOVERY.md`
+8. `docs/INTEGRATIONS.md`
+9. `docs/CONTENT_MAP.md`
+10. `docs/REDIRECTS.md`
+11. `docs/ASSET_REGISTER.md`
+12. `docs/SEO_CHECKLIST.md`
+13. `docs/RELEASE_CHECKLIST.md`
 
 如本手册与用户在当前任务中的明确指示冲突，以当前明确指示为准。涉及中文法律术语时，以 `TRANSLATION_RULES.md` 为准。涉及博客结构时，以 `AGENTS.md` 为准。
 
 ### 1.1 手册自动维护规则
 
 - 用户提出新的长期规则、固定偏好、架构决定、存储规则或发布限制时，应在完成该项任务的同时自动更新本手册或相应 GitHub 文档。
+- 用户明确说明某项要求属于底层规则、永久规则、固定规则或长期要求时，该说明本身即授权在核验后更新并提交相关规则文档至 `main`，不必另行询问是否发布该文档更新。
+- 上述持续授权仅适用于项目规则文档，不包括网站正文、功能、外部服务、部署配置、DNS 或邮箱设置。性质不清楚时，应先询问用户是否作为永久规则保存。
 - 一次性的临时要求、尚未确认的想法及个别页面草稿，不自动写入永久手册。
 - 重大网站发布应写入 `docs/CHANGELOG.md`；具有长期影响的决定及理由应写入 `docs/DECISIONS.md`。
 - GitHub 中的文档为正式版本。聊天记录和本地副本只用于协助工作，不得覆盖 GitHub 中更新的版本。
