@@ -43,3 +43,7 @@ CanWise 网站及相关项目只使用 GitHub 账号 `cherry88cn`。任何 GitHu
 ## D-010：遗嘱及遗产 intake 集成
 
 主站通过 `/client/will-estate-intake/` iframe 加载外部问卷。该路径不加入导航和 sitemap，并使用 `noindex,nofollow,noarchive`。此措施不是身份验证或访问控制。
+
+## D-011：统一计时收费
+
+CanWise Law 网站中明确按小时计费的律师服务统一为 CAD $350 / 小时。未标注为按小时收费的固定咨询费或其他固定收费不因此自动调整。
