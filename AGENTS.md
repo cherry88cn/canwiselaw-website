@@ -96,5 +96,12 @@ Confirm the Blog directory, article page, tag filtering, internal links, and res
 - Apply the approved compact heading scale to every existing and future Blog article.
 - Blog article title (`.article > h1`): `font-size: clamp(2rem, 4vw, 3.15rem)`.
 - Blog first-level content heading (`.article-body > h2`): `font-size: clamp(1.55rem, 2.8vw, 2.05rem)`.
-- Keep the Georgia heading typeface unless the user explicitly requests a different font.
+- English Blog headings continue to use Georgia. Chinese Blog headings and body text use the self-hosted Source Han Sans CN family under the site-wide Chinese typography rule.
 - Do not change article wording, structure, or heading hierarchy merely to apply these typography rules.
+
+## Chinese typography
+
+- Use the self-hosted Source Han Sans CN variable webfont for all text on every current and future Chinese page, including navigation, headings, body text, fee tables, Blog pages, and Chinese embedded business pages.
+- Load the font from `/assets/fonts/SourceHanSansCN-VF.otf.woff2`; do not depend on Google Fonts or another external font service.
+- Apply the rule centrally in `scripts/build-site.mjs`. Do not rely on editing individual generated pages or on device-specific system fonts.
+- Preserve intentional heading hierarchy and component font sizes. The uniformity rule concerns the font family and glyph rendering, not making every heading the same size.

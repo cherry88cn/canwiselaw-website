@@ -13,6 +13,17 @@ const pricingPages = [
 const read = relative => fs.readFileSync(path.join(repo, relative), 'utf8');
 const amounts = text => [...text.matchAll(/\$[\d,]+/g)].map(match => match[0]);
 
+const sourceHanFont = path.join(repo, 'assets/fonts/SourceHanSansCN-VF.otf.woff2');
+if (!fs.existsSync(sourceHanFont) || fs.statSync(sourceHanFont).size < 1_000_000) {
+  errors.push('assets/fonts: self-hosted Source Han Sans CN webfont is missing or incomplete');
+}
+
+const siteCss = read('assets/site.css');
+if (!siteCss.includes('@font-face{font-family:"Source Han Sans CN"') ||
+    !siteCss.includes('html[lang="zh-CN"] body *{font-family:"Source Han Sans CN"')) {
+  errors.push('assets/site.css: site-wide Chinese typography rule is missing');
+}
+
 const willEstateIntake = read('client/will-estate-intake/index.html');
 if (!/<meta name="robots" content="noindex,nofollow,noarchive">/.test(willEstateIntake)) {
   errors.push('client/will-estate-intake: noindex and nofollow are required');
@@ -76,6 +87,13 @@ collect(repo);
 
 for (const file of generatedHtml) {
   const html = fs.readFileSync(file, 'utf8');
+  if (/<html lang="zh-CN">/.test(html) && !html.includes('SourceHanSansCN-VF.otf.woff2')) {
+    errors.push(`${path.relative(repo,file)}: Chinese page does not preload the self-hosted font`);
+  }
+  if (/^zh[\\/]/.test(path.relative(repo,file)) && html.includes('class="embed-page"') &&
+      !html.includes('body,body *{font-family:&quot;Source Han Sans CN&quot;')) {
+    errors.push(`${path.relative(repo,file)}: Chinese embedded content does not override mixed heading fonts`);
+  }
   for (const match of html.matchAll(/href="([^"]+)"/g)) {
     const href = match[1];
     if (/^(?:https?:|mailto:|tel:|#|javascript:)/.test(href)) continue;
@@ -89,6 +107,11 @@ for (const file of generatedHtml) {
       errors.push(`${path.relative(repo,file)}: missing internal link ${href}`);
     }
   }
+}
+
+const sitemap = read('sitemap.xml');
+for (const [, location] of sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)) {
+  if (!location.endsWith('/')) errors.push(`sitemap.xml: canonical URL lacks trailing slash: ${location}`);
 }
 
 if (errors.length) {

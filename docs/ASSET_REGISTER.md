@@ -12,6 +12,7 @@
 | `assets/images/canada-ime-items-reference-price.png` | 医疗不准入文章中的体检参考图 | 检查文字可读性及移动端宽度 | 待核对 |
 | `content/blog/images/oinp-2026-workforce-priority-eoi-scoring.jpg` | OINP 评分文章源图片 | 构建时复制到 `assets/blog/` | 待核对 |
 | `assets/blog/oinp-2026-workforce-priority-eoi-scoring.jpg` | 上述 Blog 图片的生成副本 | 不直接编辑，应修改 `content/blog/images/` 中的源文件 | 继承源图片记录 |
+| `assets/fonts/SourceHanSansCN-VF.otf.woff2` | 全站中文标题和正文字体 | 保持网站自行托管；由 `scripts/build-site.mjs` 统一加载，不改为外部字体服务 | Adobe Source Han Sans，SIL Open Font License 1.1；许可文本见同目录 `LICENSE.txt` |
 
 ## 新增或替换图片时
 
