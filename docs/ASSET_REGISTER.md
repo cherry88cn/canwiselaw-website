@@ -14,6 +14,13 @@
 | `assets/blog/oinp-2026-workforce-priority-eoi-scoring.jpg` | 上述 Blog 图片的生成副本 | 不直接编辑，应修改 `content/blog/images/` 中的源文件 | 继承源图片记录 |
 | `assets/fonts/SourceHanSansCN-VF.otf.woff2` | 全站中文标题和正文字体 | 保持网站自行托管；由 `scripts/build-site.mjs` 统一加载，不改为外部字体服务 | Adobe Source Han Sans，SIL Open Font License 1.1；许可文本见同目录 `LICENSE.txt` |
 
+## 远程视频见证签字文章截图（2026-09-15）
+
+- 源文件：`content/blog/images/remote-video-witness-signing-adobe-1.png`、`remote-video-witness-signing-adobe-2.png`、`remote-video-witness-signing-adobe-3.png`。
+- 来源：用户上传的《电子签名步骤.docx》，用户明确授权用于本篇网站文章。
+- 用途：依次展示签名工具入口、Add Signature 和三种签名建立方式；仅裁切多余区域，保留原有操作标记及含义。
+- 构建副本：`assets/blog/` 下同名文件；应随源图一同发布。
+
 ## 新增或替换图片时
 
 1. 记录文件用途、来源、授权状态和必要的署名要求。
