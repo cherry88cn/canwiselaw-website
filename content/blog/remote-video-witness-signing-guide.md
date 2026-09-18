@@ -58,19 +58,13 @@ tags: 远程见证, 电子签名
 
 ![截图 1：Adobe 中打开签名功能](/assets/blog/remote-video-witness-signing-adobe-1.png)
 
-[查看清晰大图](/assets/blog/remote-video-witness-signing-adobe-1.png)
-
 第一次使用时，需要先建立自己的签名。您可以按照 Adobe 提供的方式添加签名。
 
 ![截图 2：选择 Add Signature 添加签名](/assets/blog/remote-video-witness-signing-adobe-2.png)
 
-[查看清晰大图](/assets/blog/remote-video-witness-signing-adobe-2.png)
-
 Adobe 通常会提供不同的添加签名方式。
 
 ![截图 3：Adobe 的 Type、Draw 和 Image 三种添加签名方式](/assets/blog/remote-video-witness-signing-adobe-3.png)
-
-[查看清晰大图](/assets/blog/remote-video-witness-signing-adobe-3.png)
 
 **我们推荐使用第三种方式，即上传本人实际手写签名的图片。** 您可以提前在一张干净的白纸上签名并拍照，然后将签名图片上传并保存到 Adobe 中。
 

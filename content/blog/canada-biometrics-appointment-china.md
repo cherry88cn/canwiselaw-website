@@ -37,7 +37,6 @@ IRCC 通常要求收到指纹信后30天内完成采集，若无法按期完成�
 
 ![截图1：从中国区官网进入在线预约](/assets/blog/china-biometrics-01.png)
 
-[查看清晰大图](/assets/blog/china-biometrics-01.png)
 
 ### 第2步：注册或登录 VFS 账户
 
@@ -45,13 +44,11 @@ IRCC 通常要求收到指纹信后30天内完成采集，若无法按期完成�
 
 ![截图2：预约系统登录入口](/assets/blog/china-biometrics-02.png)
 
-[查看清晰大图](/assets/blog/china-biometrics-02.png)
 
 注册时使用能及时查收邮件的邮箱，并保存好登录信息。
 
 ![截图3：新用户注册页面](/assets/blog/china-biometrics-03.png)
 
-[查看清晰大图](/assets/blog/china-biometrics-03.png)
 
 ### 第3步：选择城市、人数及预约类别
 
@@ -59,7 +56,6 @@ IRCC 通常要求收到指纹信后30天内完成采集，若无法按期完成�
 
 ![截图4：选择签证中心、申请人数和仅生物识别类别](/assets/blog/china-biometrics-04.png)
 
-[查看清晰大图](/assets/blog/china-biometrics-04.png)
 
 ### 第4步：添加申请人，上传指纹信
 
@@ -67,7 +63,6 @@ IRCC 通常要求收到指纹信后30天内完成采集，若无法按期完成�
 
 ![截图5：从申请人列表增加申请人](/assets/blog/china-biometrics-05.png)
 
-[查看清晰大图](/assets/blog/china-biometrics-05.png)
 
 上传该申请人的指纹信。每位申请人都要上传自己的信，不能共用一人的指纹信。
 
@@ -75,7 +70,6 @@ IRCC 通常要求收到指纹信后30天内完成采集，若无法按期完成�
 
 ![截图6：上传指纹信并核对申请人资料](/assets/blog/china-biometrics-06.png)
 
-[查看清晰大图](/assets/blog/china-biometrics-06.png)
 
 ### 第5步：核对名单，完成邮箱验证
 
@@ -83,7 +77,6 @@ IRCC 通常要求收到指纹信后30天内完成采集，若无法按期完成�
 
 ![截图7：核对申请人并发送验证码](/assets/blog/china-biometrics-07.png)
 
-[查看清晰大图](/assets/blog/china-biometrics-07.png)
 
 ### 第6步：选择日期和时段
 
@@ -91,7 +84,6 @@ IRCC 通常要求收到指纹信后30天内完成采集，若无法按期完成�
 
 ![截图8：选择可预约日期及具体时段，图中为2025年示例](/assets/blog/china-biometrics-08.png)
 
-[查看清晰大图](/assets/blog/china-biometrics-08.png)
 
 ### 第7步：下载预约信，保存确认邮件
 
@@ -99,13 +91,11 @@ IRCC 通常要求收到指纹信后30天内完成采集，若无法按期完成�
 
 ![截图9：预约成功后下载预约信](/assets/blog/china-biometrics-09.png)
 
-[查看清晰大图](/assets/blog/china-biometrics-09.png)
 
 同时保存邮箱收到的确认邮件，并核对姓名、日期、时间及中心地址。需要变更行程时，从官方系统进入修改或取消预约，完成后重新保存最新确认。
 
 ![截图10：保存预约确认邮件及修改、取消入口](/assets/blog/china-biometrics-10.png)
 
-[查看清晰大图](/assets/blog/china-biometrics-10.png)
 
 ## 三、去签证中心当天带什么？
 
