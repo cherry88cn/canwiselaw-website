@@ -188,7 +188,7 @@ const articleOrder = ['medical-inadmissibility-history-excessive-demand-2026-par
 articles.sort((a,b)=>articleOrder.indexOf(a.slug)-articleOrder.indexOf(b.slug));
 const articleGroups = {
   news: articles.filter(article=>article.section === 'news'),
-  guides: articles.filter(article=>article.section === 'guides')
+  guides: articles.filter(article=>article.section === 'guides').sort((a,b)=>Date.parse(b.date)-Date.parse(a.date))
 };
 const blog = `<section class="page-hero"><div class="eyebrow">Legal Insights</div><h1>CanWise Law Blog</h1><p>Commentary on Canadian immigration law and practical Canadian immigration resources.</p></section><section class="blog-index"><div class="blog-directory"><div id="news"><div class="eyebrow">Updates & Analysis</div><h2>Blog & News</h2><div class="cards blog-list">${articleGroups.news.map(a=>articleCard(a,`./${a.slug}/`,'Read article')).join('')}</div></div><div id="guides"><div class="eyebrow">Practical Resources</div><h2>Guides & Information</h2><div class="cards blog-list">${articleGroups.guides.map(a=>articleCard(a,`./${a.slug}/`,'Read article')).join('')}</div></div></div></section>`;
 const zhBlog = `<section class="page-hero"><div class="eyebrow">法律资讯</div><h1>CanWise Law 文章</h1><p>加拿大移民法律、政策和实务文章。</p></section><section class="blog-index"><div class="blog-directory"><div id="news"><h2 class="category-title">政策与案例</h2><div class="cards blog-list">${articleGroups.news.map(a=>articleCard(a,`/blog/${a.slug}/`,'阅读文章')).join('')}</div></div><div id="guides"><h2 class="category-title">实用百科</h2><div class="cards blog-list">${articleGroups.guides.map(a=>articleCard(a,`/blog/${a.slug}/`,'阅读文章')).join('')}</div></div></div></section>`;
