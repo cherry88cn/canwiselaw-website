@@ -51,3 +51,25 @@ CanWise Law 网站中明确按小时计费的律师服务统一为 CAD $350 / �
 ## D-012：中文字体统一并由网站自行托管
 
 所有现有及以后新增的中文页面统一使用网站自行托管的 Source Han Sans CN（思源黑体）可变网页字体，包括导航、标题、正文、收费表、文章页及 iframe 内嵌业务页面。字体规则集中维护在 `scripts/build-site.mjs`，字体文件位于 `assets/fonts/`。网站不得依赖 Google Fonts；系统中文字体只作为字体资源无法加载时的后备。标题层级及既有组件字号继续保留，不因字体统一而改为相同字号。
+
+## D-013：Booking MVP 的开发边界（尚未切换生产）
+
+Booking MVP 保留 GitHub Pages 托管，网站双语、微信小程序中文，使用共同的预约申请 API。Google Apps Script 仅通过 FreeBusy 检查私人日历，Google Sheets 保存申请，MailApp 通知内部邮箱。Google 凭证及原始日历忙碌数据留在 Google；腾讯及公共客户端只获得计算后的可申请时段和必要申请数据。所有真实配置在私人环境完成，不进入公开仓库。
+
+预约须人工确认，不自动写回 Calendar，不收款，不锁定待确认时段。私人 Overrides 表可以添加对所有客户开放的日期时段，不能绕过日历冲突及提前时间规则。免费额度优先；中间层与微信大陆真机可用性必须实际验证。普通微信实名认证不等于已注册或符合小程序业务类目条件。
+
+在独立开发分支准备代码与交接材料，不替换现有 Calendly 入口。Google 授权、真实写表/邮件测试及生产切换分别由用户启动。详见 `booking-mvp/README.md`。
+
+## 2026-10-28 — 统一预约架构（实施分支）
+
+公开预约 API 固定为 Cloudflare Workers + D1；网站保留 GitHub Pages，小程序继续由 WorkBuddy 开发。私有 Google Apps Script 只通过 FreeBusy 读取 busy 并推送衍生可用时段，定时领取 D1 通知任务用 MailApp 通知。Google Token、日历标识及原始 busy 不交给 Cloudflare/腾讯。旧公开 Apps Script API 和 relay 架构退役。
+
+预约进入 pending 时原子占用时段，仍待人工确认；不支付、不写回日历。同步过期或通知链路不健康关闭新预约。大陆微信网络及主体审核必须实际验证；当前不能声称通过。此记录是实施方案，不是正式上线记录。
+
+## 2026-10-28 — CloudBase + Muse supersedes Google/Cloudflare booking design
+
+The owner selected CloudBase's free plan for a self-managed shared booking calendar. Website remains GitHub Pages; mini-program remains WorkBuddy's responsibility. Muse, separately authorized by the owner, reads the primary Google calendar and publishes only opaque IDs plus UTC Busy start/end times. Server fixes title to Busy and rejects private event detail fields. No Google/Apple OAuth token or direct calendar connection is needed by CanWise or CloudBase. Automatic email notifications are cancelled.
+
+Muse can read appointment time/status/name/contact to report to the owner, and has schedule/booking business management permissions through a dedicated revocable token. That token cannot administer the Tencent cloud account, billing, deployments, environment deletion or token issuance. Public clients never receive it or customer lists. Admin uses owner account authentication with server UID allowlist.
+
+Low volume (1–2 bookings/week) warrants pending manual confirmation and basic transactional occupancy only; no complicated concurrency or Google writeback. UTC storage with America/Toronto presentation, explicit deny-all client DB rules, minimal logs, optional sync-freshness closure and bounded audit/restore remain required. Free entitlement and actual mainland WeChat/Muse access must be tested; no paid upgrade is authorized. Current CloudBase code is local and not yet cloud-accepted. Legacy Cloudflare staging remains disabled; legacy Apps Script is not part of the new architecture.
