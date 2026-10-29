@@ -1,0 +1,5 @@
+allowBuilds:
+  core-js-pure: false
+  esbuild: false
+minimumReleaseAgeExclude:
+  - '@cloudbase/cli@3.8.10'

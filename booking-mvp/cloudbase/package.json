@@ -1,0 +1,7 @@
+{
+	"devDependencies": {
+		"@cloudbase/cli": "3.8.10",
+		"@cloudbase/js-sdk": "3.10.4",
+		"esbuild": "0.25.12"
+	}
+}
