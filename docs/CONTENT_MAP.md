@@ -70,3 +70,10 @@
 | 中文法律术语 | `TRANSLATION_RULES.md` 及对应源内容 |
 
 定位页面时，先以正式 URL 确定 slug，再查本表。只有构建逻辑本身需要改变时才修改构建脚本。
+
+## Provincial nomination and Ontario
+
+- `/provincial-nomination/` and `/zh/provincial-nomination/`: `content/provincial-nomination/pages.mjs` and `provinces.mjs`.
+- `/ontario-oinp/` and `/zh/ontario-oinp/`: the same page module plus `calculator-fragment.html`, `calculator.mjs` and shared `scoring.mjs`.
+- Styles and browser modules build to `assets/provincial-nomination/`; do not edit generated files.
+- `docs/OINP_VALIDATION.md` documents scope, rule evidence and test limits. Run `node scripts/oinp.test.mjs` after calculator changes.

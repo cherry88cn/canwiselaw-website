@@ -4,6 +4,10 @@
 
 ## 2026-11-09
 
+- Add bilingual Provincial Nomination overview and Ontario OINP service/calculator pages, linked from both immigration-service pages. Cover 11 PNP jurisdictions and distinguish AIP as a separate program.
+- Add shared Workforce Priority job-offer EOI scoring (Beta), grouped dropdowns, bold points and bilingual FAQ. Record 20-law-firm research and official program checks.
+- Verify 20 fictional profiles in ImmiPilot and both CanWise interfaces against independently assigned official factor scores; all match. See `docs/OINP_VALIDATION.md` and `docs/oinp-20-profile-results.json`.
+
 - Link each high-wage work and job-offer tier in both CRS calculator languages to its corresponding IRCC occupation table using text fragments. Remove the shared list anchor that overrode tier positioning. Scoring is unchanged.
 
 ## 2026-11-08

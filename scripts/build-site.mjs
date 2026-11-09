@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {calculatorPage} from '../content/express-entry/calculator-page.mjs';
 import {servicePage} from '../content/express-entry/service-page.mjs';
+import {provincialPage} from '../content/provincial-nomination/pages.mjs';
 
 const repo = path.resolve(import.meta.dirname, '..');
 const calendly = 'https://calendly.com/hding-canwiselaw/legal-consultation';
@@ -12,6 +13,7 @@ const routes = [
   'legal-consultation','judicial-review','immigration-appeal-division','writ-of-mandamus'
 ];
 const eeRoutes = ['express-entry','crs-calculator'];
+const pnpRoutes = ['provincial-nomination','ontario-oinp'];
 
 const titles = {
   home:'CanWise Law | Immigration, Business & Family Law',
@@ -394,4 +396,19 @@ for(const lang of ['en','zh']) for(const slug of eeRoutes){
   }));
 }
 
-console.log(`Built ${routes.length+1+articles.length} pages.`);
+const pnpAssets=path.join(repo,'assets','provincial-nomination');
+fs.mkdirSync(pnpAssets,{recursive:true});
+for(const file of ['pages.css','calculator.css','calculator.mjs','scoring.mjs']) fs.copyFileSync(path.join(repo,'content','provincial-nomination',file),path.join(pnpAssets,file));
+for(const lang of ['en','zh']) for(const slug of pnpRoutes){
+  const zh=lang==='zh', ontario=slug==='ontario-oinp', urlPath=`${zh?'zh/':''}${slug}/`;
+  const folder=path.join(repo,urlPath);fs.mkdirSync(folder,{recursive:true});
+  fs.writeFileSync(path.join(folder,'index.html'),shell(slug,provincialPage(lang,ontario),{
+    lang,urlPath,prefix:zh?'../../':'../',
+    pageTitle:(ontario?(zh?'安省省提名与 OINP EOI 算分器':'Ontario OINP & EOI Calculator'):(zh?'加拿大省提名项目与 AIP':'Provincial Nominee Programs & AIP'))+' | CanWise Law',
+    desc:ontario?(zh?'了解安省 Workforce Priority 申请流程，使用双语 EOI 算分器并核对工作地区及收入等常见问题。':'Understand Ontario Workforce Priority applications, estimate EOI points and review job-location and earnings questions.'):(zh?'了解加拿大各省及地区省提名项目、当前受理限制，以及独立的大西洋移民计划 AIP。':'Explore Canadian provincial nomination routes, current intake limitations and the separate Atlantic Immigration Program.')
+  }));
+}
+const sitemapPath=path.join(repo,'sitemap.xml');
+fs.writeFileSync(sitemapPath,fs.readFileSync(sitemapPath,'utf8').replace('</urlset>',pnpRoutes.flatMap(slug=>[slug,`zh/${slug}`]).map(slug=>`<url><loc>${siteUrl}/${slug}/</loc></url>`).join('')+'</urlset>'));
+console.log(`Built ${routes.length+1+articles.length+eeRoutes.length*2+pnpRoutes.length*2} pages.`);
+
