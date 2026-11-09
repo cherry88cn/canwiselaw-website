@@ -1,0 +1,36 @@
+// BC PNP Skills Immigration Guide, June 10, 2026, Part 8. No federal CRS scoring.
+export const GUIDE='https://www.welcomebc.ca/immigrate-to-b-c/bc-pnp-si-program-guide-pdf';
+const o=(value,points,zh,en)=>({value,points,zh,en});
+const yesNo=(points)=>[o('no',0,'否','No'),o('yes',points,'是，符合以下条件','Yes, meets the conditions below')];
+export const fields=[
+ {id:'exp',group:0,zh:'直接相关工作经验',en:'Directly related work experience',options:[o('none',0,'无经验','None'),o('under1',1,'不足 1 年','Less than 1 year'),o('1',4,'1 年至不足 2 年','1 to under 2 years'),o('2',8,'2 年至不足 3 年','2 to under 3 years'),o('3',12,'3 年至不足 4 年','3 to under 4 years'),o('4',16,'4 年至不足 5 年','4 to under 5 years'),o('5',20,'5 年及以上','5 years or more')],hintZh:'计算过去 10 年的合资格直接相关经验；兼职按期间的 50% 折算。',hintEn:'Qualifying directly related experience in the last 10 years; part-time duration counts at 50%.'},
+ {id:'canada',group:0,zh:'其中至少 1 年加拿大经验',en:'At least 1 year of that experience in Canada',options:yesNo(10),hintZh:'须合法工作并为加拿大设立的雇主工作；每周至少 30 小时须满 12 个月，不足 30 小时须满 24 个月。',hintEn:'Authorized work for an employer established in Canada: 12 months at 30+ hours/week, or 24 months below 30 hours/week.'},
+ {id:'current',group:0,zh:'目前为申报雇主在 BC 全职工作',en:'Currently working full-time for the supporting BC employer',options:yesNo(10),hintZh:'每周至少 30 小时、同一雇主及同一 NOC；未来晋升职位及无薪工作不计。',hintEn:'At least 30 hours/week, same employer and NOC. A future promotion or unpaid work does not qualify.'},
+ {id:'education',group:1,zh:'最高已完成学历',en:'Highest completed education',options:[o('secondary',0,'高中及以下／无合资格学历','Secondary or less / no eligible credential'),o('diploma',5,'高等教育文凭或证书','Post-secondary diploma or certificate'),o('associate',5,'副学士学位','Associate degree'),o('bachelor',15,'学士学位','Bachelor’s degree'),o('postgrad',15,'学士后证书或文凭','Post-graduate certificate or diploma'),o('master',22,'硕士学位','Master’s degree'),o('doctorate',27,'博士学位','Doctoral degree')],hintZh:'课程须超过 6 个月；加拿大远程教育不计。学士后课程须以学士学位为最低入学要求。',hintEn:'Program longer than 6 months; Canadian distance education is ineligible. Post-graduate programs must require a bachelor’s degree for entry.'},
+ {id:'educationPlace',group:1,zh:'上述最高学历在哪里完成？',en:'Where was that highest credential completed?',options:[o('outside',0,'加拿大以外','Outside Canada'),o('canada',6,'加拿大其他省／地区','Canada, outside BC'),o('bc',8,'BC 省','British Columbia')],hintZh:'仅对应上方最高学历；不能用其他较低学历取得此项奖励。语言课程及远程教育不计。',hintEn:'Only the highest credential above qualifies; an unrelated lower credential cannot earn this bonus. No language or distance programs.'},
+ {id:'designation',group:1,zh:'与工作邀请对应的指定职业资格',en:'Eligible professional designation for the job offer',options:yesNo(5),hintZh:'仅限官方列出的职业与相应资格；并非所有专业执照都加分。',hintEn:'Only listed occupations and their corresponding designations qualify; not every professional licence earns points.'},
+ {id:'clb',group:2,zh:'有效语言成绩的最低 CLB／NCLC',en:'Lowest CLB / NCLC in a valid language test',options:[o('0',0,'低于 4／无有效成绩','Below 4 / no valid test'),...[4,5,6,7,8,9].map(n=>o(String(n),(n-3)*5,n===9?'9 及以上':String(n),n===9?'9 or higher':String(n)))],hintZh:'取同次考试四项最低值；英法均有有效成绩时选较高的一组。注册时成绩须未满两年。',hintEn:'Use the lowest of four skills in one test; use the stronger valid test if you have both languages. Results must be less than two years old at registration.'},
+ {id:'bilingual',group:2,zh:'英法两种语言均达到 4',en:'Both English and French at level 4 or above',options:yesNo(10),hintZh:'两种有效考试的听、说、读、写均须达到 4；仅会说两种语言不计分。',hintEn:'All four skills in both valid tests must reach level 4. Speaking two languages alone is not enough.'},
+ {id:'wage',group:3,zh:'工作邀请的基本时薪（加元）',en:'Base hourly wage of the job offer (CAD)',options:[o('below16',0,'低于 $16.00','Below $16.00'),...Array.from({length:54},(_,i)=>o(String(i+16),i+1,`$${i+16}.00–$${i+16}.99`,`$${i+16}.00–$${i+16}.99`)),o('70',55,'$70.00 及以上','$70.00 or above')],hintZh:'不含奖金、佣金、小费、加班及津贴。计分档次不代表符合最低工资或职位工资要求。',hintEn:'Exclude bonuses, commissions, tips, overtime and allowances. A scoring band does not establish wage eligibility.'},
+ {id:'area',group:4,zh:'BC 主要工作地点',en:'Main work location in BC',options:[o('1',0,'Area 1 · 大温地区','Area 1 · Metro Vancouver'),o('2',5,'Area 2 · 指定五地','Area 2 · Five specified communities'),o('3',15,'Area 3 · BC 其他地区','Area 3 · Other BC communities')],hintZh:'按实际主要工作地点；居家办公按住址，并须能合理履行工作职责。',hintEn:'Use the main physical workplace; home-based work uses your residence, where duties must reasonably be performed.'},
+ {id:'regional',group:4,zh:'地区经验／地区毕业生奖励',en:'Regional experience / regional alumni bonus',options:[o('none',0,'不符合','Neither'),o('work',10,'符合地区工作经验条件','Qualifying regional work experience'),o('alumni',10,'符合地区毕业生条件','Qualifying regional alumni'),o('both',10,'两项均符合（只加一次）','Both qualify (awarded once)')],hintZh:'仅 Area 2、3 可用：过去 5 年内在大温以外有至少 1 年全职或等量带薪工作；或过去 3 年从当地公立高等院校毕业、学习时也住当地，课程至少 8 个月，不含实习、语言及远程课程。',hintEn:'Area 2 or 3 only: at least 1 year full-time-equivalent paid work outside Metro Vancouver in the last 5 years; or graduation in the last 3 years from a public BC post-secondary institution outside Metro Vancouver while residing there, with at least 8 months of coursework, excluding placements, language and distance programs.'}
+];
+export const groups=[['工作经验','Work experience',40],['教育背景','Education',40],['语言能力','Language',40],['工作邀请工资','Job-offer wage',55],['工作地区','Work location',25]];
+export function calculateBC(a={}){
+ const rows=fields.map(f=>{const option=f.options.find(o=>o.value===a[f.id]);return {id:f.id,group:f.group,points:option?.points??null,option:option??null,review:a[f.id]==='review'};});
+ const get=id=>rows.find(r=>r.id===id),issues=[];
+ const exclude=(id,code)=>{get(id).points=null;issues.push(code);};
+ if(['none','under1'].includes(a.exp)&&a.canada==='yes')exclude('canada','canadaConflict');
+ else if(!get('exp').option&&a.canada==='yes')exclude('canada','experienceNeeded');
+ if(a.exp==='none'&&a.current==='yes')exclude('current','currentConflict');
+ if(a.education==='secondary') {get('educationPlace').points=0;get('educationPlace').inactive=true;}
+ else if(!get('education').option&&['bc','canada'].includes(a.educationPlace))exclude('educationPlace','educationNeeded');
+ if(a.clb==='0'&&a.bilingual==='yes')exclude('bilingual','languageConflict');
+ else if(!get('clb').option&&a.bilingual==='yes')exclude('bilingual','languageNeeded');
+ if(a.area==='1'){get('regional').points=0;get('regional').inactive=true;}
+ else if(!get('area').option&&['work','alumni','both'].includes(a.regional))exclude('regional','areaNeeded');
+ const active=rows.filter(r=>!r.inactive),done=active.filter(r=>r.points!==null).length;
+ return {rows,total:rows.reduce((s,r)=>s+(r.points??0),0),subtotals:groups.map((_,i)=>rows.filter(r=>r.group===i).reduce((s,r)=>s+(r.points??0),0)),hasScore:active.some(r=>r.points!==null),done,required:active.length,complete:done===active.length,issues,review:active.some(r=>r.review)};
+}
+export function hourlyBand(raw){if(raw===''||raw===null||raw===undefined)return null;const n=Number(raw);if(!Number.isFinite(n)||n<0)return null;return n<16?'below16':String(Math.min(70,Math.floor(n)));}
+export function salaryToHourly(salary,hours,teacher=false){if(salary===''||hours===''&&!teacher)return null;const s=Number(salary),h=teacher?30:Number(hours);return Number.isFinite(s)&&s>0&&Number.isFinite(h)&&h>=30&&h<=40?s/52/h:null;}

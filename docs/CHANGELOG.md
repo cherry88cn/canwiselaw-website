@@ -4,6 +4,8 @@
 
 ## 2026-11-09
 
+- Publish the approved bilingual BC PNP service/calculator pages and add BC entry links to the Provincial Nomination overview. Preserve existing site UI and Ontario pages. Place 40 recent official Skills Immigration invitation category records at the end, with category filtering and separate wage/points conditions. Validate 33 fictional scoring cases in both interfaces, salary/language helpers and responsive layouts; see `docs/BC_PNP_VALIDATION.md`.
+
 - Expand bilingual OINP common-city region examples with the approved city list, including London; group GTA examples by regional municipality and clarify Toronto includes North York, Scarborough and Etobicoke. Scoring is unchanged.
 
 - Show a running selected-item subtotal in both OINP calculator languages from the first scored selection. Leave unanswered and review-only items unscored; exclude inconsistent bilingual points while retaining the other selected points. Complete valid profile scores are unchanged.
