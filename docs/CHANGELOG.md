@@ -2,6 +2,10 @@
 
 本文件记录对网站结构、公开内容、部署方式或长期维护具有意义的变化。普通排版微调和无实质影响的生成文件变化可由 Git commit history 记录，不必重复写入本文件。
 
+## 2026-11-09
+
+- Link each high-wage work and job-offer tier in both CRS calculator languages to its corresponding IRCC occupation table using text fragments. Remove the shared list anchor that overrode tier positioning. Scoring is unchanged.
+
 ## 2026-11-08
 
 - Clarify that foreign work is entered as aggregate years and individual Canadian rows are qualifying high-wage work only. Selecting a high-wage tier from None defaults its duration to one year; changing between high-wage tiers preserves an edited duration. Apply both languages.
