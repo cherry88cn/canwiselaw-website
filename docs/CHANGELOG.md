@@ -4,6 +4,8 @@
 
 ## 2026-11-09
 
+- Remove the FAQ section from both Provincial Nomination overview pages. Bring the Ontario calculator into the initial viewport with a compact heading; replace the two introductory sections with the approved bilingual application process below the calculator. Preserve Ontario calculator FAQs and scoring rules.
+
 - Replace EE category outbound links with bilingual local eligibility and searchable NOC dialogs; add Chinese occupation names and tier-specific high-wage dialogs. Update five EE FAQs after official-rule review.
 - Hide inapplicable spouse subtotals/details when no accompanying spouse is selected; CRS scoring engine is unchanged.
 - Add a unified EE maintenance entry for invitation history, category criteria/lists and high-wage lists, with translation preservation and review gates for removals or rule changes.
