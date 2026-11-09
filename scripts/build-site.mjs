@@ -382,7 +382,7 @@ fs.writeFileSync(path.join(repo,'sitemap.xml'),`<?xml version="1.0" encoding="UT
 const eeSource=path.join(repo,'content','express-entry');
 const eeAssets=path.join(repo,'assets','express-entry');
 fs.mkdirSync(eeAssets,{recursive:true});
-for(const file of ['crs-engine.mjs','calculator.mjs','tracker.mjs','ee.css','occupations.json']) fs.copyFileSync(path.join(eeSource,file),path.join(eeAssets,file));
+for(const file of ['crs-engine.mjs','calculator.mjs','occupation-dialog.mjs','category-dialog.mjs','tracker.mjs','ee.css','occupations.json']) fs.copyFileSync(path.join(eeSource,file),path.join(eeAssets,file));
 const drawsData=JSON.parse(fs.readFileSync(path.join(eeSource,'draws.json'),'utf8'));
 for(const lang of ['en','zh']) for(const slug of eeRoutes){
   const zh=lang==='zh', urlPath=`${zh?'zh/':''}${slug}/`;

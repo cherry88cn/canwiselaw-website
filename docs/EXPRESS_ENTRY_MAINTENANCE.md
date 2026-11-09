@@ -49,3 +49,27 @@ On November 8, 2026 the official JSON contains 454 entries, January 31, 2015 thr
 `checkedAt` records retrieval/verification date, not the latest draw date. `sourceSHA256` records the hash of the fetched public source. `coverage` reports the actual oldest/newest draw dates and entry count. Each record's `regime` is `pre-2026-11-03` or `from-2026-11-03`; this boundary distinguishes this reform only and does not claim earlier CRS rules were constant.
 
 For offline review of already downloaded official responses, use `--draw-input <JSON file>` and/or `--occupation-input <HTML file>`, with `--checked-at YYYY-MM-DD` set to the actual verification date. These files must come from the stated official sources. Temporary source downloads should stay outside the public repository; do not add client information or credentials.
+
+
+## Unified update entry (November 9, 2026)
+
+Use `node scripts/update-ee.mjs --kind draws|categories|occupations|all` for future maintenance. The default stages proposed snapshots and `review.json` in a temporary folder; it does not change website data or publish. After official-source review, repeat with `--apply` to apply validated data locally.
+
+- `draws`: invitation history in `content/express-entry/draws.json`; preserve all historical rounds and review new Chinese category labels.
+- `categories`: criteria and NOC tables in `categories.json`; bilingual presentation is in `category-details.mjs` and `category-guide.mjs`.
+- `occupations`: 1.3/1.5/2 wage-tier list in `occupations.json`; shared by both calculator languages.
+- `all`: prepare all three datasets and apply only if all checks pass.
+
+New or renamed occupations need reviewed Chinese translations via `--translations FILE` with entries `{ "NOC": { "title": "exact official English title", "titleZh": "reviewed Chinese title" } }`. Unchanged NOC/title pairs retain their translations. Removed occupations require source confirmation and `--reviewed-removals`; invitation history must never be removed. Changed category titles or requirements block routine application: manually review the bilingual criteria and tests first. A change in scoring or the high-wage reference period requires a separate CRS rule audit and 20-profile comparison, not merely a list refresh.
+
+Offline inputs: `--draw-input JSON`, `--category-input HTML`, `--occupation-input HTML`, and actual `--checked-at YYYY-MM-DD`. Capture the complete official basic HTML (`?wbdisable=true`) rather than a paginated browser table, which may contain only ten visible rows. Keep source downloads outside committed files. Review official instructions in addition to parser results.
+
+Run `node --test scripts/ee-maintenance.test.mjs`, the EE data/engine/page tests, build and site checks; preview both languages and modal search/closing. Only publish when the user's request authorizes publication. The updater itself never commits, pushes, or publishes, and does not schedule automatic updates.
+
+Example user requests:
+- 更新 EE 邀请记录，中英文直接发布。
+- 更新 EE 定向邀请职业名单及资格条件，中英文直接发布。
+- 更新 EE 高薪职业名单（1.3／1.5／2 倍），中英文直接发布。
+- 全面核对并更新 EE，中英文直接发布。
+
+Replace “中英文直接发布” with “给我预览” when review is wanted first.

@@ -7,6 +7,7 @@ import {fileURLToPath} from 'node:url';
 import {servicePage} from '../content/express-entry/service-page.mjs';
 import {calculatorPage} from '../content/express-entry/calculator-page.mjs';
 import {scenarios} from '../content/express-entry/crs-engine.mjs';
+import {categoryGuide} from '../content/express-entry/category-guide.mjs';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const read=p=>fs.readFileSync(path.join(root,p),'utf8');
@@ -14,6 +15,34 @@ const data=JSON.parse(read('content/express-entry/draws.json'));
 const attributes=tag=>Object.fromEntries([...tag.matchAll(/([\w-]+)="([^"]*)"/g)].map(m=>[m[1],m[2]]));
 const links=html=>[...html.matchAll(/<link\b[^>]*>/g)].map(m=>attributes(m[0]));
 const dataBlock=html=>html.match(/<script type="application\/json" id="ee-draw-data">([\s\S]*?)<\/script>/)?.[1];
+
+test('all ten category dialogs contain current bilingual criteria and exact official NOC tables without external links',()=>{
+ const categories=JSON.parse(read('content/express-entry/categories.json')).categories;
+ assert.deepEqual(categories.map(c=>c.occupations.length),[0,37,11,25,5,4,3,4,2,3]);
+ assert.deepEqual(categories[5].occupations.map(o=>o.noc),['72404','72600','22313','72410']);
+ for(const category of categories)for(const o of category.occupations){assert.match(o.noc,/^\d{5}$/);assert.match(o.titleZh,/[\u3400-\u9fff]/);assert.ok(o.title);assert.ok(Number.isInteger(o.teer))}
+ for(const lang of ['en','zh']){
+  const html=categoryGuide(lang);
+  assert.equal((html.match(/data-category-open=/g)||[]).length,10);
+  assert.equal((html.match(/<template /g)||[]).length,10);
+  assert.doesNotMatch(html,/<a\b|href=/);
+  assert.match(html,/NCLC.{0,5}7/);
+  assert.match(html,lang==='zh'?/十年连续服役/:/ten years of continuous service/);
+  assert.match(html,lang==='zh'?/加拿大境外取得的学历须经学历认证/:/educational credential assessment/);
+ }
+});
+
+test('occupation modal data has complete bilingual names and all three distinct tiers',()=>{
+ const list=JSON.parse(read('content/express-entry/occupations.json')).occupations;
+ assert.equal(list.length,186);assert.equal(new Set(list.map(o=>o.noc)).size,186);
+ for(const o of list){assert.match(o.noc,/^\d{5}$/);assert.match(o.titleZh,/[\u3400-\u9fff]/);assert.ok(o.title.length>3)}
+ assert.deepEqual([1.3,1.5,2].map(t=>list.filter(o=>o.tier===t).length),[66,89,31]);
+ for(const lang of ['en','zh']){
+  const html=calculatorPage(lang);
+  assert.equal((html.match(/data-occupation-tier=/g)||[]).length,3);
+  assert.match(html,/aria-haspopup="dialog"/);
+ }
+});
 
 test('four built pages have unique titles, correct language pairs and one full-page shell',()=>{
  const titles=new Set();
@@ -33,7 +62,7 @@ test('four built pages have unique titles, correct language pairs and one full-p
 });
 
 test('built modules and datasets are current copies and all relative module imports resolve',()=>{
- for(const file of ['calculator.mjs','crs-engine.mjs','tracker.mjs','ee.css','occupations.json']){
+ for(const file of ['calculator.mjs','occupation-dialog.mjs','category-dialog.mjs','crs-engine.mjs','tracker.mjs','ee.css','occupations.json']){
   assert.equal(read(`assets/express-entry/${file}`),read(`content/express-entry/${file}`),`${file}: rebuild stale output`);
  }
  for(const route of ['express-entry','crs-calculator','zh/express-entry','zh/crs-calculator']){
@@ -78,7 +107,7 @@ test('service renderer escapes hostile text in HTML and cannot break out of embe
  const sample=structuredClone(data);sample.rounds=[{...data.rounds[0],category:attack,categoryZh:attack,id:attack}];
  for(const lang of ['en','zh']){
   const html=servicePage(lang,sample);
-  assert.doesNotMatch(html,/<img src=x/);assert.equal((html.match(/<script\b/g)||[]).length,2);
+  assert.doesNotMatch(html,/<img src=x/);assert.equal((html.match(/<script\b/g)||[]).length,3);
   assert.ok(html.includes('&lt;/script&gt;&lt;img'));
   const embedded=JSON.parse(dataBlock(html));assert.equal(embedded.rounds[0].category,attack);assert.equal(embedded.rounds[0].id,attack);
  }

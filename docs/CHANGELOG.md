@@ -4,6 +4,11 @@
 
 ## 2026-11-09
 
+- Replace EE category outbound links with bilingual local eligibility and searchable NOC dialogs; add Chinese occupation names and tier-specific high-wage dialogs. Update five EE FAQs after official-rule review.
+- Hide inapplicable spouse subtotals/details when no accompanying spouse is selected; CRS scoring engine is unchanged.
+- Add a unified EE maintenance entry for invitation history, category criteria/lists and high-wage lists, with translation preservation and review gates for removals or rule changes.
+
+
 - Add collapsible common-city examples, selected scoring-band summaries and brief wage/NOA input clarifications to both Ontario calculator languages; scoring remains unchanged.
 
 - Add bilingual Provincial Nomination overview and Ontario OINP service/calculator pages, linked from both immigration-service pages. Cover 11 PNP jurisdictions and distinguish AIP as a separate program.

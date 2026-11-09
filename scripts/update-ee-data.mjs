@@ -3,6 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
+import {carryTranslations} from './ee-update-support.mjs';
 
 export const DRAW_SOURCE = 'https://www.canada.ca/content/dam/ircc/documents/json/ee_rounds_123_en.json';
 export const DRAW_PAGE = 'https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/rounds-invitations.html';
@@ -111,6 +112,11 @@ function main() {
     const file=path.join(dir,name);
     if(fs.existsSync(file)) {
       const prior=JSON.parse(fs.readFileSync(file,'utf8'));
+      if(name==='occupations.json'){
+        const translated=carryTranslations(data.occupations,prior.occupations);
+        assert(!translated.missing.length,'New/renamed occupations need Chinese translation review. Use scripts/update-ee.mjs --kind occupations for a staged report.');
+        data.occupations=translated.rows;
+      }
       assert(data.checkedAt>=prior.checkedAt,'Refusing to replace data with an older verification date');
       const key=name==='draws.json'?'rounds':'occupations',id=key==='rounds'?'id':'noc',next=new Set(data[key].map(x=>x[id]));
       const removed=prior[key].filter(x=>!next.has(x[id]));

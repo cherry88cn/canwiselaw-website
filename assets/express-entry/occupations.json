@@ -13,932 +13,1118 @@
     {
       "noc": "00010",
       "title": "Legislators",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "立法人员"
     },
     {
       "noc": "00011",
       "title": "Senior government managers and officials",
-      "tier": 2
+      "tier": 2,
+      "titleZh": "政府高级管理人员及官员"
     },
     {
       "noc": "00012",
       "title": "Senior managers - financial, communications and other business services",
-      "tier": 2
+      "tier": 2,
+      "titleZh": "高级管理人员——金融、通信及其他商业服务"
     },
     {
       "noc": "00013",
       "title": "Senior managers - health, education, social and community services and membership organizations",
-      "tier": 2
+      "tier": 2,
+      "titleZh": "高级管理人员——医疗、教育、社会与社区服务及会员组织"
     },
     {
       "noc": "00014",
       "title": "Senior managers - trade, broadcasting and other services",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "高级管理人员——贸易、广播及其他服务"
     },
     {
       "noc": "00015",
       "title": "Senior managers - construction, transportation, production and utilities",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "高级管理人员——建筑、运输、生产及公用事业"
     },
     {
       "noc": "10010",
       "title": "Financial managers",
-      "tier": 2
+      "tier": 2,
+      "titleZh": "财务经理"
     },
     {
       "noc": "10011",
       "title": "Human resources managers",
-      "tier": 2
+      "tier": 2,
+      "titleZh": "人力资源经理"
     },
     {
       "noc": "10012",
       "title": "Purchasing managers",
-      "tier": 2
+      "tier": 2,
+      "titleZh": "采购经理"
     },
     {
       "noc": "10019",
       "title": "Other administrative services managers",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "其他行政服务经理"
     },
     {
       "noc": "10020",
       "title": "Insurance, real estate and financial brokerage managers",
-      "tier": 2
+      "tier": 2,
+      "titleZh": "保险、房地产及金融经纪业务经理"
     },
     {
       "noc": "10021",
       "title": "Banking, credit and other investment managers",
-      "tier": 2
+      "tier": 2,
+      "titleZh": "银行、信贷及其他投资业务经理"
     },
     {
       "noc": "10022",
       "title": "Advertising, marketing and public relations managers",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "广告、营销及公共关系经理"
     },
     {
       "noc": "10029",
       "title": "Other business services managers",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "其他商业服务经理"
     },
     {
       "noc": "10030",
       "title": "Telecommunication carriers managers",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "电信运营商经理"
     },
     {
       "noc": "11100",
       "title": "Financial auditors and accountants",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "财务审计师及会计师"
     },
     {
       "noc": "11101",
       "title": "Financial and investment analysts",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "金融及投资分析师"
     },
     {
       "noc": "11102",
       "title": "Financial advisors",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "财务顾问"
     },
     {
       "noc": "11103",
       "title": "Securities agents, investment dealers and brokers",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "证券代理、投资交易商及经纪人"
     },
     {
       "noc": "11109",
       "title": "Other financial officers",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "其他金融专业人员"
     },
     {
       "noc": "11200",
       "title": "Human resources professionals",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "人力资源专业人员"
     },
     {
       "noc": "11201",
       "title": "Professional occupations in business management consulting",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "企业管理咨询专业人员"
     },
     {
       "noc": "12201",
       "title": "Insurance adjusters and claims examiners",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "保险理赔员及索赔审核员"
     },
     {
       "noc": "12203",
       "title": "Assessors, business valuators and appraisers",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "估值员、企业估值师及评估师"
     },
     {
       "noc": "20010",
       "title": "Engineering managers",
-      "tier": 2
+      "tier": 2,
+      "titleZh": "工程经理"
     },
     {
       "noc": "20011",
       "title": "Architecture and science managers",
-      "tier": 2
+      "tier": 2,
+      "titleZh": "建筑及科学领域经理"
     },
     {
       "noc": "20012",
       "title": "Computer and information systems managers",
-      "tier": 2
+      "tier": 2,
+      "titleZh": "计算机及信息系统经理"
     },
     {
       "noc": "21100",
       "title": "Physicists and astronomers",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "物理学家及天文学家"
     },
     {
       "noc": "21101",
       "title": "Chemists",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "化学家"
     },
     {
       "noc": "21102",
       "title": "Geoscientists and oceanographers",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "地球科学家及海洋学家"
     },
     {
       "noc": "21103",
       "title": "Meteorologists and climatologists",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "气象学家及气候学家"
     },
     {
       "noc": "21109",
       "title": "Other professional occupations in physical sciences",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "其他物理科学专业人员"
     },
     {
       "noc": "21110",
       "title": "Biologists and related scientists",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "生物学家及相关科学家"
     },
     {
       "noc": "21111",
       "title": "Forestry professionals",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "林业专业人员"
     },
     {
       "noc": "21112",
       "title": "Agricultural representatives, consultants and specialists",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "农业推广人员、顾问及专家"
     },
     {
       "noc": "21120",
       "title": "Public and environmental health and safety professionals",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "公共与环境卫生及安全专业人员"
     },
     {
       "noc": "21200",
       "title": "Architects",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "建筑师"
     },
     {
       "noc": "21201",
       "title": "Landscape architects",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "景观建筑师"
     },
     {
       "noc": "21202",
       "title": "Urban and land use planners",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "城市及土地利用规划师"
     },
     {
       "noc": "21203",
       "title": "Land surveyors",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "土地测量师"
     },
     {
       "noc": "21210",
       "title": "Mathematicians, statisticians and actuaries",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "数学家、统计学家及精算师"
     },
     {
       "noc": "21211",
       "title": "Data scientists",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "数据科学家"
     },
     {
       "noc": "21220",
       "title": "Cybersecurity specialists",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "网络安全专家"
     },
     {
       "noc": "21221",
       "title": "Business systems specialists",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "业务系统专家"
     },
     {
       "noc": "21222",
       "title": "Information systems specialists",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "信息系统专家"
     },
     {
       "noc": "21223",
       "title": "Database analysts and data administrators",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "数据库分析师及数据管理员"
     },
     {
       "noc": "21230",
       "title": "Computer systems developers and programmers",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "计算机系统开发人员及程序员"
     },
     {
       "noc": "21231",
       "title": "Software engineers and designers",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "软件工程师及设计师"
     },
     {
       "noc": "21232",
       "title": "Software developers and programmers",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "软件开发人员及程序员"
     },
     {
       "noc": "21234",
       "title": "Web developers and programmers",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "网页开发人员及程序员"
     },
     {
       "noc": "21300",
       "title": "Civil engineers",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "土木工程师"
     },
     {
       "noc": "21301",
       "title": "Mechanical engineers",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "机械工程师"
     },
     {
       "noc": "21310",
       "title": "Electrical and electronics engineers",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "电气及电子工程师"
     },
     {
       "noc": "21311",
       "title": "Computer engineers (except software engineers and designers)",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "计算机工程师（软件工程师及设计师除外）"
     },
     {
       "noc": "21320",
       "title": "Chemical engineers",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "化学工程师"
     },
     {
       "noc": "21321",
       "title": "Industrial and manufacturing engineers",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "工业及制造工程师"
     },
     {
       "noc": "21322",
       "title": "Metallurgical and materials engineers",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "冶金及材料工程师"
     },
     {
       "noc": "21330",
       "title": "Mining engineers",
-      "tier": 2
+      "tier": 2,
+      "titleZh": "采矿工程师"
     },
     {
       "noc": "21331",
       "title": "Geological engineers",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "地质工程师"
     },
     {
       "noc": "21332",
       "title": "Petroleum engineers",
-      "tier": 2
+      "tier": 2,
+      "titleZh": "石油工程师"
     },
     {
       "noc": "21390",
       "title": "Aerospace engineers",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "航空航天工程师"
     },
     {
       "noc": "21399",
       "title": "Other professional engineers",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "其他专业工程师"
     },
     {
       "noc": "22214",
       "title": "Technical occupations in geomatics and meteorology",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "地理信息及气象技术人员"
     },
     {
       "noc": "22231",
       "title": "Engineering inspectors and regulatory officers",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "工程检查员及监管人员"
     },
     {
       "noc": "22232",
       "title": "Occupational health and safety specialists",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "职业健康与安全专家"
     },
     {
       "noc": "22233",
       "title": "Construction inspectors",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "建筑检查员"
     },
     {
       "noc": "22310",
       "title": "Electrical and electronics engineering technologists and technicians",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "电气及电子工程技术专家与技术员"
     },
     {
       "noc": "22312",
       "title": "Industrial instrument technicians and mechanics",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "工业仪器技术员及维修技工"
     },
     {
       "noc": "22313",
       "title": "Aircraft instrument, electrical and avionics mechanics, technicians and inspectors",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "飞机仪表、电气及航空电子设备维修技工、技术员及检查员"
     },
     {
       "noc": "30010",
       "title": "Managers in health care",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "医疗服务经理"
     },
     {
       "noc": "31100",
       "title": "Specialists in clinical and laboratory medicine",
-      "tier": 2
+      "tier": 2,
+      "titleZh": "临床及实验室医学专科医生"
     },
     {
       "noc": "31101",
       "title": "Specialists in surgery",
-      "tier": 2
+      "tier": 2,
+      "titleZh": "外科专科医生"
     },
     {
       "noc": "31102",
       "title": "General practitioners and family physicians",
-      "tier": 2
+      "tier": 2,
+      "titleZh": "全科医生及家庭医生"
     },
     {
       "noc": "31103",
       "title": "Veterinarians",
-      "tier": 2
+      "tier": 2,
+      "titleZh": "兽医"
     },
     {
       "noc": "31110",
       "title": "Dentists",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "牙医"
     },
     {
       "noc": "31112",
       "title": "Audiologists and speech-language pathologists",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "听力学家及言语语言病理学家"
     },
     {
       "noc": "31120",
       "title": "Pharmacists",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "药剂师"
     },
     {
       "noc": "31121",
       "title": "Dietitians and nutritionists",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "膳食营养师及营养学专业人员"
     },
     {
       "noc": "31200",
       "title": "Psychologists",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "心理学家"
     },
     {
       "noc": "31202",
       "title": "Physiotherapists",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "物理治疗师"
     },
     {
       "noc": "31203",
       "title": "Occupational therapists",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "职业治疗师"
     },
     {
       "noc": "31300",
       "title": "Nursing coordinators and supervisors",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "护理协调员及主管"
     },
     {
       "noc": "31301",
       "title": "Registered nurses and registered psychiatric nurses",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "注册护士及注册精神科护士"
     },
     {
       "noc": "31302",
       "title": "Nurse practitioners",
-      "tier": 2
+      "tier": 2,
+      "titleZh": "执业护士"
     },
     {
       "noc": "31303",
       "title": "Physician assistants, midwives and allied health professionals",
-      "tier": 2
+      "tier": 2,
+      "titleZh": "医师助理、助产士及相关医疗专业人员"
     },
     {
       "noc": "32102",
       "title": "Paramedical occupations",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "院前急救医疗人员"
     },
     {
       "noc": "32103",
       "title": "Respiratory therapists, clinical perfusionists and cardiopulmonary technologists",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "呼吸治疗师、临床灌注师及心肺技术专家"
     },
     {
       "noc": "32111",
       "title": "Dental hygienists and dental therapists",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "牙科卫生师及牙科治疗师"
     },
     {
       "noc": "32120",
       "title": "Medical laboratory technologists",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "医学检验技术专家"
     },
     {
       "noc": "32121",
       "title": "Medical radiation technologists",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "医学放射技术专家"
     },
     {
       "noc": "32122",
       "title": "Medical sonographers",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "医学超声检查师"
     },
     {
       "noc": "40010",
       "title": "Government managers - health and social policy development and program administration",
-      "tier": 2
+      "tier": 2,
+      "titleZh": "政府经理——卫生及社会政策制定与项目管理"
     },
     {
       "noc": "40011",
       "title": "Government managers - economic analysis, policy development and program administration",
-      "tier": 2
+      "tier": 2,
+      "titleZh": "政府经理——经济分析、政策制定及项目管理"
     },
     {
       "noc": "40012",
       "title": "Government managers - education policy development and program administration",
-      "tier": 2
+      "tier": 2,
+      "titleZh": "政府经理——教育政策制定及项目管理"
     },
     {
       "noc": "40019",
       "title": "Other managers in public administration",
-      "tier": 2
+      "tier": 2,
+      "titleZh": "其他公共行政经理"
     },
     {
       "noc": "40020",
       "title": "Administrators - post-secondary education and vocational training",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "高等教育及职业培训行政管理人员"
     },
     {
       "noc": "40021",
       "title": "School principals and administrators of elementary and secondary education",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "中小学校长及教育行政管理人员"
     },
     {
       "noc": "40030",
       "title": "Managers in social, community and correctional services",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "社会、社区及惩教服务经理"
     },
     {
       "noc": "40040",
       "title": "Commissioned police officers and related occupations in public protection services",
-      "tier": 2
+      "tier": 2,
+      "titleZh": "警官及公共保护服务相关管理人员"
     },
     {
       "noc": "40041",
       "title": "Fire chiefs and senior firefighting officers",
-      "tier": 2
+      "tier": 2,
+      "titleZh": "消防局长及高级消防官员"
     },
     {
       "noc": "40042",
       "title": "Commissioned officers of the Canadian Armed Forces",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "加拿大武装部队军官"
     },
     {
       "noc": "41100",
       "title": "Judges",
-      "tier": 2
+      "tier": 2,
+      "titleZh": "法官"
     },
     {
       "noc": "41101",
       "title": "Lawyers and Quebec notaries",
-      "tier": 2
+      "tier": 2,
+      "titleZh": "律师及魁北克公证人"
     },
     {
       "noc": "41200",
       "title": "University professors and lecturers",
-      "tier": 2
+      "tier": 2,
+      "titleZh": "大学教授及讲师"
     },
     {
       "noc": "41210",
       "title": "College and other vocational instructors",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "学院及其他职业教育教师"
     },
     {
       "noc": "41220",
       "title": "Secondary school teachers",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "中学教师"
     },
     {
       "noc": "41221",
       "title": "Elementary school and kindergarten teachers",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "小学及幼儿园教师"
     },
     {
       "noc": "41300",
       "title": "Social workers",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "社会工作者"
     },
     {
       "noc": "41310",
       "title": "Police investigators and other investigative occupations",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "警务调查员及其他调查人员"
     },
     {
       "noc": "41311",
       "title": "Probation and parole officers",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "缓刑及假释监督官"
     },
     {
       "noc": "41320",
       "title": "Educational counsellors",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "教育辅导员"
     },
     {
       "noc": "41400",
       "title": "Natural and applied science policy researchers, consultants and program officers",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "自然与应用科学政策研究员、顾问及项目官员"
     },
     {
       "noc": "41401",
       "title": "Economists and economic policy researchers and analysts",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "经济学家、经济政策研究员及分析师"
     },
     {
       "noc": "41402",
       "title": "Business development officers and market researchers and analysts",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "商业发展专员、市场研究员及分析师"
     },
     {
       "noc": "41403",
       "title": "Social policy researchers, consultants and program officers",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "社会政策研究员、顾问及项目官员"
     },
     {
       "noc": "41404",
       "title": "Health policy researchers, consultants and program officers",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "卫生政策研究员、顾问及项目官员"
     },
     {
       "noc": "41405",
       "title": "Education policy researchers, consultants and program officers",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "教育政策研究员、顾问及项目官员"
     },
     {
       "noc": "41407",
       "title": "Program officers unique to government",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "政府特有项目官员"
     },
     {
       "noc": "41409",
       "title": "Other professional occupations in social science",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "其他社会科学专业人员"
     },
     {
       "noc": "42100",
       "title": "Police officers (except commissioned)",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "警务人员（警官除外）"
     },
     {
       "noc": "42101",
       "title": "Firefighters",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "消防员"
     },
     {
       "noc": "43201",
       "title": "Correctional service officers",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "惩教人员"
     },
     {
       "noc": "43203",
       "title": "Border services, customs, and immigration officers",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "边境服务、海关及移民官员"
     },
     {
       "noc": "50010",
       "title": "Library, archive, museum and art gallery managers",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "图书馆、档案馆、博物馆及美术馆经理"
     },
     {
       "noc": "50011",
       "title": "Managers - publishing, motion pictures, broadcasting and performing arts",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "出版、电影、广播及表演艺术经理"
     },
     {
       "noc": "50012",
       "title": "Recreation, sports and fitness program and service directors",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "康乐、体育及健身项目与服务主管"
     },
     {
       "noc": "51100",
       "title": "Librarians",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "图书馆员"
     },
     {
       "noc": "51101",
       "title": "Conservators and curators",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "文物保护修复师及策展人"
     },
     {
       "noc": "51102",
       "title": "Archivists",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "档案管理员"
     },
     {
       "noc": "51111",
       "title": "Authors and writers (except technical)",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "作者及作家（技术写作除外）"
     },
     {
       "noc": "51112",
       "title": "Technical writers",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "技术文档撰写人员"
     },
     {
       "noc": "51120",
       "title": "Producers, directors, choreographers and related occupations",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "制片人、导演、编舞及相关人员"
     },
     {
       "noc": "52112",
       "title": "Broadcast technicians",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "广播技术员"
     },
     {
       "noc": "60010",
       "title": "Corporate sales managers",
-      "tier": 2
+      "tier": 2,
+      "titleZh": "企业销售经理"
     },
     {
       "noc": "60020",
       "title": "Retail and wholesale trade managers",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "零售及批发贸易经理"
     },
     {
       "noc": "60031",
       "title": "Accommodation service managers",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "住宿服务经理"
     },
     {
       "noc": "60040",
       "title": "Managers in customer and personal services",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "客户及个人服务经理"
     },
     {
       "noc": "70010",
       "title": "Construction managers",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "建筑施工经理"
     },
     {
       "noc": "70012",
       "title": "Facility operation and maintenance managers",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "设施运营及维护经理"
     },
     {
       "noc": "70020",
       "title": "Managers in transportation",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "运输经理"
     },
     {
       "noc": "70021",
       "title": "Postal and courier services managers",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "邮政及快递服务经理"
     },
     {
       "noc": "72010",
       "title": "Contractors and supervisors, machining, metal forming, shaping and erecting trades and related occupations",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "机械加工、金属成形与安装及相关工种承包商与主管"
     },
     {
       "noc": "72011",
       "title": "Contractors and supervisors, electrical trades and telecommunications occupations",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "电气工种及电信职业承包商与主管"
     },
     {
       "noc": "72012",
       "title": "Contractors and supervisors, pipefitting trades",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "管道安装工种承包商与主管"
     },
     {
       "noc": "72013",
       "title": "Contractors and supervisors, carpentry trades",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "木工工种承包商与主管"
     },
     {
       "noc": "72014",
       "title": "Contractors and supervisors, other construction trades, installers, repairers and servicers",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "其他建筑工种、安装、维修及保养人员的承包商与主管"
     },
     {
       "noc": "72020",
       "title": "Contractors and supervisors, mechanic trades",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "机械维修工种承包商与主管"
     },
     {
       "noc": "72021",
       "title": "Contractors and supervisors, heavy equipment operator crews",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "重型设备操作班组承包商与主管"
     },
     {
       "noc": "72023",
       "title": "Supervisors, railway transport operations",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "铁路运输运营主管"
     },
     {
       "noc": "72102",
       "title": "Sheet metal workers",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "钣金工"
     },
     {
       "noc": "72103",
       "title": "Boilermakers",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "锅炉制造安装工"
     },
     {
       "noc": "72105",
       "title": "Ironworkers",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "钢结构工"
     },
     {
       "noc": "72201",
       "title": "Industrial electricians",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "工业电工"
     },
     {
       "noc": "72202",
       "title": "Power system electricians",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "电力系统电工"
     },
     {
       "noc": "72203",
       "title": "Electrical power line and cable workers",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "电力线路及电缆工"
     },
     {
       "noc": "72301",
       "title": "Steamfitters, pipefitters and sprinkler system installers",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "蒸汽管道工、管道安装工及自动喷淋系统安装工"
     },
     {
       "noc": "72302",
       "title": "Gas fitters",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "燃气安装工"
     },
     {
       "noc": "72320",
       "title": "Bricklayers",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "砌砖工"
     },
     {
       "noc": "72321",
       "title": "Insulators",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "保温绝缘工"
     },
     {
       "noc": "72401",
       "title": "Heavy-duty equipment mechanics",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "重型机械设备维修技工"
     },
     {
       "noc": "72403",
       "title": "Railway carmen/women",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "铁路车辆检修工"
     },
     {
       "noc": "72404",
       "title": "Aircraft mechanics and aircraft inspectors",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "飞机维修技工及检查员"
     },
     {
       "noc": "72406",
       "title": "Elevator constructors and mechanics",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "电梯安装及维修技工"
     },
     {
       "noc": "72500",
       "title": "Crane operators",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "起重机操作员"
     },
     {
       "noc": "72600",
       "title": "Air pilots, flight engineers and flying instructors",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "飞行员、飞行工程师及飞行教员"
     },
     {
       "noc": "72601",
       "title": "Air traffic controllers and related occupations",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "空中交通管制员及相关人员"
     },
     {
       "noc": "72602",
       "title": "Deck officers, water transport",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "水上运输甲板高级船员"
     },
     {
       "noc": "72603",
       "title": "Engineer officers, water transport",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "水上运输轮机员"
     },
     {
       "noc": "72604",
       "title": "Railway traffic controllers and marine traffic regulators",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "铁路交通管制员及海上交通监管员"
     },
     {
       "noc": "73310",
       "title": "Railway and yard locomotive engineers",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "铁路及调车场机车司机"
     },
     {
       "noc": "73311",
       "title": "Railway conductors and brakemen/women",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "铁路列车长及制动员"
     },
     {
       "noc": "80010",
       "title": "Managers in natural resources production and fishing",
-      "tier": 2
+      "tier": 2,
+      "titleZh": "自然资源生产及渔业经理"
     },
     {
       "noc": "82010",
       "title": "Supervisors, logging and forestry",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "伐木及林业主管"
     },
     {
       "noc": "82020",
       "title": "Supervisors, mining and quarrying",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "采矿及采石主管"
     },
     {
       "noc": "82021",
       "title": "Contractors and supervisors, oil and gas drilling and services",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "石油及天然气钻探与服务承包商及主管"
     },
     {
       "noc": "83100",
       "title": "Underground production and development miners",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "地下矿山生产及开发矿工"
     },
     {
       "noc": "83101",
       "title": "Oil and gas well drillers, servicers, testers and related workers",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "油气井钻井工、维护工、测试员及相关工人"
     },
     {
       "noc": "83120",
       "title": "Fishing masters and officers",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "渔船船长及高级船员"
     },
     {
       "noc": "90010",
       "title": "Manufacturing managers",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "制造业经理"
     },
     {
       "noc": "90011",
       "title": "Utilities managers",
-      "tier": 2
+      "tier": 2,
+      "titleZh": "公用事业经理"
     },
     {
       "noc": "92010",
       "title": "Supervisors, mineral and metal processing",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "矿物及金属加工主管"
     },
     {
       "noc": "92011",
       "title": "Supervisors, petroleum, gas and chemical processing and utilities",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "石油、天然气、化学加工及公用事业主管"
     },
     {
       "noc": "92100",
       "title": "Power engineers and power systems operators",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "动力工程技术人员及电力系统操作员"
     },
     {
       "noc": "93100",
       "title": "Central control and process operators, mineral and metal processing",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "矿物及金属加工中央控制与工艺操作员"
     },
     {
       "noc": "93101",
       "title": "Central control and process operators, petroleum, gas and chemical processing",
-      "tier": 1.5
+      "tier": 1.5,
+      "titleZh": "石油、天然气及化学加工中央控制与工艺操作员"
     },
     {
       "noc": "93102",
       "title": "Pulping, papermaking and coating control operators",
-      "tier": 1.3
+      "tier": 1.3,
+      "titleZh": "制浆、造纸及涂布控制操作员"
     }
   ]
 }

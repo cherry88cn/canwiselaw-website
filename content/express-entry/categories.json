@@ -1,0 +1,659 @@
+{
+  "sourceUrl": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/rounds-invitations/category-based-selection.html",
+  "checkedAt": "2026-11-09",
+  "categories": [
+    {
+      "id": "result-1",
+      "occupations": [],
+      "requirements": [
+        "have French-language test results that show a minimum score of 7 in all 4 language abilities on the Niveaux de compétence linguistique canadiens\nmeet all of the requirements in the instructions for that round"
+      ],
+      "title": "Who’s eligible for the French-language proficiency category"
+    },
+    {
+      "id": "result-2",
+      "occupations": [
+        {
+          "title": "Specialists in clinical and laboratory medicine",
+          "noc": "31100",
+          "teer": 1,
+          "titleZh": "临床及实验室医学专科医生"
+        },
+        {
+          "title": "Specialists in surgery",
+          "noc": "31101",
+          "teer": 1,
+          "titleZh": "外科专科医生"
+        },
+        {
+          "title": "General practitioners and family physicians",
+          "noc": "31102",
+          "teer": 1,
+          "titleZh": "全科医生及家庭医生"
+        },
+        {
+          "title": "Veterinarians",
+          "noc": "31103",
+          "teer": 1,
+          "titleZh": "兽医"
+        },
+        {
+          "title": "Dentists",
+          "noc": "31110",
+          "teer": 1,
+          "titleZh": "牙医"
+        },
+        {
+          "title": "Optometrists",
+          "noc": "31111",
+          "teer": 1,
+          "titleZh": "验光师"
+        },
+        {
+          "title": "Audiologists and speech-language pathologists",
+          "noc": "31112",
+          "teer": 1,
+          "titleZh": "听力学家及言语语言病理学家"
+        },
+        {
+          "title": "Pharmacists",
+          "noc": "31120",
+          "teer": 1,
+          "titleZh": "药剂师"
+        },
+        {
+          "title": "Dietitians and nutritionists",
+          "noc": "31121",
+          "teer": 1,
+          "titleZh": "膳食营养师及营养学专业人员"
+        },
+        {
+          "title": "Psychologists",
+          "noc": "31200",
+          "teer": 1,
+          "titleZh": "心理学家"
+        },
+        {
+          "title": "Chiropractors",
+          "noc": "31201",
+          "teer": 1,
+          "titleZh": "脊椎矫正师"
+        },
+        {
+          "title": "Physiotherapists",
+          "noc": "31202",
+          "teer": 1,
+          "titleZh": "物理治疗师"
+        },
+        {
+          "title": "Occupational therapists",
+          "noc": "31203",
+          "teer": 1,
+          "titleZh": "职业治疗师"
+        },
+        {
+          "title": "Other professional occupations in health diagnosing and treating",
+          "noc": "31209",
+          "teer": 1,
+          "titleZh": "其他健康诊断与治疗专业人员"
+        },
+        {
+          "title": "Nursing coordinators and supervisors",
+          "noc": "31300",
+          "teer": 1,
+          "titleZh": "护理协调员及主管"
+        },
+        {
+          "title": "Registered nurses and registered psychiatric nurses",
+          "noc": "31301",
+          "teer": 1,
+          "titleZh": "注册护士及注册精神科护士"
+        },
+        {
+          "title": "Nurse practitioners",
+          "noc": "31302",
+          "teer": 1,
+          "titleZh": "执业护士"
+        },
+        {
+          "title": "Physician assistants, midwives and allied health professionals",
+          "noc": "31303",
+          "teer": 1,
+          "titleZh": "医师助理、助产士及相关医疗专业人员"
+        },
+        {
+          "title": "Licensed practical nurses",
+          "noc": "32101",
+          "teer": 2,
+          "titleZh": "执业实用护士"
+        },
+        {
+          "title": "Paramedical occupations",
+          "noc": "32102",
+          "teer": 2,
+          "titleZh": "院前急救医疗人员"
+        },
+        {
+          "title": "Respiratory therapists, clinical perfusionists and cardiopulmonary technologists",
+          "noc": "32103",
+          "teer": 2,
+          "titleZh": "呼吸治疗师、临床灌注师及心肺技术专家"
+        },
+        {
+          "title": "Animal health technologists and veterinary technicians",
+          "noc": "32104",
+          "teer": 2,
+          "titleZh": "动物健康技术专家及兽医技术员"
+        },
+        {
+          "title": "Other technical occupations in therapy and assessment",
+          "noc": "32109",
+          "teer": 2,
+          "titleZh": "其他治疗与评估技术人员"
+        },
+        {
+          "title": "Dental hygienists and dental therapists",
+          "noc": "32111",
+          "teer": 2,
+          "titleZh": "牙科卫生师及牙科治疗师"
+        },
+        {
+          "title": "Medical laboratory technologists",
+          "noc": "32120",
+          "teer": 2,
+          "titleZh": "医学检验技术专家"
+        },
+        {
+          "title": "Medical radiation technologists",
+          "noc": "32121",
+          "teer": 2,
+          "titleZh": "医学放射技术专家"
+        },
+        {
+          "title": "Medical sonographers",
+          "noc": "32122",
+          "teer": 2,
+          "titleZh": "医学超声检查师"
+        },
+        {
+          "title": "Cardiology technologists and electrophysiological diagnostic technologists",
+          "noc": "32123",
+          "teer": 2,
+          "titleZh": "心脏及电生理诊断技术专家"
+        },
+        {
+          "title": "Pharmacy technicians",
+          "noc": "32124",
+          "teer": 2,
+          "titleZh": "药房技术员"
+        },
+        {
+          "title": "Other medical technologists and technicians",
+          "noc": "32129",
+          "teer": 2,
+          "titleZh": "其他医疗技术专家及技术员"
+        },
+        {
+          "title": "Massage therapists",
+          "noc": "32201",
+          "teer": 2,
+          "titleZh": "按摩治疗师"
+        },
+        {
+          "title": "Medical laboratory assistants and related technical occupations",
+          "noc": "33101",
+          "teer": 3,
+          "titleZh": "医学检验助理及相关技术人员"
+        },
+        {
+          "title": "Nurse aides, orderlies and patient service associates",
+          "noc": "33102",
+          "teer": 3,
+          "titleZh": "护理助理、勤务人员及患者服务人员"
+        },
+        {
+          "title": "Pharmacy technical assistants and pharmacy assistants",
+          "noc": "33103",
+          "teer": 3,
+          "titleZh": "药房技术助理及药房助理"
+        },
+        {
+          "title": "Social workers",
+          "noc": "41300",
+          "teer": 1,
+          "titleZh": "社会工作者"
+        },
+        {
+          "title": "Therapists in counselling and related specialized therapies",
+          "noc": "41301",
+          "teer": 1,
+          "titleZh": "心理咨询及相关专门治疗师"
+        },
+        {
+          "title": "Social and community service workers",
+          "noc": "42201",
+          "teer": 2,
+          "titleZh": "社会及社区服务工作者"
+        }
+      ],
+      "requirements": [
+        "have accumulated, within the past 3 years, at least 12 months of full-time work experience (or an equal amount of part-time experience) — this experience does not need to be continuous\nin a single occupation listed in the table below (no matter your primary occupation)\nin Canada or abroad\nmeet all requirements in the instructions for that round"
+      ],
+      "title": "Who’s eligible for the healthcare and social services occupations category"
+    },
+    {
+      "id": "result-3",
+      "occupations": [
+        {
+          "title": "Architecture and science managers",
+          "noc": "20011",
+          "teer": 0,
+          "titleZh": "建筑及科学领域经理"
+        },
+        {
+          "title": "Cybersecurity specialists",
+          "noc": "21220",
+          "teer": 1,
+          "titleZh": "网络安全专家"
+        },
+        {
+          "title": "Civil Engineers",
+          "noc": "21300",
+          "teer": 1,
+          "titleZh": "土木工程师"
+        },
+        {
+          "title": "Mechanical Engineers",
+          "noc": "21301",
+          "teer": 1,
+          "titleZh": "机械工程师"
+        },
+        {
+          "title": "Electrical and electronics engineers",
+          "noc": "21310",
+          "teer": 1,
+          "titleZh": "电气及电子工程师"
+        },
+        {
+          "title": "Industrial and manufacturing engineers",
+          "noc": "21321",
+          "teer": 1,
+          "titleZh": "工业及制造工程师"
+        },
+        {
+          "title": "Geological Engineers",
+          "noc": "21331",
+          "teer": 1,
+          "titleZh": "地质工程师"
+        },
+        {
+          "title": "Civil engineering technologists and technicians",
+          "noc": "22300",
+          "teer": 2,
+          "titleZh": "土木工程技术专家及技术员"
+        },
+        {
+          "title": "Mechanical Engineering Technologists and Technicians",
+          "noc": "22301",
+          "teer": 2,
+          "titleZh": "机械工程技术专家及技术员"
+        },
+        {
+          "title": "Electrical and electronics engineering technologists and technicians",
+          "noc": "22310",
+          "teer": 2,
+          "titleZh": "电气及电子工程技术专家与技术员"
+        },
+        {
+          "title": "Insurance agents and brokers",
+          "noc": "63100",
+          "teer": 3,
+          "titleZh": "保险代理人及经纪人"
+        }
+      ],
+      "requirements": [
+        "have accumulated, within the past 3 years, at least 12 months of full-time work experience (or an equal amount of part-time experience) — this experience does not need to be continuous\nin a single occupation listed in the table below (no matter your primary occupation)\nin Canada or abroad\nmeet all requirements in the instructions for that round"
+      ],
+      "title": "Who’s eligible for the Science, Technology, Engineering and Math (STEM) occupations category"
+    },
+    {
+      "id": "result-4",
+      "occupations": [
+        {
+          "title": "Construction estimators",
+          "noc": "22303",
+          "teer": 2,
+          "titleZh": "建筑工程估价员"
+        },
+        {
+          "title": "Construction managers",
+          "noc": "70010",
+          "teer": 0,
+          "titleZh": "建筑施工经理"
+        },
+        {
+          "title": "Home building and renovation managers",
+          "noc": "70011",
+          "teer": 0,
+          "titleZh": "住宅建造及翻修经理"
+        },
+        {
+          "title": "Machinists and machining and tooling inspectors",
+          "noc": "72100",
+          "teer": 2,
+          "titleZh": "机械加工技工及机械加工与工装检查员"
+        },
+        {
+          "title": "Sheet metal workers",
+          "noc": "72102",
+          "teer": 2,
+          "titleZh": "钣金工"
+        },
+        {
+          "title": "Welders and related machine operators",
+          "noc": "72106",
+          "teer": 2,
+          "titleZh": "焊工及相关机器操作员"
+        },
+        {
+          "title": "Electricians (except industrial and power system)",
+          "noc": "72200",
+          "teer": 2,
+          "titleZh": "电工（工业及电力系统电工除外）"
+        },
+        {
+          "title": "Industrial electricians",
+          "noc": "72201",
+          "teer": 2,
+          "titleZh": "工业电工"
+        },
+        {
+          "title": "Plumbers",
+          "noc": "72300",
+          "teer": 2,
+          "titleZh": "水管工"
+        },
+        {
+          "title": "Gas fitters",
+          "noc": "72302",
+          "teer": 2,
+          "titleZh": "燃气安装工"
+        },
+        {
+          "title": "Carpenters",
+          "noc": "72310",
+          "teer": 2,
+          "titleZh": "木工"
+        },
+        {
+          "title": "Cabinetmakers",
+          "noc": "72311",
+          "teer": 2,
+          "titleZh": "橱柜制作工"
+        },
+        {
+          "title": "Bricklayers",
+          "noc": "72320",
+          "teer": 2,
+          "titleZh": "砌砖工"
+        },
+        {
+          "title": "Construction millwrights and industrial mechanics",
+          "noc": "72400",
+          "teer": 2,
+          "titleZh": "建筑机械装配及工业机械维修技工"
+        },
+        {
+          "title": "Heavy-duty equipment mechanics",
+          "noc": "72401",
+          "teer": 2,
+          "titleZh": "重型机械设备维修技工"
+        },
+        {
+          "title": "Heating, refrigeration and air conditioning mechanics",
+          "noc": "72402",
+          "teer": 2,
+          "titleZh": "供暖、制冷及空调维修技工"
+        },
+        {
+          "title": "Electrical mechanics",
+          "noc": "72422",
+          "teer": 2,
+          "titleZh": "电气机械维修技工"
+        },
+        {
+          "title": "Water well drillers",
+          "noc": "72501",
+          "teer": 2,
+          "titleZh": "水井钻探工"
+        },
+        {
+          "title": "Other technical trades and related occupations",
+          "noc": "72999",
+          "teer": 2,
+          "titleZh": "其他技术工种及相关职业人员"
+        },
+        {
+          "title": "Concrete finishers",
+          "noc": "73100",
+          "teer": 3,
+          "titleZh": "混凝土抹面工"
+        },
+        {
+          "title": "Roofers and shinglers",
+          "noc": "73110",
+          "teer": 3,
+          "titleZh": "屋顶及屋面瓦铺设工"
+        },
+        {
+          "title": "Painters and decorators (except interior decorators)",
+          "noc": "73112",
+          "teer": 3,
+          "titleZh": "油漆工及装饰工（室内装饰设计人员除外）"
+        },
+        {
+          "title": "Floor covering installers",
+          "noc": "73113",
+          "teer": 3,
+          "titleZh": "地面铺装工"
+        },
+        {
+          "title": "Contractors and supervisors, oil and gas drilling and services",
+          "noc": "82021",
+          "teer": 2,
+          "titleZh": "石油及天然气钻探与服务承包商及主管"
+        },
+        {
+          "title": "Butchers - retail and wholesale",
+          "noc": "63201",
+          "teer": 3,
+          "titleZh": "肉类分割工（零售及批发）"
+        }
+      ],
+      "requirements": [
+        "have accumulated, within the past 3 years, at least 12 months of full-time work experience (or an equal amount of part-time experience) — this experience does not need to be continuous\nin a single occupation listed in the table below (no matter your primary occupation)\nin Canada or abroad\nmeet all requirements in the instructions for that round"
+      ],
+      "title": "Who’s eligible for the trade occupations category"
+    },
+    {
+      "id": "result-5",
+      "occupations": [
+        {
+          "title": "Secondary school teachers",
+          "noc": "41220",
+          "teer": 1,
+          "titleZh": "中学教师"
+        },
+        {
+          "title": "Elementary school and kindergarten teachers",
+          "noc": "41221",
+          "teer": 1,
+          "titleZh": "小学及幼儿园教师"
+        },
+        {
+          "title": "Early childhood educators and assistants",
+          "noc": "42202",
+          "teer": 2,
+          "titleZh": "幼儿教育工作者及助理"
+        },
+        {
+          "title": "Instructors of persons with disabilities",
+          "noc": "42203",
+          "teer": 2,
+          "titleZh": "残障人士教育指导员"
+        },
+        {
+          "title": "Elementary and secondary school teacher assistants",
+          "noc": "43100",
+          "teer": 3,
+          "titleZh": "中小学教学助理"
+        }
+      ],
+      "requirements": [
+        "have accumulated, within the past 3 years, at least 12 months of full-time work experience (or an equal amount of part-time experience) — this experience does not need to be continuous\nin a single occupation listed in the table below (no matter your primary occupation)\nin Canada or abroad\nmeet all of the requirements in the instructions for that round"
+      ],
+      "title": "Who’s eligible for the education occupations category"
+    },
+    {
+      "id": "result-6",
+      "occupations": [
+        {
+          "title": "Aircraft mechanics and aircraft inspectors",
+          "noc": "72404",
+          "teer": 2,
+          "titleZh": "飞机维修技工及检查员"
+        },
+        {
+          "title": "Air pilots, flight engineers and flying instructors",
+          "noc": "72600",
+          "teer": 2,
+          "titleZh": "飞行员、飞行工程师及飞行教员"
+        },
+        {
+          "title": "Aircraft instrument, electrical and avionics mechanics, technicians and inspectors",
+          "noc": "22313",
+          "teer": 2,
+          "titleZh": "飞机仪表、电气及航空电子设备维修技工、技术员及检查员"
+        },
+        {
+          "title": "Automotive service technicians, truck and bus mechanics, and mechanical repairers",
+          "noc": "72410",
+          "teer": 2,
+          "titleZh": "汽车维修技术员、卡车及巴士维修技工与机械维修人员"
+        }
+      ],
+      "requirements": [
+        "have accumulated, within the past 3 years, at least 12 months of full-time work experience (or an equal amount of part-time experience) — this experience does not need to be continuous\nin a single occupation listed in the table below (no matter your primary occupation)\nin Canada or abroad\nmeet all requirements in the instructions for that round"
+      ],
+      "title": "Who’s eligible for the transport occupations category"
+    },
+    {
+      "id": "result-7",
+      "occupations": [
+        {
+          "title": "Specialists in clinical and laboratory medicine",
+          "noc": "31100",
+          "teer": 1,
+          "titleZh": "临床及实验室医学专科医生"
+        },
+        {
+          "title": "Specialists in surgery",
+          "noc": "31101",
+          "teer": 1,
+          "titleZh": "外科专科医生"
+        },
+        {
+          "title": "General practitioners and family physicians",
+          "noc": "31102",
+          "teer": 1,
+          "titleZh": "全科医生及家庭医生"
+        }
+      ],
+      "requirements": [
+        "have accumulated, within the past 3 years, at least 12 months of full-time work experience (or an equal amount of part-time experience) —this experience does not need to be continuous\nin a single occupation listed in the table below (no matter your primary occupation)\nin Canada\nmeet all requirements in the instructions for that round"
+      ],
+      "title": "Who’s eligible for the physicians with Canadian work experience category"
+    },
+    {
+      "id": "result-8",
+      "occupations": [
+        {
+          "title": "Senior managers - financial, communications and other business services",
+          "noc": "00012",
+          "teer": 0,
+          "titleZh": "高级管理人员——金融、通信及其他商业服务"
+        },
+        {
+          "title": "Senior managers - health, education, social and community services and membership organizations",
+          "noc": "00013",
+          "teer": 0,
+          "titleZh": "高级管理人员——医疗、教育、社会与社区服务及会员组织"
+        },
+        {
+          "title": "Senior managers - trade, broadcasting and other services",
+          "noc": "00014",
+          "teer": 0,
+          "titleZh": "高级管理人员——贸易、广播及其他服务"
+        },
+        {
+          "title": "Senior managers - construction, transportation, production and utilities",
+          "noc": "00015",
+          "teer": 0,
+          "titleZh": "高级管理人员——建筑、运输、生产及公用事业"
+        }
+      ],
+      "requirements": [
+        "have accumulated, within the past 3 years, at least 12 months of full-time work experience (or an equal amount of part-time experience) — this experience does not need to be continuous\nin a single occupation listed in the table below (no matter your primary occupation)\nin Canada\nmeet all requirements in the instructions for that round"
+      ],
+      "title": "Who’s eligible for the senior managers with Canadian work experience category"
+    },
+    {
+      "id": "result-9",
+      "occupations": [
+        {
+          "title": "University professors and lecturers",
+          "noc": "41200",
+          "teer": 1,
+          "titleZh": "大学教授及讲师"
+        },
+        {
+          "title": "Post-secondary teaching and research assistants",
+          "noc": "41201",
+          "teer": 1,
+          "titleZh": "高等教育教学及研究助理"
+        }
+      ],
+      "requirements": [
+        "have accumulated, within the past 3 years, at least 12 months of full-time work experience (or an equal amount of part-time experience) — this experience does not need to be continuous\nin a single occupation listed in the table below (no matter your primary occupation)\nin Canada\nmeet all requirements in the instructions for that round"
+      ],
+      "title": "Who’s eligible for the researchers with Canadian work experience category"
+    },
+    {
+      "id": "result-10",
+      "occupations": [
+        {
+          "title": "Commissioned officers of the Canadian Armed Forces",
+          "noc": "40042",
+          "teer": 0,
+          "titleZh": "加拿大武装部队军官"
+        },
+        {
+          "title": "Specialized members of the Canadian Armed Forces",
+          "noc": "42102",
+          "teer": 2,
+          "titleZh": "加拿大武装部队专业人员"
+        },
+        {
+          "title": "Operations Members of the Canadian Armed Forces",
+          "noc": "43204",
+          "teer": 3,
+          "titleZh": "加拿大武装部队作战人员"
+        }
+      ],
+      "requirements": [
+        "be a Foreign Skilled Military Applicant (FSMA)\neligible foreign national who is serving in a recognized foreign military\nwith a minimum of ten years of continuous service\nhas work experience and training aligned with the main duties of one or more of these National Occupational Classification occupations:\n40042 (Commissioned officers of the Canadian Armed Forces)\n42102 (Specialized members of the Canadian Armed Forces)\n43204 (Operations members of the Canadian Armed Forces)\nhave an offer of arranged employment with the Canadian Armed Forces that is\nmade by the Canadian Forces Recruiting Group for continuous full-time work in Canada lasting at least 3 years\nlisted in National Occupational Classification\n40042 (Commissioned officers of the Canadian Armed Forces)\n42102 (Specialized members of the Canadian Armed Forces)\n43204 (Operations members of the Canadian Armed Forces)\nhave at least a 2-year post-secondary credential\nIf you completed your education outside Canada, you’ll need to get your education credential assessed to show that it’s equal\nmeet all requirements in the instructions for that round"
+      ],
+      "title": "Who’s eligible for the skilled military recruits category"
+    }
+  ]
+}
