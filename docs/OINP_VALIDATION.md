@@ -39,9 +39,9 @@ No Ontario government interactive calculator was used. ImmiPilot is an independe
 
 ## Conservative guards and UI checks
 
-- Blank/incomplete input shows no total. No inferred age or default personal facts.
-- Maintained status, no valid language test, and a departed offered position after at least six months are marked for individual review and suppress the total. These situations are not assigned a speculative score. This tool is not an eligibility decision.
-- Conflicting bilingual/low-CLB selections suppress the total. Hidden alternative work scores cannot stack.
+- Blank input shows no score. From the first scored selection, incomplete input shows a clearly labelled selected-item subtotal; unanswered fields remain unscored. No inferred age or default personal facts.
+- Maintained status, no valid language test, and a departed offered position after at least six months are marked for individual review and excluded from the subtotal. These situations are not assigned a speculative score. This tool is not an eligibility decision.
+- Conflicting bilingual/low-CLB selections exclude the bilingual factor from the subtotal; other selected factors remain visible. Hidden alternative work scores cannot stack.
 - Actual desktop and 390px mobile render inspected. Two-thirds input / one-third sticky score at desktop; static score below inputs on mobile; no horizontal overflow observed. Dropdown points visually bold in tested Chromium. Native select fallback styling may differ in other browsers; no Safari or real-device test claimed.
 - Chinese uses the centrally hosted Source Han Sans CN font. Both pages use the existing site navigation and real Calendly URL. FAQ regional title matches the requested Chinese wording.
 - Build, existing builder tests, site link checks, and OINP test command run before release. No unrelated EE source changes included.

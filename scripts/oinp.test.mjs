@@ -37,3 +37,14 @@ for(const lang of ['','zh/']){
  assert.equal((overview.match(/class="pnp-card /g)||[]).length,11);
 }
 console.log('OINP: 20 profiles × both languages; every official factor, recorded ImmiPilot totals, boundary guards and page links passed.');
+
+assert.equal(calculate({teer:'1'}).total,6,'first selection');
+assert.equal(calculate({teer:'1',noc:'3'}).total,10,'second selection accumulates');
+assert.equal(calculate({teer:'1',noc:'3',wage:'3'}).total,18,'third selection accumulates');
+assert.equal(calculate({teer:'1',noc:'',wage:'3'}).total,14,'clearing a selection removes its points');
+assert.equal(calculate({teer:'1',status:'3'}).total,6,'review-only factor does not hide known points');
+const invalid=calculate({teer:'1',clb:'4',langs:'0'});
+assert.equal(invalid.total,6,'conflicting bilingual points excluded');
+assert.equal(invalid.rows.find(r=>r.id==='langs').pts,null);
+assert.equal(calculate({teer:'1',clb:'3',langs:'0'}).total,20,'corrected language restores bilingual factor');
+console.log('OINP partial-score accumulation, clearing, review-only and bilingual-conflict cases passed.');

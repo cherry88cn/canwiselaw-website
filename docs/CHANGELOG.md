@@ -4,6 +4,8 @@
 
 ## 2026-11-09
 
+- Show a running selected-item subtotal in both OINP calculator languages from the first scored selection. Leave unanswered and review-only items unscored; exclude inconsistent bilingual points while retaining the other selected points. Complete valid profile scores are unchanged.
+
 - Remove the FAQ section from both Provincial Nomination overview pages. Bring the Ontario calculator into the initial viewport with a compact heading; replace the two introductory sections with the approved bilingual application process below the calculator. Preserve Ontario calculator FAQs and scoring rules.
 
 - Replace EE category outbound links with bilingual local eligibility and searchable NOC dialogs; add Chinese occupation names and tier-specific high-wage dialogs. Update five EE FAQs after official-rule review.

@@ -17,13 +17,17 @@ export const data=[
 // Shared by both languages. Option indices refer to the published scoring bands.
 export function calculate(answers={}) {
  let total=0,done=0,unknown=false;const rows=[];
+ const conflict=answers.langs==='0'&&(answers.clb==='4'||answers.clb==='5');
  for(const d of data){
   if(d[0]==='other'&&answers.job!=='3')continue;
   const v=answers[d[0]], o=/^\d+$/.test(String(v))?d[4][Number(v)]:undefined;
   let pts=null;
-  if(o){done++;pts=o[0];if(pts===null)unknown=true;else total+=pts;}
+  if(o){done++;pts=o[0];if(pts===null)unknown=true;
+   if(d[0]==='langs'&&conflict)pts=null;
+   if(pts!==null)total+=pts;
+  }
   rows.push({id:d[0],zh:d[2],en:d[3],pts});
  }
- const conflict=answers.langs==='0'&&(answers.clb==='4'||answers.clb==='5');
+
  return {total,done,unknown,rows,conflict,complete:done===rows.length&&!unknown&&!conflict};
 }
