@@ -4,6 +4,8 @@
 
 ## 2026-11-09
 
+- Expand bilingual OINP common-city region examples with the approved city list, including London; group GTA examples by regional municipality and clarify Toronto includes North York, Scarborough and Etobicoke. Scoring is unchanged.
+
 - Show a running selected-item subtotal in both OINP calculator languages from the first scored selection. Leave unanswered and review-only items unscored; exclude inconsistent bilingual points while retaining the other selected points. Complete valid profile scores are unchanged.
 
 - Remove the FAQ section from both Provincial Nomination overview pages. Bring the Ontario calculator into the initial viewport with a compact heading; replace the two introductory sections with the approved bilingual application process below the calculator. Preserve Ontario calculator FAQs and scoring rules.

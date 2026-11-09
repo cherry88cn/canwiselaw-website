@@ -35,12 +35,12 @@ function scoreRow(r){
  return '<div class="score-row"><div><span>'+pick(r.zh,r.en)+'</span>'+(band?'<small>'+band+'</small>':'')+'</div><strong>'+(r.pts===null?'—':r.pts+pick(' 分',' pts'))+'</strong></div>';
 }
 function cityHelp(){return '<details class="city-help"><summary>'+pick('常见城市属于哪个地区？','Where do common cities fit?')+'</summary><ul>'+[
- ['北部 · 15 分','Northern · 15 points','Thunder Bay / Sudbury'],
- ['东部 · 10 分','Eastern · 10 points','Ottawa'],
- ['GTA 外中部 · 10 分','Central outside GTA · 10 points','Kitchener / Waterloo'],
- ['西南部 · 10 分','Southwestern · 10 points','Hamilton'],
- ['GTA 内、多伦多以外 · 5 分','GTA outside Toronto · 5 points','Mississauga / Markham'],
- ['多伦多 · 0 分','Toronto · 0 points','Toronto']
+ ['北部 · 15 分','Northern · 15 points','Greater Sudbury / Thunder Bay / Sault Ste. Marie / North Bay / Timmins'],
+ ['东部 · 10 分','Eastern · 10 points','Ottawa / Kingston / Peterborough / Belleville / Cornwall'],
+ ['GTA 外中部 · 10 分','Central outside GTA · 10 points','Kitchener / Waterloo / Cambridge / Guelph / Barrie'],
+ ['西南部 · 10 分','Southwestern · 10 points','Hamilton / London / Windsor / St. Catharines / Niagara Falls / Brantford / Sarnia / Chatham-Kent'],
+ ['GTA 内、多伦多以外 · 5 分','GTA outside Toronto · 5 points','Peel: Mississauga / Brampton<br>York: Markham / Vaughan / Richmond Hill / Newmarket / Aurora<br>Halton: Oakville / Burlington / Milton<br>Durham: Oshawa / Whitby / Ajax / Pickering / Clarington'],
+ ['多伦多 · 0 分','Toronto · 0 points',pick('Toronto（包括 North York / Scarborough / Etobicoke）','Toronto (including North York / Scarborough / Etobicoke)')]
  ].map(r=>'<li><b>'+pick(r[0],r[1])+'</b><br>'+r[2]+'</li>').join('')+'</ul><a href="#cw-faq">'+pick('查看完整地区定义','See full regional definitions')+'</a></details>';}
 
 function update(){
