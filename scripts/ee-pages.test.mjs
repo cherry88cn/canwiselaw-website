@@ -40,7 +40,8 @@ test('built modules and datasets are current copies and all relative module impo
   const html=read(`${route}/index.html`);
   const modules=[...html.matchAll(/<script\b[^>]*type="module"[^>]*src="([^"]+)"/g)].map(m=>m[1]);
   assert.ok(modules.length>=1);
-  for(const src of modules){
+  for(const moduleUrl of modules){
+   const src=moduleUrl.split(/[?#]/)[0];
    assert.ok(fs.existsSync(path.join(root,src)),`${route}: missing ${src}`);
    const code=read(src);
    for(const dep of code.matchAll(/from\s+['"](\.\.?\/[^'"]+)['"]/g))assert.ok(fs.existsSync(path.resolve(root,path.dirname(src).replace(/^[/\\]/,''),dep[1])),`${src}: missing import ${dep[1]}`);
