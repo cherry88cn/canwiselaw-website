@@ -11,7 +11,7 @@ const labels={age:t('Age','年龄'),education:t('Education','学历'),firstLangu
 const line=(label,value)=>`<div class="ee-score-row"><span>${label}</span><strong>${value}</strong></div>`;
 function addWork(){
  const id=++rowCount, row=document.createElement('div'); row.className='ee-work-row';
- row.innerHTML=`<fieldset class="ee-tier-group"><legend>${t('Work period','工作经历')} ${id}</legend><div class="ee-tier-options">${[0,1.3,1.5,2].map(tier=>`<label class="ee-tier-option"><input type="radio" name="workTier${id}" data-work-tier value="${tier}"${tier===0?' checked':''}><span>${tier===0?t('None','无'):t(`${tier}× high-wage occupation (${{1.3:20,1.5:40,2:70}[tier]} points)`,`${tier} 倍高薪职业工作（${{1.3:20,1.5:40,2:70}[tier]}分）`)}</span></label>`).join('')}</div></fieldset><label class="ee-field"><span>${t('Qualifying work duration','合资格工作年数')}</span><select name="workMonths${id}" data-work-months><option value="0">${t('None','无')}</option><option value="partial">${t('Less than 1 year','不足一年')}</option>${Array.from({length:10},(_,i)=>`<option value="${(i+1)*12}">${i+1} ${t('year(s)','年')}</option>`).join('')}</select></label><label class="ee-field" data-partial-field hidden><span>${t('Months (to combine periods under one year)','月数（用于合并不足一年的经历）')}</span><input name="workPartial${id}" data-partial-months type="number" min="1" max="11" step="1" inputmode="numeric"></label>${id>1?`<button type="button" class="ee-text-button">${t('Remove','移除')}</button>`:''}`;
+ row.innerHTML=`<fieldset class="ee-tier-group"><legend>${t('Qualifying high-wage Canadian work experience','符合条件的加拿大高薪职业工作经历')} ${id}</legend><div class="ee-tier-options">${[0,1.3,1.5,2].map(tier=>`<label class="ee-tier-option"><input type="radio" name="workTier${id}" data-work-tier value="${tier}"${tier===0?' checked':''}><span>${tier===0?t('None','无'):t(`${tier}× high-wage occupation (${{1.3:20,1.5:40,2:70}[tier]} points)`,`${tier} 倍高薪职业工作（${{1.3:20,1.5:40,2:70}[tier]}分）`)}</span></label>`).join('')}</div></fieldset><label class="ee-field"><span>${t('Qualifying work duration','合资格工作年数')}</span><select name="workMonths${id}" data-work-months><option value="0">${t('None','无')}</option><option value="partial">${t('Less than 1 year','不足一年')}</option>${Array.from({length:10},(_,i)=>`<option value="${(i+1)*12}">${i+1} ${t('year(s)','年')}</option>`).join('')}</select></label><label class="ee-field" data-partial-field hidden><span>${t('Months (to combine periods under one year)','月数（用于合并不足一年的经历）')}</span><input name="workPartial${id}" data-partial-months type="number" min="1" max="11" step="1" inputmode="numeric"></label>${id>1?`<button type="button" class="ee-text-button">${t('Remove','移除')}</button>`:''}`;
  row.querySelector('button')?.addEventListener('click',()=>{row.remove();update()});
  document.querySelector('#work-rows').append(row); update();
 }
@@ -39,6 +39,9 @@ function update(){
  const highWageMonths={'1.3':0,'1.5':0,'2':0};
  document.querySelectorAll('.ee-work-row').forEach(row=>{
   const tier=Number(row.querySelector('[data-work-tier]:checked').value), months=row.querySelector('[data-work-months]');
+  if(tier===0) months.value="0";
+  else if(!row.dataset.previousTier || row.dataset.previousTier==="0") months.value="12";
+  row.dataset.previousTier=String(tier);
   months.disabled=tier===0;
   const partial=row.querySelector('[data-partial-months]'), partialField=row.querySelector('[data-partial-field]');
   partialField.hidden=tier===0||months.value!=='partial';partial.disabled=partialField.hidden;

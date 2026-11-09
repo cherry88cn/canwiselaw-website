@@ -4,6 +4,8 @@
 
 ## 2026-11-08
 
+- Clarify that foreign work is entered as aggregate years and individual Canadian rows are qualifying high-wage work only. Selecting a high-wage tier from None defaults its duration to one year; changing between high-wage tiers preserves an edited duration. Apply both languages.
+
 - Add bilingual Express Entry service pages, invitation-history filtering and a shared-engine CRS calculator (Beta), using the November 3, 2026 rules.
 - Default English test to IELTS General Training, French to no valid test, age blank and initial score zero. Display high-wage experience tiers as 20/40/70 points and job-offer tiers as 50/70/100 points, with the 12-month threshold and higher-path rule explained.
 - Re-enter 20 fictional profiles in both language interfaces and the official IRCC calculator: all totals and all four section subtotals match. Evidence: `docs/ee-bilingual-20-profile-results.json`.
