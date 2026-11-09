@@ -49,3 +49,7 @@ No Ontario government interactive calculator was used. ImmiPilot is an independe
 ## Research records
 
 20 distinct lawyer/firm websites: `PNP_LAW_FIRM_RESEARCH.md`. Official jurisdiction checks: `PNP_OFFICIAL_RESEARCH.md`. Some law-firm pages were brief or general service pages, not 20 long policy articles. Public service pages use direct contextual official links rather than a research bibliography.
+
+## Follow-up usability refinements
+
+Both languages add collapsible common-city examples and compact selected-band descriptions in the score breakdown. No scoring changes. Ontario regional census-division definitions directly cover Ottawa, Hamilton, Toronto, Thunder Bay and Greater Sudbury. Kitchener/Waterloo verified from https://www.regionofwaterloo.ca/government-and-council/council/ ; Mississauga from https://peelregion.ca/business/planning/official-plans ; Markham from https://www.york.ca/york-region/local-municipalities . These are illustrative cities, not a substitute for the full FAQ definitions. Two brief field hints distinguish score-based wage tiers from wage eligibility and historical NOA earnings from projected pay.
