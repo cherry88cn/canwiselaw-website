@@ -2,6 +2,12 @@
 
 本文件记录对网站结构、公开内容、部署方式或长期维护具有意义的变化。普通排版微调和无实质影响的生成文件变化可由 Git commit history 记录，不必重复写入本文件。
 
+## 2026-11-08
+
+- Add bilingual Express Entry service pages, invitation-history filtering and a shared-engine CRS calculator (Beta), using the November 3, 2026 rules.
+- Default English test to IELTS General Training, French to no valid test, age blank and initial score zero. Display high-wage experience tiers as 20/40/70 points and job-offer tiers as 50/70/100 points, with the 12-month threshold and higher-path rule explained.
+- Re-enter 20 fictional profiles in both language interfaces and the official IRCC calculator: all totals and all four section subtotals match. Evidence: `docs/ee-bilingual-20-profile-results.json`.
+
 ## 2026-10-17
 
 - 按确认定稿更新 About 页 Hui 律师的中英文介绍，补充职业经历及服务方式，不列出过往机构名称。

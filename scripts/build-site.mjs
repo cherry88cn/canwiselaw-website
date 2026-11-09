@@ -1,5 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import {calculatorPage} from '../content/express-entry/calculator-page.mjs';
+import {servicePage} from '../content/express-entry/service-page.mjs';
 
 const repo = path.resolve(import.meta.dirname, '..');
 const calendly = 'https://calendly.com/hding-canwiselaw/legal-consultation';
@@ -9,6 +11,7 @@ const routes = [
   'immigration-fees','business-commercial-fees','family-law-fees','notary-commission',
   'legal-consultation','judicial-review','immigration-appeal-division','writ-of-mandamus'
 ];
+const eeRoutes = ['express-entry','crs-calculator'];
 
 const titles = {
   home:'CanWise Law | Immigration, Business & Family Law',
@@ -371,6 +374,24 @@ fs.writeFileSync(path.join(repo,'assets','site.css'),css+zhCss+blogLayoutCss+art
 fs.writeFileSync(path.join(repo,'assets','site.js'),js);
 fs.writeFileSync(path.join(repo,'.nojekyll'),'');
 fs.writeFileSync(path.join(repo,'robots.txt'),`User-agent: *\nAllow: /\nSitemap: ${siteUrl}/sitemap.xml\n`);
-fs.writeFileSync(path.join(repo,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${['',...routes,...articles.map(a=>`blog/${a.slug}`),'zh',...zhRoutes.filter(x=>x!=='home').map(x=>`zh/${x}`),'zh/blog','zh/contact'].map(r=>`<url><loc>${siteUrl}/${r}${r?'/':''}</loc></url>`).join('')}</urlset>`);
+fs.writeFileSync(path.join(repo,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${['',...routes,...eeRoutes,...eeRoutes.map(x=>`zh/${x}`),...articles.map(a=>`blog/${a.slug}`),'zh',...zhRoutes.filter(x=>x!=='home').map(x=>`zh/${x}`),'zh/blog','zh/contact'].map(r=>`<url><loc>${siteUrl}/${r}${r?'/':''}</loc></url>`).join('')}</urlset>`);
+
+// EE pages share the normal site shell; no nested full-site iframes.
+const eeSource=path.join(repo,'content','express-entry');
+const eeAssets=path.join(repo,'assets','express-entry');
+fs.mkdirSync(eeAssets,{recursive:true});
+for(const file of ['crs-engine.mjs','calculator.mjs','tracker.mjs','ee.css','occupations.json']) fs.copyFileSync(path.join(eeSource,file),path.join(eeAssets,file));
+const drawsData=JSON.parse(fs.readFileSync(path.join(eeSource,'draws.json'),'utf8'));
+for(const lang of ['en','zh']) for(const slug of eeRoutes){
+  const zh=lang==='zh', urlPath=`${zh?'zh/':''}${slug}/`;
+  const folder=path.join(repo,urlPath);fs.mkdirSync(folder,{recursive:true});
+  const service=slug==='express-entry';
+  const body=service?`<link rel="stylesheet" href="/assets/express-entry/ee.css">${servicePage(lang,drawsData)}`:calculatorPage(lang);
+  fs.writeFileSync(path.join(folder,'index.html'),shell(slug,body,{
+    lang,urlPath,prefix:zh?'../../':'../',
+    pageTitle:(service?(zh?'联邦快速移民与邀请记录':'Express Entry & Invitation Rounds'):(zh?'加拿大快速通道 EE 算分（Beta版）':'Express Entry CRS Calculator (Beta)'))+' | CanWise Law',
+    desc:service?(zh?'了解快速通道法律服务，筛选官方邀请记录，并使用双语 CRS 算分器。':'Explore Express Entry legal services, official invitation history and our bilingual CRS calculator.'):(zh?'按 2026 年 11 月 3 日规则估算 CRS 分项分数，比较四项独立提分模拟。':'Estimate CRS points under November 3, 2026 rules and compare four independent improvement scenarios.')
+  }));
+}
 
 console.log(`Built ${routes.length+1+articles.length} pages.`);

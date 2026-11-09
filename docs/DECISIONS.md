@@ -51,3 +51,7 @@ CanWise Law 网站中明确按小时计费的律师服务统一为 CAD $350 / �
 ## D-012：中文字体统一并由网站自行托管
 
 所有现有及以后新增的中文页面统一使用网站自行托管的 Source Han Sans CN（思源黑体）可变网页字体，包括导航、标题、正文、收费表、文章页及 iframe 内嵌业务页面。字体规则集中维护在 `scripts/build-site.mjs`，字体文件位于 `assets/fonts/`。网站不得依赖 Google Fonts；系统中文字体只作为字体资源无法加载时的后备。标题层级及既有组件字号继续保留，不因字体统一而改为相同字号。
+
+## D-013: Shared bilingual Express Entry scoring
+
+Both calculator interfaces use the same scoring module. Translation affects labels only; score changes must be verified against current official rules and regression checks. Keep source research in project documentation; public invitation rows retain their official details links. The Beta label remains visible.

@@ -20,6 +20,7 @@ GitHub account rule: all repository work must be performed through the verified 
 - [Release checklist](docs/RELEASE_CHECKLIST.md)
 - [Chinese translation rules](TRANSLATION_RULES.md)
 - [Editable content guide](content/README.md)
+- [Express Entry data and calculator maintenance](docs/EXPRESS_ENTRY_MAINTENANCE.md)
 
 GitHub is the authoritative copy of the website source, permanent rules, major decisions, and material change history. Local clones are working copies only.
 

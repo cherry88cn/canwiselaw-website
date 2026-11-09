@@ -1,0 +1,944 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-11-08",
+  "sourceURL": "https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/check-score/high-wage.html",
+  "sourceSHA256": "7a162a6a28e4b8ac65c2155e02402843ff06fbb450e7a499346b8bb7a89c8ebb",
+  "effectiveFrom": "2026-11-03",
+  "referenceYears": [
+    2023,
+    2024,
+    2025
+  ],
+  "occupations": [
+    {
+      "noc": "00010",
+      "title": "Legislators",
+      "tier": 1.3
+    },
+    {
+      "noc": "00011",
+      "title": "Senior government managers and officials",
+      "tier": 2
+    },
+    {
+      "noc": "00012",
+      "title": "Senior managers - financial, communications and other business services",
+      "tier": 2
+    },
+    {
+      "noc": "00013",
+      "title": "Senior managers - health, education, social and community services and membership organizations",
+      "tier": 2
+    },
+    {
+      "noc": "00014",
+      "title": "Senior managers - trade, broadcasting and other services",
+      "tier": 1.5
+    },
+    {
+      "noc": "00015",
+      "title": "Senior managers - construction, transportation, production and utilities",
+      "tier": 1.5
+    },
+    {
+      "noc": "10010",
+      "title": "Financial managers",
+      "tier": 2
+    },
+    {
+      "noc": "10011",
+      "title": "Human resources managers",
+      "tier": 2
+    },
+    {
+      "noc": "10012",
+      "title": "Purchasing managers",
+      "tier": 2
+    },
+    {
+      "noc": "10019",
+      "title": "Other administrative services managers",
+      "tier": 1.5
+    },
+    {
+      "noc": "10020",
+      "title": "Insurance, real estate and financial brokerage managers",
+      "tier": 2
+    },
+    {
+      "noc": "10021",
+      "title": "Banking, credit and other investment managers",
+      "tier": 2
+    },
+    {
+      "noc": "10022",
+      "title": "Advertising, marketing and public relations managers",
+      "tier": 1.5
+    },
+    {
+      "noc": "10029",
+      "title": "Other business services managers",
+      "tier": 1.5
+    },
+    {
+      "noc": "10030",
+      "title": "Telecommunication carriers managers",
+      "tier": 1.5
+    },
+    {
+      "noc": "11100",
+      "title": "Financial auditors and accountants",
+      "tier": 1.3
+    },
+    {
+      "noc": "11101",
+      "title": "Financial and investment analysts",
+      "tier": 1.3
+    },
+    {
+      "noc": "11102",
+      "title": "Financial advisors",
+      "tier": 1.3
+    },
+    {
+      "noc": "11103",
+      "title": "Securities agents, investment dealers and brokers",
+      "tier": 1.5
+    },
+    {
+      "noc": "11109",
+      "title": "Other financial officers",
+      "tier": 1.3
+    },
+    {
+      "noc": "11200",
+      "title": "Human resources professionals",
+      "tier": 1.3
+    },
+    {
+      "noc": "11201",
+      "title": "Professional occupations in business management consulting",
+      "tier": 1.5
+    },
+    {
+      "noc": "12201",
+      "title": "Insurance adjusters and claims examiners",
+      "tier": 1.3
+    },
+    {
+      "noc": "12203",
+      "title": "Assessors, business valuators and appraisers",
+      "tier": 1.3
+    },
+    {
+      "noc": "20010",
+      "title": "Engineering managers",
+      "tier": 2
+    },
+    {
+      "noc": "20011",
+      "title": "Architecture and science managers",
+      "tier": 2
+    },
+    {
+      "noc": "20012",
+      "title": "Computer and information systems managers",
+      "tier": 2
+    },
+    {
+      "noc": "21100",
+      "title": "Physicists and astronomers",
+      "tier": 1.5
+    },
+    {
+      "noc": "21101",
+      "title": "Chemists",
+      "tier": 1.3
+    },
+    {
+      "noc": "21102",
+      "title": "Geoscientists and oceanographers",
+      "tier": 1.5
+    },
+    {
+      "noc": "21103",
+      "title": "Meteorologists and climatologists",
+      "tier": 1.5
+    },
+    {
+      "noc": "21109",
+      "title": "Other professional occupations in physical sciences",
+      "tier": 1.5
+    },
+    {
+      "noc": "21110",
+      "title": "Biologists and related scientists",
+      "tier": 1.3
+    },
+    {
+      "noc": "21111",
+      "title": "Forestry professionals",
+      "tier": 1.5
+    },
+    {
+      "noc": "21112",
+      "title": "Agricultural representatives, consultants and specialists",
+      "tier": 1.3
+    },
+    {
+      "noc": "21120",
+      "title": "Public and environmental health and safety professionals",
+      "tier": 1.5
+    },
+    {
+      "noc": "21200",
+      "title": "Architects",
+      "tier": 1.3
+    },
+    {
+      "noc": "21201",
+      "title": "Landscape architects",
+      "tier": 1.3
+    },
+    {
+      "noc": "21202",
+      "title": "Urban and land use planners",
+      "tier": 1.5
+    },
+    {
+      "noc": "21203",
+      "title": "Land surveyors",
+      "tier": 1.3
+    },
+    {
+      "noc": "21210",
+      "title": "Mathematicians, statisticians and actuaries",
+      "tier": 1.5
+    },
+    {
+      "noc": "21211",
+      "title": "Data scientists",
+      "tier": 1.5
+    },
+    {
+      "noc": "21220",
+      "title": "Cybersecurity specialists",
+      "tier": 1.5
+    },
+    {
+      "noc": "21221",
+      "title": "Business systems specialists",
+      "tier": 1.5
+    },
+    {
+      "noc": "21222",
+      "title": "Information systems specialists",
+      "tier": 1.5
+    },
+    {
+      "noc": "21223",
+      "title": "Database analysts and data administrators",
+      "tier": 1.5
+    },
+    {
+      "noc": "21230",
+      "title": "Computer systems developers and programmers",
+      "tier": 1.5
+    },
+    {
+      "noc": "21231",
+      "title": "Software engineers and designers",
+      "tier": 1.5
+    },
+    {
+      "noc": "21232",
+      "title": "Software developers and programmers",
+      "tier": 1.5
+    },
+    {
+      "noc": "21234",
+      "title": "Web developers and programmers",
+      "tier": 1.3
+    },
+    {
+      "noc": "21300",
+      "title": "Civil engineers",
+      "tier": 1.5
+    },
+    {
+      "noc": "21301",
+      "title": "Mechanical engineers",
+      "tier": 1.5
+    },
+    {
+      "noc": "21310",
+      "title": "Electrical and electronics engineers",
+      "tier": 1.5
+    },
+    {
+      "noc": "21311",
+      "title": "Computer engineers (except software engineers and designers)",
+      "tier": 1.5
+    },
+    {
+      "noc": "21320",
+      "title": "Chemical engineers",
+      "tier": 1.5
+    },
+    {
+      "noc": "21321",
+      "title": "Industrial and manufacturing engineers",
+      "tier": 1.5
+    },
+    {
+      "noc": "21322",
+      "title": "Metallurgical and materials engineers",
+      "tier": 1.5
+    },
+    {
+      "noc": "21330",
+      "title": "Mining engineers",
+      "tier": 2
+    },
+    {
+      "noc": "21331",
+      "title": "Geological engineers",
+      "tier": 1.5
+    },
+    {
+      "noc": "21332",
+      "title": "Petroleum engineers",
+      "tier": 2
+    },
+    {
+      "noc": "21390",
+      "title": "Aerospace engineers",
+      "tier": 1.5
+    },
+    {
+      "noc": "21399",
+      "title": "Other professional engineers",
+      "tier": 1.5
+    },
+    {
+      "noc": "22214",
+      "title": "Technical occupations in geomatics and meteorology",
+      "tier": 1.3
+    },
+    {
+      "noc": "22231",
+      "title": "Engineering inspectors and regulatory officers",
+      "tier": 1.5
+    },
+    {
+      "noc": "22232",
+      "title": "Occupational health and safety specialists",
+      "tier": 1.3
+    },
+    {
+      "noc": "22233",
+      "title": "Construction inspectors",
+      "tier": 1.3
+    },
+    {
+      "noc": "22310",
+      "title": "Electrical and electronics engineering technologists and technicians",
+      "tier": 1.3
+    },
+    {
+      "noc": "22312",
+      "title": "Industrial instrument technicians and mechanics",
+      "tier": 1.5
+    },
+    {
+      "noc": "22313",
+      "title": "Aircraft instrument, electrical and avionics mechanics, technicians and inspectors",
+      "tier": 1.3
+    },
+    {
+      "noc": "30010",
+      "title": "Managers in health care",
+      "tier": 1.5
+    },
+    {
+      "noc": "31100",
+      "title": "Specialists in clinical and laboratory medicine",
+      "tier": 2
+    },
+    {
+      "noc": "31101",
+      "title": "Specialists in surgery",
+      "tier": 2
+    },
+    {
+      "noc": "31102",
+      "title": "General practitioners and family physicians",
+      "tier": 2
+    },
+    {
+      "noc": "31103",
+      "title": "Veterinarians",
+      "tier": 2
+    },
+    {
+      "noc": "31110",
+      "title": "Dentists",
+      "tier": 1.5
+    },
+    {
+      "noc": "31112",
+      "title": "Audiologists and speech-language pathologists",
+      "tier": 1.5
+    },
+    {
+      "noc": "31120",
+      "title": "Pharmacists",
+      "tier": 1.5
+    },
+    {
+      "noc": "31121",
+      "title": "Dietitians and nutritionists",
+      "tier": 1.3
+    },
+    {
+      "noc": "31200",
+      "title": "Psychologists",
+      "tier": 1.5
+    },
+    {
+      "noc": "31202",
+      "title": "Physiotherapists",
+      "tier": 1.5
+    },
+    {
+      "noc": "31203",
+      "title": "Occupational therapists",
+      "tier": 1.5
+    },
+    {
+      "noc": "31300",
+      "title": "Nursing coordinators and supervisors",
+      "tier": 1.5
+    },
+    {
+      "noc": "31301",
+      "title": "Registered nurses and registered psychiatric nurses",
+      "tier": 1.5
+    },
+    {
+      "noc": "31302",
+      "title": "Nurse practitioners",
+      "tier": 2
+    },
+    {
+      "noc": "31303",
+      "title": "Physician assistants, midwives and allied health professionals",
+      "tier": 2
+    },
+    {
+      "noc": "32102",
+      "title": "Paramedical occupations",
+      "tier": 1.3
+    },
+    {
+      "noc": "32103",
+      "title": "Respiratory therapists, clinical perfusionists and cardiopulmonary technologists",
+      "tier": 1.3
+    },
+    {
+      "noc": "32111",
+      "title": "Dental hygienists and dental therapists",
+      "tier": 1.5
+    },
+    {
+      "noc": "32120",
+      "title": "Medical laboratory technologists",
+      "tier": 1.3
+    },
+    {
+      "noc": "32121",
+      "title": "Medical radiation technologists",
+      "tier": 1.3
+    },
+    {
+      "noc": "32122",
+      "title": "Medical sonographers",
+      "tier": 1.3
+    },
+    {
+      "noc": "40010",
+      "title": "Government managers - health and social policy development and program administration",
+      "tier": 2
+    },
+    {
+      "noc": "40011",
+      "title": "Government managers - economic analysis, policy development and program administration",
+      "tier": 2
+    },
+    {
+      "noc": "40012",
+      "title": "Government managers - education policy development and program administration",
+      "tier": 2
+    },
+    {
+      "noc": "40019",
+      "title": "Other managers in public administration",
+      "tier": 2
+    },
+    {
+      "noc": "40020",
+      "title": "Administrators - post-secondary education and vocational training",
+      "tier": 1.5
+    },
+    {
+      "noc": "40021",
+      "title": "School principals and administrators of elementary and secondary education",
+      "tier": 1.5
+    },
+    {
+      "noc": "40030",
+      "title": "Managers in social, community and correctional services",
+      "tier": 1.5
+    },
+    {
+      "noc": "40040",
+      "title": "Commissioned police officers and related occupations in public protection services",
+      "tier": 2
+    },
+    {
+      "noc": "40041",
+      "title": "Fire chiefs and senior firefighting officers",
+      "tier": 2
+    },
+    {
+      "noc": "40042",
+      "title": "Commissioned officers of the Canadian Armed Forces",
+      "tier": 1.5
+    },
+    {
+      "noc": "41100",
+      "title": "Judges",
+      "tier": 2
+    },
+    {
+      "noc": "41101",
+      "title": "Lawyers and Quebec notaries",
+      "tier": 2
+    },
+    {
+      "noc": "41200",
+      "title": "University professors and lecturers",
+      "tier": 2
+    },
+    {
+      "noc": "41210",
+      "title": "College and other vocational instructors",
+      "tier": 1.5
+    },
+    {
+      "noc": "41220",
+      "title": "Secondary school teachers",
+      "tier": 1.5
+    },
+    {
+      "noc": "41221",
+      "title": "Elementary school and kindergarten teachers",
+      "tier": 1.5
+    },
+    {
+      "noc": "41300",
+      "title": "Social workers",
+      "tier": 1.3
+    },
+    {
+      "noc": "41310",
+      "title": "Police investigators and other investigative occupations",
+      "tier": 1.5
+    },
+    {
+      "noc": "41311",
+      "title": "Probation and parole officers",
+      "tier": 1.5
+    },
+    {
+      "noc": "41320",
+      "title": "Educational counsellors",
+      "tier": 1.5
+    },
+    {
+      "noc": "41400",
+      "title": "Natural and applied science policy researchers, consultants and program officers",
+      "tier": 1.3
+    },
+    {
+      "noc": "41401",
+      "title": "Economists and economic policy researchers and analysts",
+      "tier": 1.5
+    },
+    {
+      "noc": "41402",
+      "title": "Business development officers and market researchers and analysts",
+      "tier": 1.5
+    },
+    {
+      "noc": "41403",
+      "title": "Social policy researchers, consultants and program officers",
+      "tier": 1.3
+    },
+    {
+      "noc": "41404",
+      "title": "Health policy researchers, consultants and program officers",
+      "tier": 1.5
+    },
+    {
+      "noc": "41405",
+      "title": "Education policy researchers, consultants and program officers",
+      "tier": 1.3
+    },
+    {
+      "noc": "41407",
+      "title": "Program officers unique to government",
+      "tier": 1.5
+    },
+    {
+      "noc": "41409",
+      "title": "Other professional occupations in social science",
+      "tier": 1.3
+    },
+    {
+      "noc": "42100",
+      "title": "Police officers (except commissioned)",
+      "tier": 1.5
+    },
+    {
+      "noc": "42101",
+      "title": "Firefighters",
+      "tier": 1.5
+    },
+    {
+      "noc": "43201",
+      "title": "Correctional service officers",
+      "tier": 1.3
+    },
+    {
+      "noc": "43203",
+      "title": "Border services, customs, and immigration officers",
+      "tier": 1.3
+    },
+    {
+      "noc": "50010",
+      "title": "Library, archive, museum and art gallery managers",
+      "tier": 1.5
+    },
+    {
+      "noc": "50011",
+      "title": "Managers - publishing, motion pictures, broadcasting and performing arts",
+      "tier": 1.5
+    },
+    {
+      "noc": "50012",
+      "title": "Recreation, sports and fitness program and service directors",
+      "tier": 1.3
+    },
+    {
+      "noc": "51100",
+      "title": "Librarians",
+      "tier": 1.5
+    },
+    {
+      "noc": "51101",
+      "title": "Conservators and curators",
+      "tier": 1.3
+    },
+    {
+      "noc": "51102",
+      "title": "Archivists",
+      "tier": 1.3
+    },
+    {
+      "noc": "51111",
+      "title": "Authors and writers (except technical)",
+      "tier": 1.3
+    },
+    {
+      "noc": "51112",
+      "title": "Technical writers",
+      "tier": 1.3
+    },
+    {
+      "noc": "51120",
+      "title": "Producers, directors, choreographers and related occupations",
+      "tier": 1.3
+    },
+    {
+      "noc": "52112",
+      "title": "Broadcast technicians",
+      "tier": 1.3
+    },
+    {
+      "noc": "60010",
+      "title": "Corporate sales managers",
+      "tier": 2
+    },
+    {
+      "noc": "60020",
+      "title": "Retail and wholesale trade managers",
+      "tier": 1.3
+    },
+    {
+      "noc": "60031",
+      "title": "Accommodation service managers",
+      "tier": 1.3
+    },
+    {
+      "noc": "60040",
+      "title": "Managers in customer and personal services",
+      "tier": 1.3
+    },
+    {
+      "noc": "70010",
+      "title": "Construction managers",
+      "tier": 1.5
+    },
+    {
+      "noc": "70012",
+      "title": "Facility operation and maintenance managers",
+      "tier": 1.5
+    },
+    {
+      "noc": "70020",
+      "title": "Managers in transportation",
+      "tier": 1.5
+    },
+    {
+      "noc": "70021",
+      "title": "Postal and courier services managers",
+      "tier": 1.5
+    },
+    {
+      "noc": "72010",
+      "title": "Contractors and supervisors, machining, metal forming, shaping and erecting trades and related occupations",
+      "tier": 1.3
+    },
+    {
+      "noc": "72011",
+      "title": "Contractors and supervisors, electrical trades and telecommunications occupations",
+      "tier": 1.5
+    },
+    {
+      "noc": "72012",
+      "title": "Contractors and supervisors, pipefitting trades",
+      "tier": 1.5
+    },
+    {
+      "noc": "72013",
+      "title": "Contractors and supervisors, carpentry trades",
+      "tier": 1.3
+    },
+    {
+      "noc": "72014",
+      "title": "Contractors and supervisors, other construction trades, installers, repairers and servicers",
+      "tier": 1.3
+    },
+    {
+      "noc": "72020",
+      "title": "Contractors and supervisors, mechanic trades",
+      "tier": 1.3
+    },
+    {
+      "noc": "72021",
+      "title": "Contractors and supervisors, heavy equipment operator crews",
+      "tier": 1.3
+    },
+    {
+      "noc": "72023",
+      "title": "Supervisors, railway transport operations",
+      "tier": 1.5
+    },
+    {
+      "noc": "72102",
+      "title": "Sheet metal workers",
+      "tier": 1.3
+    },
+    {
+      "noc": "72103",
+      "title": "Boilermakers",
+      "tier": 1.5
+    },
+    {
+      "noc": "72105",
+      "title": "Ironworkers",
+      "tier": 1.3
+    },
+    {
+      "noc": "72201",
+      "title": "Industrial electricians",
+      "tier": 1.3
+    },
+    {
+      "noc": "72202",
+      "title": "Power system electricians",
+      "tier": 1.5
+    },
+    {
+      "noc": "72203",
+      "title": "Electrical power line and cable workers",
+      "tier": 1.5
+    },
+    {
+      "noc": "72301",
+      "title": "Steamfitters, pipefitters and sprinkler system installers",
+      "tier": 1.5
+    },
+    {
+      "noc": "72302",
+      "title": "Gas fitters",
+      "tier": 1.3
+    },
+    {
+      "noc": "72320",
+      "title": "Bricklayers",
+      "tier": 1.3
+    },
+    {
+      "noc": "72321",
+      "title": "Insulators",
+      "tier": 1.3
+    },
+    {
+      "noc": "72401",
+      "title": "Heavy-duty equipment mechanics",
+      "tier": 1.3
+    },
+    {
+      "noc": "72403",
+      "title": "Railway carmen/women",
+      "tier": 1.3
+    },
+    {
+      "noc": "72404",
+      "title": "Aircraft mechanics and aircraft inspectors",
+      "tier": 1.3
+    },
+    {
+      "noc": "72406",
+      "title": "Elevator constructors and mechanics",
+      "tier": 1.5
+    },
+    {
+      "noc": "72500",
+      "title": "Crane operators",
+      "tier": 1.3
+    },
+    {
+      "noc": "72600",
+      "title": "Air pilots, flight engineers and flying instructors",
+      "tier": 1.5
+    },
+    {
+      "noc": "72601",
+      "title": "Air traffic controllers and related occupations",
+      "tier": 1.5
+    },
+    {
+      "noc": "72602",
+      "title": "Deck officers, water transport",
+      "tier": 1.3
+    },
+    {
+      "noc": "72603",
+      "title": "Engineer officers, water transport",
+      "tier": 1.3
+    },
+    {
+      "noc": "72604",
+      "title": "Railway traffic controllers and marine traffic regulators",
+      "tier": 1.5
+    },
+    {
+      "noc": "73310",
+      "title": "Railway and yard locomotive engineers",
+      "tier": 1.5
+    },
+    {
+      "noc": "73311",
+      "title": "Railway conductors and brakemen/women",
+      "tier": 1.3
+    },
+    {
+      "noc": "80010",
+      "title": "Managers in natural resources production and fishing",
+      "tier": 2
+    },
+    {
+      "noc": "82010",
+      "title": "Supervisors, logging and forestry",
+      "tier": 1.3
+    },
+    {
+      "noc": "82020",
+      "title": "Supervisors, mining and quarrying",
+      "tier": 1.5
+    },
+    {
+      "noc": "82021",
+      "title": "Contractors and supervisors, oil and gas drilling and services",
+      "tier": 1.5
+    },
+    {
+      "noc": "83100",
+      "title": "Underground production and development miners",
+      "tier": 1.3
+    },
+    {
+      "noc": "83101",
+      "title": "Oil and gas well drillers, servicers, testers and related workers",
+      "tier": 1.5
+    },
+    {
+      "noc": "83120",
+      "title": "Fishing masters and officers",
+      "tier": 1.3
+    },
+    {
+      "noc": "90010",
+      "title": "Manufacturing managers",
+      "tier": 1.5
+    },
+    {
+      "noc": "90011",
+      "title": "Utilities managers",
+      "tier": 2
+    },
+    {
+      "noc": "92010",
+      "title": "Supervisors, mineral and metal processing",
+      "tier": 1.3
+    },
+    {
+      "noc": "92011",
+      "title": "Supervisors, petroleum, gas and chemical processing and utilities",
+      "tier": 1.5
+    },
+    {
+      "noc": "92100",
+      "title": "Power engineers and power systems operators",
+      "tier": 1.5
+    },
+    {
+      "noc": "93100",
+      "title": "Central control and process operators, mineral and metal processing",
+      "tier": 1.5
+    },
+    {
+      "noc": "93101",
+      "title": "Central control and process operators, petroleum, gas and chemical processing",
+      "tier": 1.5
+    },
+    {
+      "noc": "93102",
+      "title": "Pulping, papermaking and coating control operators",
+      "tier": 1.3
+    }
+  ]
+}

@@ -41,6 +41,17 @@
 
 中文业务及收费网址 `/zh/<slug>/` 对应 `content/zh/embedded/<slug>.html`。可用的 slug 与英文业务及收费页面相同。
 
+## Express Entry
+
+| 路径 | 源文件 |
+| --- | --- |
+| `/express-entry/`、`/zh/express-entry/` | `content/express-entry/service-page.mjs` |
+| `/crs-calculator/`、`/zh/crs-calculator/` | `content/express-entry/calculator-page.mjs`、`calculator.mjs`、`crs-engine.mjs` |
+| 邀请记录与高薪职业数据 | `content/express-entry/draws.json`、`occupations.json` |
+| 上述页面样式 | `content/express-entry/ee.css` |
+
+上述页面通过 `scripts/build-site.mjs` 接入现有导航、页脚及中英文 SEO，工具源文件构建后复制到 `assets/express-entry/`。生成文件不直接修改。更新邀请记录的固定流程见 [Express Entry maintenance](EXPRESS_ENTRY_MAINTENANCE.md)。
+
 ## Blog
 
 - `/blog/` 和 `/zh/blog/` 的目录均由 `scripts/build-site.mjs` 生成。
