@@ -9,7 +9,7 @@ const repo = path.resolve(import.meta.dirname, '..');
 const calendly = 'https://calendly.com/hding-canwiselaw/legal-consultation';
 
 const routes = [
-  'about','practice-areas','immigration-law','business-commercial-law','family-law','contact','blog',
+  'about','practice-areas','immigration-law','business-commercial-law','civil-litigation','family-law','contact','blog',
   'immigration-fees','business-commercial-fees','family-law-fees','notary-commission',
   'legal-consultation','judicial-review','immigration-appeal-division','writ-of-mandamus'
 ];
@@ -17,11 +17,12 @@ const eeRoutes = ['express-entry','crs-calculator'];
 const pnpRoutes = ['provincial-nomination','ontario-oinp','british-columbia-bc-pnp'];
 
 const titles = {
-  home:'CanWise Law | Immigration, Business & Family Law',
+  home:'CanWise Law | Business, Civil Litigation, Immigration & Family Law',
   about:'About CanWise Law | Bilingual Toronto Lawyers',
   'practice-areas':'Practice Areas | CanWise Law Toronto',
   'immigration-law':'Canadian Immigration Law | CanWise Law Toronto',
   'business-commercial-law':'Business & Commercial Law | CanWise Law',
+  'civil-litigation':'Civil Litigation | Contract & Commercial Disputes | CanWise Law',
   'family-law':'Family Law Services | CanWise Law Toronto',
   contact:'Contact CanWise Law | Toronto Legal Services',
   blog:'Blog | CanWise Law',
@@ -36,11 +37,12 @@ const titles = {
 };
 
 const descriptions = {
-  home:'Bilingual Canadian legal services in immigration, business and commercial, and family law. Contact CanWise Law in Toronto for clear, practical guidance.',
+  home:'Bilingual Canadian legal services in immigration, business and commercial, civil litigation, and family law. Contact CanWise Law in Toronto for clear, practical guidance.',
   about:'Learn about CanWise Law and its bilingual legal team serving clients in Canadian immigration, commercial, and family law matters.',
-  'practice-areas':'Explore CanWise Law services in Canadian immigration, business and commercial, and family law, with guidance available in English and Chinese.',
+  'practice-areas':'Explore CanWise Law services in Canadian immigration, business and commercial, civil litigation, and family law, with guidance available in English and Chinese.',
   'immigration-law':'Canadian immigration law services for applications, refusals, business immigration, family sponsorship, judicial review, appeals, and mandamus.',
-  'business-commercial-law':'Business and commercial law advice on incorporations, partnerships, governance, agreements, contracts, leases, and related transactions.',
+  'business-commercial-law':'Ontario business purchases and sales, legal due diligence, purchase agreements, closing arrangements, corporate matters and commercial contracts.',
+  'civil-litigation':'Ontario contract and commercial dispute advice, settlement negotiations and civil litigation. Legal services in English and Mandarin.',
   'family-law':'Family law guidance on separation, divorce, parenting, support, and domestic agreements. Contact CanWise Law for an individual assessment.',
   contact:'Contact CanWise Law in Toronto by phone or email to inquire about immigration, business and commercial, or family law services.',
   blog:'Commentary from CanWise Law on Canadian immigration law, court decisions, policy changes, applications, refusals, and judicial review.',
@@ -68,7 +70,7 @@ function nav(prefix='', {lang='en', currentPath='', hasAlternate=true}={}) {
   const languageHref = sharedArticle ? (zh ? `/${currentPath}` : `/zh/${currentPath}`) : (zh ? (hasAlternate ? `/${currentPath}` : (currentPath.startsWith('blog/') ? '/blog/' : '/practice-areas/')) : `/zh/${currentPath}`);
   return `<header class="site-header"><a class="brand" href="${root}"><img src="${prefix}assets/logo.svg" alt="CanWise Law"></a><button class="menu" aria-label="${zh?'打开导航':'Open navigation'}" aria-expanded="false">☰</button><nav>
   <a href="${root}">${zh?'首页':'Home'}</a><a href="${root}about/">${zh?'关于我们':'About'}</a>
-  <div class="drop"><a href="${root}practice-areas/">${zh?'业务领域':'Practice Areas'}</a><div class="drop-menu"><a href="${root}immigration-law/">${zh?'移民法':'Immigration Law'}</a><a href="${root}business-commercial-law/">${zh?'商业与公司法':'Business & Commercial Law'}</a><a href="${root}family-law/">${zh?'家庭法':'Family Law'}</a>${zh?`<a href="${root}international-education/">国际教育与升学</a>`:''}</div></div>
+  <div class="drop"><a href="${root}practice-areas/">${zh?'业务领域':'Practice Areas'}</a><div class="drop-menu"><a href="${root}immigration-law/">${zh?'移民法':'Immigration Law'}</a><a href="${root}business-commercial-law/">${zh?'商业与公司法':'Business & Commercial Law'}</a><a href="${root}civil-litigation/">${zh?'民事诉讼':'Civil Litigation'}</a><a href="${root}family-law/">${zh?'家庭法':'Family Law'}</a>${zh?`<a href="${root}international-education/">国际教育与升学</a>`:''}</div></div>
   <a href="${zh?'/zh/contact/':`${prefix}contact/`}">${zh?'联系我们':'Contact'}</a><a href="${zh?'/zh/blog/':`${prefix}blog/`}">${zh?'文章':'Blog'}</a>
   <div class="drop"><button>${zh?'收费标准':'Pricing'}</button><div class="drop-menu"><a href="${root}immigration-fees/">${zh?'移民法律服务费':'Immigration Fees'}</a><a href="${root}business-commercial-fees/">${zh?'商业法律服务费':'Business & Commercial Fees'}</a><a href="${root}family-law-fees/">${zh?'家庭法服务费':'Family Law Fees'}</a><a href="${root}notary-commission/">${zh?'公证与宣誓服务':'Notary & Commission'}</a></div></div>
   <a class="language-link" href="${languageHref}" hreflang="${zh?'en':'zh-CN'}">${zh?'EN':'中文'}</a>
@@ -290,8 +292,9 @@ for (const article of articles) {
 for (const slug of routes.filter(x=>!['about','practice-areas','contact','blog'].includes(x))) fs.writeFileSync(path.join(repo,slug,'index.html'),shell(slug,embedded(slug),{embedded:true}));
 
 const zhTitles = {
-  home:'CanWise Law｜多伦多中文律师｜移民法、商业法与家庭法', about:'关于 CanWise Law｜多伦多中英双语律师事务所',
+  home:'CanWise Law｜多伦多中文律师｜商业法、民事诉讼、移民法与家庭法', about:'关于 CanWise Law｜多伦多中英双语律师事务所',
   'practice-areas':'业务领域｜CanWise Law', 'immigration-law':'加拿大移民律师｜CanWise Law 多伦多',
+  'civil-litigation':'民事诉讼｜合同纠纷与商业争议｜CanWise Law',
   'business-commercial-law':'商业与公司法律师｜CanWise Law', 'family-law':'安省家庭法律师｜CanWise Law',
   'immigration-fees':'移民法律服务费｜CanWise Law', 'business-commercial-fees':'商业与公司法服务费｜CanWise Law',
   'family-law-fees':'家庭法服务费｜CanWise Law', 'notary-commission':'公证、监誓与海牙认证｜CanWise Law',
@@ -300,11 +303,12 @@ const zhTitles = {
   'international-education':'加拿大国际教育与升学服务｜CanWise Law'
 };
 const zhDescriptions = {
-  home:'CanWise Law 在多伦多提供中文和英文的加拿大移民法、商业与公司法及家庭法服务。',
+  home:'CanWise Law 在多伦多提供中文和英文的加拿大移民法、商业与公司法、民事诉讼及家庭法服务。',
   about:'了解 CanWise Law 的中英双语团队及移民法、商业法和家庭法服务。',
-  'practice-areas':'查看 CanWise Law 的移民法、商业与公司法及家庭法服务。',
+  'practice-areas':'查看 CanWise Law 的移民法、商业与公司法、民事诉讼及家庭法服务。',
   'immigration-law':'加拿大移民申请、拒签、上诉、司法复议及强制令的中文法律服务。',
-  'business-commercial-law':'安省公司设立、股东协议、商业合同、租赁及交易法律服务。',
+  'civil-litigation':'安省合同纠纷与商业争议法律服务，涵盖证据评估、协商和解及诉讼代理，提供中文及英文沟通。',
+  'business-commercial-law':'安省企业收购与出售、法律尽职调查、购买协议、交割、公司设立及商业合同法律服务。',
   'family-law':'安省分居、离婚、子女、抚养、财产及家庭协议法律服务。',
   'immigration-fees':'CanWise Law 加拿大移民法律服务费及收费说明。',
   'business-commercial-fees':'CanWise Law 商业与公司法律服务费及收费说明。',
@@ -316,6 +320,7 @@ const zhDescriptions = {
   'writ-of-mandamus':'了解联邦法院强制令如何处理加拿大移民申请的不合理延误。',
   'international-education':'面向中国家庭的加拿大私立及公立中小学、本科和 College 申请，以及选课、在读协调、监护和本地配套支持。'
 };
+zhPages['civil-litigation']=''; // Body is loaded from the Chinese embedded source.
 const zhRoutes = Object.keys(zhPages);
 const embeddedRoutes = routes.filter(x=>!['about','practice-areas','contact','blog'].includes(x));
 for (const slug of zhRoutes) {

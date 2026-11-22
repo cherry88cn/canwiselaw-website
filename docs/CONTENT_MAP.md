@@ -19,6 +19,7 @@
 | --- | --- |
 | `/immigration-law/` | `content/embedded/immigration-law.html` |
 | `/business-commercial-law/` | `content/embedded/business-commercial-law.html` |
+| `/civil-litigation/` | `content/embedded/civil-litigation.html` |
 | `/family-law/` | `content/embedded/family-law.html` |
 | `/immigration-fees/` | `content/embedded/immigration-fees.html` |
 | `/business-commercial-fees/` | `content/embedded/business-commercial-fees.html` |

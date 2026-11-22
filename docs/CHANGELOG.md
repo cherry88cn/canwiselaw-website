@@ -2,6 +2,15 @@
 
 本文件记录对网站结构、公开内容、部署方式或长期维护具有意义的变化。普通排版微调和无实质影响的生成文件变化可由 Git commit history 记录，不必重复写入本文件。
 
+## 2026-11-21
+
+- Expand the English and Chinese Business & Commercial Law pages with business purchases and sales, preliminary agreements, legal due diligence, purchase agreements and closing coordination.
+- Omit the overseas-buyer section and the business-purchase/sale closing CTA in both languages, as approved.
+- Add English and Chinese Civil Litigation pages for contract and commercial disputes, assessment, settlement and representation.
+- Add Civil Litigation to the shared Practice Areas menu and bilingual home/practice-area cards; preserve the existing immigration and family cards.
+- Keep immigration, family, international education, all fees (including the $500 initial consultation) and calculator content unchanged. Existing unrelated generated pages change only by the added shared navigation link.
+- Validate the build, site checks, bilingual navigation and 320/375/414/768/1280px layouts. Include the new English route in automatic rebuild staging.
+
 ## 2026-11-09
 
 - Publish the approved bilingual BC PNP service/calculator pages and add BC entry links to the Provincial Nomination overview. Preserve existing site UI and Ontario pages. Place 40 recent official Skills Immigration invitation category records at the end, with category filtering and separate wage/points conditions. Validate 33 fictional scoring cases in both interfaces, salary/language helpers and responsive layouts; see `docs/BC_PNP_VALIDATION.md`.

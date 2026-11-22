@@ -161,7 +161,7 @@ embedded 内容中的站内详情链接必须使用构建脚本统一转换为 `
 6. Pricing
 7. Book a Consultation
 
-Practice Areas 下的三个主要业务领域为 Immigration Law、Business & Commercial Law 和 Family Law。
+Practice Areas 包括 Immigration Law、Business & Commercial Law、Civil Litigation 和 Family Law 四个主要业务领域。Family Law 及国际教育入口保留。商业法和民事诉讼均维护中英文页面。
 
 Pricing 下的四个分区为 Immigration Fees、Business & Commercial Fees、Family Law Fees 和 Notary & Commission。
 
