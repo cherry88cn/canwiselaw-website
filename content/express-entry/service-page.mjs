@@ -45,7 +45,7 @@ export function servicePage(lang, data) {
     <h2 id="ee-rule-heading">${t('Rules changed on November 3, 2026','2026年11月3日起的计分变化')}</h2>
     <p>${t('The new Labour Market Integration factor takes the higher of two amounts: Canadian work-length points plus qualifying high-wage occupation experience points, or qualifying high-wage job-offer points. These two routes are not added together. A job offer no longer needs an LMIA, but must still meet the applicable requirements.','新的劳动力市场融合因素比较两条路径并取较高分：加拿大工作年限分加合资格高薪职业经验分，或合资格高薪职业工作邀请分。两条路径不能相加。工作邀请不再要求 LMIA，但仍须满足适用条件。')}</p>
     <p>${t('High-wage tiers follow IRCC’s occupation list, not your individual salary. Earlier invitation cut-offs used the rules in force at that time and are not directly comparable with a score under the new rules.','高薪档位按 IRCC 职业名单判断，不取决于个人工资。过去邀请轮次适用当时的计分规则，不能将旧分数线与新规下的分数直接比较。')}</p>
-    <p>${t('IRCC announced a pause in invitation rounds while existing profiles are recalculated, which could take up to two weeks. This notice was checked on November 8, 2026; consult IRCC for subsequent changes.','IRCC 宣布在重新计算现有资料分数期间暂停邀请，重算可能需要最多两周。本提示核对于 November 8, 2026；后续变化以 IRCC 公告为准。')} </p>
+    <p>${t('Invitation rounds have resumed. The history below includes published rounds through November 26, 2026, following the November 3 scoring changes.','邀请已恢复。下方历史记录已收录至 November 26, 2026，包括11月3日计分调整后的邀请轮次。')} </p>
   </section>
   ${serviceGuide(lang)}
   <section class="ee-tracker" id="draw-tracker" aria-labelledby="ee-tracker-heading">

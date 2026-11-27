@@ -2,6 +2,11 @@
 
 本文件记录对网站结构、公开内容、部署方式或长期维护具有意义的变化。普通排版微调和无实质影响的生成文件变化可由 Git commit history 记录，不必重复写入本文件。
 
+## 2026-11-26
+
+- Refresh bilingual Express Entry invitation history from the official IRCC dataset: add rounds #454 (PNP, November 23, 1,999 invitations, CRS 673), #455 (French, November 25, 6,000 invitations, CRS 401), and #456 (STEM, November 26, 600 invitations, CRS 547). Preserve all 454 previous records; 457 records in total.
+- Add the Chinese label for STEM 2026-Version 3 and replace the dated pause notice with confirmation that invitation rounds have resumed. Calculator scoring and category eligibility/occupation lists are unchanged.
+
 ## 2026-11-21
 
 - Expand the English and Chinese Business & Commercial Law pages with business purchases and sales, preliminary agreements, legal due diligence, purchase agreements and closing coordination.

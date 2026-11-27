@@ -23,6 +23,7 @@ const categoryNames = {
   'Physicians with Canadian Work Experience, 2026-Version 1':'具有加拿大工作经验的医生（2026年第1版）',
   'Senior managers with Canadian Work Experience, 2026-Version 1':'具有加拿大工作经验的高级管理人员（2026年第1版）',
   'Skilled Military Recruits, 2026-Version 1':'技术军队新兵（2026年第1版）',
+  'STEM occupations, 2026-Version 3':'科学、技术、工程与数学职业（2026年第3版）',
   'STEM occupations (Version 1)':'科学、技术、工程与数学职业（第1版）',
   'Trade occupations (Version 1)':'技工职业（第1版）', 'Trade occupations (Version 2)':'技工职业（第2版）',
   'Trades Occupations, 2026-Version 3':'技工职业（2026年第3版）',
